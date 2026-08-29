@@ -1,0 +1,9 @@
+{
+  "name": "timekettle-theme-tools",
+  "private": true,
+  "type": "module",
+  "description": "Вспомогательные скрипты для магазина Time Kettle (не часть темы Shopify).",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

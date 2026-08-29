@@ -1,0 +1,877 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "s00_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-67ac9517e1.jpg",
+        "image_2": "shopify://shop_images/pp-w4-719999dbdc.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Most Accurate Bone-Conduction Translation Earbuds for Global Talks",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/w4-ai-interpreter-earbuds",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s01_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-3af54f94be.png",
+            "title": "Bone-Voiceprint Sensor for Voice Capture",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-203fa0c627.png",
+            "title": "Al Self-Correcting Translation",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-2312b19900.png",
+            "title": "52 Languages & 106 Accents",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-ed91d25a90.png",
+            "title": "Intelligent System Babel OS 2.0",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s02_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 8
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Most Accurate Bone-Conduction Translation Earbuds for Global Talks",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s03_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-ae1c1e2abb.png",
+            "heading": "Bone-Voiceprint Sensor, Talk in Noise",
+            "text": "<p>The bone-voiceprint sensor in W4 captures your voice clearly by picking up vibrations inside your ear when you speak. Even in a 100dB environment, it isolates your voice for more accurate sound capture with over 98% accuracy, ensuring better translation every time. *See More About the Tech.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-2fd9486b21.png",
+            "heading": "Optimized 30° Angle for Natural Sound Capture",
+            "text": "<p>The W4 features a 30° fold-line design that aligns perfectly with your mouth, ensuring the microphone picks up your voice clearly and accurately, and enhancing sound capture for improved communication.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-08dd376d94.png",
+            "heading": "Advanced Hybrid Algorithm for Crystal-Clear Voice Isolation",
+            "text": "<p>With its bone-voiceprint sensor and two high-performance microphones, W4 isolates your voice from surrounding noise through the algorithm. It ensures your voice comes through loud and clear and provides crystal-clear communication, regardless of the surrounding noise level.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s04_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Speak 52 Languages to the World, Talk Globally",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-947e1dad74.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-a55b97e95e.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-fbecff49e8.png",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s05_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "52 Languages and 106 Accents",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "52 Languages",
+            "icon": "question_mark",
+            "row_content": "<p>Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / Vietnamese</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "106 Accents",
+            "icon": "question_mark",
+            "row_content": "<p>Arabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (United Kingdom, Ireland, USA, Canada, Australia, New Zealand, India, Philippines, South Africa, Kenya, Tanzania, Nigeria, Ghana, Singapore);French (France, Canada);Portuguese (Portugal, Brazil);Spanish (Spain, USA, Mexico, Honduras, Nicaragua, Panama, Costa Rica, Argentina, Chile, Bolivia, Colombia, Dominican, Ecuador, Guatemala, Peru, Puerto Rico, Paraguay, Uruguay, Venezuela, Salvador);Tamil (India, Singapore, Sri Lanka, Malaysia);Urdu (Pakistan, India).Swahili (Kenya, Tanzania)</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "13 Pairs of Languages Offline Translation Package",
+            "icon": "question_mark",
+            "row_content": "<p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-German</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s06_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-220e29a708.png",
+            "heading": "GDPR & FERPA Compliant, Secure Your Privacy",
+            "text": "<p>No conversations are used for training or shared with anyone. We fully comply with the strictest standards, including GDPR and FERPA, to protect your data. Whether it's business secrets or family moments.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f364d6ae00.png",
+            "heading": "Streamline Workflows, Elevate Efficiency, And Secure Deals.",
+            "text": "<p>W4 maintains eye contact while correcting critical terms, such as \"buy/bye,\" in real-time-translating contracts recording terms, and auto-generating memos. Seal deals with zero loss in translation.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-31e73e9d32.png",
+            "heading": "Allow Cultural Differences, And Let Love Speak Freely.",
+            "text": "<p>Share an earbud to capture Grandma's jokes and sighs effortlessly. Our natural expression, Al adapts idioms and tones, turning fragmented chats into shared laughter.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-ca551a6e38.png",
+            "heading": "Precise Medical Terms Eliminates Mix-Ups.",
+            "text": "<p>W4 isolates medical terms through clinic chaos, ensuring \"appendicitis\" isn't heard as \"indigestion\". Real-time dual monitoring keeps diagnoses accurate.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s07_languages_scrolling": {
+      "type": "languages-scrolling",
+      "settings": {
+        "heading": "Covering the World, Accent by Accent.",
+        "heading_size": "h1",
+        "subheading": "52 languages and 106 regional accents — so you're always understood, no matter how you speak.",
+        "language_set": "full",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "s08_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "title": "Intelligent, Personalized, Evolving Al Translation",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-119f01c368.png",
+            "title": "Faster, Clearer, Smarter",
+            "text": "<p>Timekettle's BoostClean noise isolation and TurboFast 4-channel processing filter out distractions in real-time, enabling instant response and ensuring every word lands with crystal clarity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s09_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-73ccbdc129.png",
+            "title": "Applicability Of LLM Models",
+            "text": "<p>Auto-Correct, Say What You Really Mean Start \"ship it\" and stop \"skip it\", save a million-dollar misstep.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-326d3b7a6d.png",
+            "title": "Al Semantic Segmentation",
+            "text": "<p>No More Getting Lost Mid-Speech In fast-paced speeches or live presentations at work, the self-developed Al Semantic Segmentation identifies natural pause points in lengthy speeches. It starts translating, just one sentence behind you, catching pauses like a human interpreter.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-ebb2941884.png",
+            "title": "AI Voice Cloning",
+            "text": "<p>Let People Hear you, Not the Translator When robotic tones flatten \"I miss you\", Al Voice Cloning carries your laughter and sighs across 52 languages, ensuring your loved ones communicate with you, not the robot.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s10_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "title": "150+ Global Servers",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-04bfe3b339.png",
+            "title": "Global Mobility, Local - Network Latency",
+            "text": "<p>Designed for business travelers, it ensures uninterrupted communication across trade shows, remote offices, or any global destination. Deliver rock - solid translation stability and near - zero latency.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s11_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-fd39d0b074.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Always Updated, Always Improving",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Enjoy continuous OTA system updates for optimized performance and smoother translations, delivering an effortless cross-border communication experience."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s12_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-670b0d6e69.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pocket-sized and sleek with a fingerprint-resistant matte coating.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s13_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-68f432d039.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "text",
+          "settings": {
+            "text": "An extra 30° tilt in the stem brings a snugger fit - no adjustments needed, just better capture."
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s14_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-c50689805f.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "text",
+          "settings": {
+            "text": "4H of active use and 20H from the charging case support all-day translation."
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s15_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Unlock the Full Power of W4 (Available for iOS)",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-0435801c04.png",
+            "title": "Multi-Media Translation Mode",
+            "text": "<p>Instant translation for videos and live streams.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-bc8a291658.png",
+            "title": "Voice Call Translation Mode",
+            "text": "<p>Seamless real-time phone and video calls.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s16_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-e9343a24a1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "s17_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Find your ideal translation earbuds.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-486cfb2632.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-98a1efd5a9.png",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s18_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Product Tutorials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use the Timekettle W4 Earbuds?",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use One-on-One?",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use Listen & Play?",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use AI Summary?",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use Offline Translation？",
+            "text": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use Music Playback?",
+            "text": ""
+          }
+        },
+        "b6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-f6d5151144.png",
+            "title": "How to Use Ear Tips and Ear Hooks?",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "s00_image_banner",
+    "s01_multicolumn",
+    "s02_rich_text",
+    "s03_multirow",
+    "s04_multicolumn",
+    "s05_collapsible_content",
+    "s06_multirow",
+    "s07_languages_scrolling",
+    "s08_multicolumn",
+    "s09_multicolumn",
+    "s10_multicolumn",
+    "s11_image_banner",
+    "s12_image_banner",
+    "s13_image_banner",
+    "s14_image_banner",
+    "s15_multicolumn",
+    "s16_image_banner",
+    "s17_multicolumn",
+    "s18_multicolumn",
+    "related-products"
+  ]
+}

@@ -1,0 +1,117 @@
+{%- comment -%}
+  Кастомная секция: бегущая лента поддерживаемых языков с флагами.
+  Повтор блока aa_languages_scrolling с timekettle.co (стоковой секции в Dawn нет).
+  Список языков захардкожен (лимит Dawn 50 блоков/секцию); флаги — flagcdn.com.
+{%- endcomment -%}
+
+{%- liquid
+  if section.settings.language_set == 'm3'
+    assign lang_names = 'Arabic,Bengali,Bulgarian,Burmese,Cantonese,Catalan,Chinese,Croatian,Czech,Danish,Dutch,English,Finnish,Filipino,French,German,Greek,Hebrew,Hindi,Hungarian,Icelandic,Indonesian,Italian,Japanese,Korean,Malay,Norwegian,Persian,Polish,Portuguese,Romanian,Russian,Slovak,Slovenian,Spanish,Swedish,Tamil,Telugu,Thai,Turkish,Ukrainian,Urdu,Vietnamese' | split: ','
+    assign lang_codes = 'sa,bd,bg,mm,hk,es,cn,hr,cz,dk,nl,us,fi,ph,fr,de,gr,il,in,hu,is,id,it,jp,kr,my,no,ir,pl,pt,ro,ru,sk,si,es,se,lk,in,th,tr,ua,pk,vn' | split: ','
+  else
+    assign lang_names = 'Albanian,Arabic,Azerbaijani,Bengali,Bulgarian,Burmese,Cantonese,Catalan,Chinese,Croatian,Czech,Danish,Dutch,English,Filipino,Finnish,French,German,Greek,Hebrew,Hindi,Hungarian,Icelandic,Indonesian,Italian,Japanese,Korean,Lao,Latvian,Lithuanian,Malay,Mongolian,Norwegian,Persian,Polish,Portuguese,Romanian,Russian,Serbian,Slovak,Slovenian,Spanish,Swahili,Swedish,Tamil,Telugu,Thai,Turkish,Ukrainian,Urdu,Uzbek,Vietnamese' | split: ','
+    assign lang_codes = 'al,sa,az,bd,bg,mm,hk,ad,cn,hr,cz,dk,nl,us,ph,fi,fr,de,gr,il,in,hu,is,id,it,jp,kr,la,lv,lt,my,mn,no,ir,pl,pt,ro,ru,rs,sk,si,es,ke,se,lk,in,th,tr,ua,pk,uz,vn' | split: ','
+  endif
+-%}
+
+{%- style -%}
+  .lang-scroll-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    overflow: hidden;
+  }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .lang-scroll-{{ section.id }} .lang-scroll__marquee {
+    display: flex;
+    width: max-content;
+    animation: lang-scroll-{{ section.id }} {{ lang_names.size | times: 2.4 | round }}s linear infinite;
+  }
+  .lang-scroll-{{ section.id }}:hover .lang-scroll__marquee { animation-play-state: paused; }
+  .lang-scroll-{{ section.id }} .lang-scroll__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.1rem;
+    margin: 0 0.4rem;
+    border: 1px solid rgba(var(--color-foreground), 0.12);
+    border-radius: 999px;
+    white-space: nowrap;
+    font-size: 1.4rem;
+  }
+  .lang-scroll-{{ section.id }} .lang-scroll__chip img {
+    width: 22px; height: 16px; object-fit: cover; border-radius: 2px; display: block;
+  }
+  @keyframes lang-scroll-{{ section.id }} {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lang-scroll-{{ section.id }} .lang-scroll__marquee { animation: none; flex-wrap: wrap; width: 100%; justify-content: center; }
+  }
+{%- endstyle -%}
+
+<div class="lang-scroll-{{ section.id }} color-{{ section.settings.color_scheme }} gradient isolate">
+  {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+    <div class="page-width center" style="margin-bottom: 2.4rem;">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p>{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="lang-scroll__marquee" aria-hidden="true">
+    {%- for i in (1..2) -%}
+      {%- for name in lang_names -%}
+        {%- assign code = lang_codes[forloop.index0] -%}
+        <span class="lang-scroll__chip">
+          <img src="https://flagcdn.com/44x33/{{ code }}.png" width="22" height="16" loading="lazy" alt="">
+          {{ name }}
+        </span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+
+  <span class="visually-hidden">Supported languages: {{ lang_names | join: ', ' }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "Languages scrolling",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Covering the World, Accent by Accent." },
+    {
+      "type": "select", "id": "heading_size", "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1"
+    },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "52 languages and 106 regional accents — so you're always understood, no matter how you speak." },
+    {
+      "type": "select", "id": "language_set", "label": "Language set",
+      "options": [
+        { "value": "full", "label": "Full (52 languages)" },
+        { "value": "m3", "label": "M3 (43 languages)" }
+      ],
+      "default": "full"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-2" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 48 }
+  ],
+  "presets": [{ "name": "Languages scrolling" }]
+}
+{% endschema %}

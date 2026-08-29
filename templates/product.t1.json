@@ -1,0 +1,738 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "s00_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-t1-b2b925cfb9.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "World's Fastest Offline Translation Device",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Faster and more accurate, pioneering in offline translation"
+          }
+        },
+        "b2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/fluentalk-t1-handheld-translator-device",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s01_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-da215ea3ad.png",
+            "title": "44 Pairs Offline Language Packs",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-7fce72fc29.png",
+            "title": "24-Month Free Data",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-2312b19900.png",
+            "title": "52 Languages & 106 Accents",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-7fe0fccb92.png",
+            "title": "Powered by AI Edge-Model",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s02_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "World's First AI Edge-Model Translator",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>World's Fastest Offline Translation Device</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s03_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "title": "Seamless Network Switching",
+            "text": "<p>Smart AI Network Sensing, Swift Internet Changing. Equipped with AI intelligent network sensing technology, it automatically switches between offline and online translation. Whether in mountainous areas, at sea, or in the jungle where the network is poor, it enables seamless network switching, ensuring stable and efficient translation throughout. Translation never stops even in weak network conditions.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Translation Accuracy of Up To 95%",
+            "text": "<p>Exceptional Accuracy Up to 95%, Online and Offline. T1 is equipped with a multi-microphone array and EDC noise reduction algorithm, which effectively captures human voice in noisy surroundings. Along with Timekettle UniSmart AITP, it delivers outstanding translation accuracy of up to 95%.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s04_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 8
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet All Translation Needs in One",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Serves You in Every Situation</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s05_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-08812ece18.jpg",
+            "heading": "One-Click Translation",
+            "text": "<p>A perfect ice-breaker for a quick conversation. Double-click the power-on button to activate the fluent conversation mode.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-9919dc39c1.jpg",
+            "heading": "Listen Mode",
+            "text": "<p>Effortlessly translate any speech directed towards you or heard in your surroundings by swiftly switching to Listen Mode.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-73b106d921.jpg",
+            "heading": "Chat Translation",
+            "text": "<p>Automatically capturing the dialogues during a conversation and translating them into your language, facilitating deeper communication.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-b7078bba96.jpg",
+            "heading": "Landscape Mode",
+            "text": "<p>With one click, switch to landscape mode for convenient side-by-side text reading.</p>"
+          }
+        },
+        "b4": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-5a72aa0e11.jpg",
+            "heading": "Photo Translation",
+            "text": "<p>T1 combines a top-notch OCR offline translation engine with an 8-megapixel rear camera for immediate image translation in 39 languages. Simply snap a photo and voila! *Additional languages in the works.</p>"
+          }
+        },
+        "b5": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-e143633154.jpg",
+            "heading": "Offline Translation",
+            "text": "<p>NEW T1 supports 44 pairs of language offline packs. In areas without a network, it still provides accurate translation with zero communication barriers. Chinese ⇆ English, Japanese, Korean, Spanish, Thai, German, French, Italian, Russian, Arabic</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "s06_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "52 Languages and 106 Accents",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "52 Languages",
+            "icon": "question_mark",
+            "row_content": "<p>Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / Vietnamese</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "106 Accents",
+            "icon": "question_mark",
+            "row_content": "<p>Arabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (United Kingdom, Ireland, USA, Canada, Australia, New Zealand, India, Philippines, South Africa, Kenya, Tanzania, Nigeria, Ghana, Singapore);French (France, Canada);Portuguese (Portugal, Brazil);Spanish (Spain, USA, Mexico, Honduras, Nicaragua, Panama, Costa Rica, Argentina, Chile, Bolivia, Colombia, Dominican, Ecuador, Guatemala, Peru, Puerto Rico, Paraguay, Uruguay, Venezuela, Salvador);Tamil (India, Singapore, Sri Lanka, Malaysia);Urdu (Pakistan, India).Swahili (Kenya, Tanzania)</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "44 Pairs of Language Offline Packs",
+            "icon": "question_mark",
+            "row_content": "<p>Chinese ⇆ English, Japanese, Korean, Spanish, Thai, German, French, Italian, Russian, Arabic</p><p>English ⇆ Chinese, Japanese, Korean, Thai, French, Italian, Spanish, German, Russian, Arabic</p><p>Spanish ⇆ Chinese, English, Japanese, Korean, Thai, German, French, Italian, Russian, Arabic</p><p>Arabic ⇆ Chinese, English, Japanese, Korean, Spanish, Thai, German, French, Italian, Russian</p><p>Russian ⇆ Chinese, English, Korean, Spanish, German, French, Italian, Arabic</p><p>German ⇆ Chinese, English, Japanese, Spanish, French, Italian, Russian, Arabic</p><p>Korean ⇆ Chinese, English, Japanese, Spanish, Thai, Russian, Arabic</p><p>Japanese ⇆ Chinese, English, Korean, Spanish, Thai, German, Arabic</p><p>Italian ⇆ Chinese, English, Spanish, German, Russian, Arabic</p><p>Thai ⇆ Chinese, English, Japanese, Korean, Spanish, Arabic</p><p>French ⇆ Chinese, English, Spanish, German, Russian, Arabic</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s07_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-t1-9528292774.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "44 Pairs of Language Offline Packs",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s08_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-b572070e32.jpg",
+            "heading": "24-Month Free Data",
+            "text": "<p>Whether you're navigating bustling international cities or exploring remote destinations, stay connected without the burden of data fees. Share experiences, communicate effortlessly, and immerse yourself in new cultures-because your adventures should be defined by freedom, not connectivity limits.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-c718d8406f.jpg",
+            "heading": "0.2s Instant Translation",
+            "text": "<p>With Timekettle's advanced Streaming ASR Technology seamlessly integrated and backed by a global network of more than 150 servers and accelerators, T1 can translate any speech within 1 second, giving the impression of reading subtitles.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s09_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "More than Translation",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-f96ebd5bc0.png",
+            "title": "4-inch and 115g",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-cd054b1cbf.png",
+            "title": "540*1080P",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-52129ef8dd.png",
+            "title": "World Clock",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-4f531aa40c.png",
+            "title": "Real-time Exchange Rates",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-bf720b22c9.png",
+            "title": "Voice Memo",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "s10_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What languages and countries does T1 support covered by the 2-year free data?",
+            "icon": "question_mark",
+            "row_content": "<p>Below are the detailed languages supported by T1 and the countries covered by the 2-year free data for your reference:</p><p>52 Languages 106 Accents:</p><p>Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / Vietnamese</p><p>31+ Pairs of Language Offline Packs</p><p>Chinese ⇔ English, Spanish, Japanese, Korean, French, Russian, German, Thai, Italian, ArabicEnglish ⇔ Spanish, Japanese, Korean, French, Russian, German, Thai, Italian, ArabicJapanese ⇔ Korean, Thai, SpanishRussian ⇔ Italian, Korean, FrenchGerman ⇔ Spanish, RussianKorean ⇔ Spanish, ThaiSpanish ⇔ Italian, French</p><p>39 languages supported by photo translation:</p><p>Arabic / Bulgarian / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Finnish / Fillipino / French / German / Greek / Hebrew / Hungarian / Icelandic / Indonesian / Italian /Japanese / Korean /Malay / Norwegian / Polish / Portuguese / Romanian / Russian / Slovak / Slovenian / Spanish / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Vietnamese</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What languages does T1 support Offline?",
+            "icon": "question_mark",
+            "row_content": "<p>44 Pairs of Language Offline Packs</p><p>Chinese ⇆ English, Japanese, Korean, Spanish, Thai, German, French, Italian, Russian, Arabic</p><p>English ⇆ Chinese, Japanese, Korean, Thai, French, Italian, Spanish, German, Russian, Arabic</p><p>Spanish ⇆ Chinese, English, Japanese, Korean, Thai, German, French, Italian, Russian, Arabic</p><p>Arabic ⇆ Chinese, English, Japanese, Korean, Spanish, Thai, German, French, Italian, Russian</p><p>Russian ⇆ Chinese, English, Korean, Spanish, German, French, Italian, Arabic</p><p>German ⇆ Chinese, English, Japanese, Spanish, French, Italian, Russian, Arabic</p><p>Korean ⇆ Chinese, English, Japanese, Spanish, Thai, Russian, Arabic</p><p>Japanese ⇆ Chinese, English, Korean, Spanish, Thai, German, Arabic</p><p>Italian ⇆ Chinese, English, Spanish, German, Russian, Arabic</p><p>Thai ⇆ Chinese, English, Japanese, Korean, Spanish, Arabic</p><p>French ⇆ Chinese, English, Spanish, German, Russian, Arabic</p><p>* We will keep updating. Kindly be noticed that please download the offline package through “Setting” before using offline translation.You can use the above offline language pairs on the plane.</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does \"2-years of Free Mobile Data\" mean?",
+            "icon": "question_mark",
+            "row_content": "<p>T1 uses a built-in antenna and can be used without inserting an e-SIM card. It should be noted that before using T1 you need to turn on the data network.</p><p>Our built-in antennas are professionally modulated for full-band and robust connectivity anywhere in the world, and the T1 offers up to 2 years of free mobile data and connections to over 200 wireless network operators worldwide.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does T1 have photo translation?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes. T1 support 4 translation modes for different scenarios:1. Photo translation for street signs, maps, menus, etc.2. One-click translation for fast conversation.3. Listening mode to translate everything that is said to you or what is said around you.4. Chat conversation means that T1 can automatically record the said in a conversation and translate into your language to communication.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s11_languages_scrolling": {
+      "type": "languages-scrolling",
+      "settings": {
+        "heading": "Covering the World, Accent by Accent.",
+        "heading_size": "h1",
+        "subheading": "52 languages and 106 regional accents — so you're always understood, no matter how you speak.",
+        "language_set": "full",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "s12_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Product Tutorials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use Gesture Controls?",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Set Language?",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use One-Click Translation?",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use Chat Translation?",
+            "text": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use Listen Mode?",
+            "text": ""
+          }
+        },
+        "b6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use Photo Translation?",
+            "text": ""
+          }
+        },
+        "b7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-t1-509050dbe8.jpg",
+            "title": "How to Use Offline Translation?",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "s00_image_banner",
+    "s01_multicolumn",
+    "s02_rich_text",
+    "s03_multicolumn",
+    "s04_rich_text",
+    "s05_multirow",
+    "s06_collapsible_content",
+    "s07_image_banner",
+    "s08_multirow",
+    "s09_multicolumn",
+    "s10_collapsible_content",
+    "s11_languages_scrolling",
+    "s12_multicolumn",
+    "related-products"
+  ]
+}

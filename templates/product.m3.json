@@ -1,0 +1,744 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "s00_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-m3-8b70170303.jpg",
+        "image_2": "shopify://shop_images/pp-m3-94e07b4896.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Ultimate 3-in-1 Device",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/m3-travel-translator-earbuds",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s01_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-d098855793.png",
+            "title": "Simultaneous Interpretation",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-1ca20875dd.png",
+            "title": "Premium Sound Quality",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-0650396afb.png",
+            "title": "ANC Active Noise Reduction",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-2312b19900.png",
+            "title": "43 Languages & 96 Accents",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s02_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "The Ultimate 3-in-1 Device",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-a60c3cdcf1.jpg",
+            "title": "Music Playing",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-558be37834.jpg",
+            "title": "Translate Anywhere",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-6895b6a955.jpg",
+            "title": "Phone Call",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s03_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Three Modes Meet All Your Needs",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-5867d5f1cb.jpg",
+            "title": "Simultaneous Interpretation for In-depth Conversation",
+            "text": "<p>Speak freely, no pauses needed. M3’s patented simultaneous interpretation tech instantly picks up your voice, seamlessly turning it into smooth, fluent translations.* The same pair of earbuds is for two people to wear.* Touch Simultaneous Interpretation: suitable for one-to-one in-depth communication, such as discussion, dating and so on.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-be20928bc3.jpg",
+            "title": "One-way Translation of Speeches and Teaching",
+            "text": "<p>This mode can recognize, pick up sentences automatically, and translate them into selected languages that plays continuously right in your ear. What's more, the script is automatically saved for your review anytime.* Place the phone close to the person speaking, and listen to the translation from earbud.* Listening Mode: suitable for one-way translation scenarios, e.g., lectures, speeches, etc.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-8a2c5a2a91.jpg",
+            "title": "Two-way Interpretation for Short Questions and Answers",
+            "text": "<p>In Speaker Mode, pop in one earbud and use your phone for quick chats—whether asking for directions or ordering food. No need to share your earbuds, just seamless conversations on the go. * Speaker Mode: suitable for one-on-one short communication, such as ordering food, asking for directions, etc.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s04_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "43 Languages and 96 Accents",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "43 Languages",
+            "icon": "question_mark",
+            "row_content": "<p>Arabic / Bengali / Bulgarian / Burmese/ Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Finnish / Filipino / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian /Japanese / Korean /Malay / Norwegian / Persian/ Polish / Portuguese / Romanian / Russian / Slovak / Slovenian / Spanish / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Vietnamese /</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "96 Accents",
+            "icon": "question_mark",
+            "row_content": "<p>Arabic(Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese(Simplified, Traditional, Cantonese);English(United Kingdom, Ireland, USA, Canada, Australia, New Zealand, India, Philipines, South Africa, Kenya, Tanzania, Nigeria, Ghana, Singapore);French(France, Canada);Portuguese(Portugal, Brazil);Spanish(Spain, USA, Mexico, Honduras, Nicaragua, Panama, Costa Rica, Argentina, Chile, Bolivia, Colombia, Dominican, Ecuador, Guatemala, Peru, Puerto Rico, Paraguay, Uruguay, Venezuela, Salvador);Tamil(India, Singapore, Sri Lanka, Malaysia);Urdu(Pakistan, India).</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "8-Language Offline Translation Package",
+            "icon": "question_mark",
+            "row_content": "<p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-German</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s05_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-m3-4e726e752e.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "s06_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 8
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "High Tech Secure Your Experience",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "b0"
+      ]
+    },
+    "s07_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-974832a7cc.jpg",
+            "heading": "Clear Calls Anywhere with Dual Microphone Noise Reduction",
+            "text": "<p>M3 Translation Earbuds feature dual microphones that reduce surrounding noise and optimize voice recording with beamforming ENC intelligent algorithm. Enjoy crystal-clear communication anywhere with Timekettle's M3.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-216adbfb88.jpg",
+            "heading": "Up to 95% Accuracy, 0.5s Delay",
+            "text": "<p>Powered by the world's 6 leading translation engines (DeepL, Google, Microsoft, iFlytek, AmiVoive, Hoya) and Timekettle its own, the earbuds deliver faster and more accurate translations in meetings and conversations.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-94eb09e8ad.jpg",
+            "heading": "High-precision Active Noise Reduction for Uncompromising Audio Quality",
+            "text": "<p>M3 can achieve a maximum depth of 30dB active noise reduction with our high-precision ANC controller, all while keeping the comfort in your ear. So don't compromise on the noise. Hear every detail of the rhythm.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-517ca18a37.jpg",
+            "heading": "Professional-grade EQ Tuning for Premium Audio Performance",
+            "text": "<p>Equipped with Φ10mm diaphragm high-performance speaker tuned by Timekettle acoustic lab, M3 can output four-channel analog stereo sound and support AAC, mSBC high-quality decoding that brings incredible three-frequency sound experience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s08_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Unlocking More Features",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-5e58c838c3.jpg",
+            "title": "25-hour Battery Life, Longer Than You Need",
+            "text": "<p>M3 lasts approximately 7.5 hrs on a single full charge and up to 25 hours with the charging case. So live your day to its fullest.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-9767ea3f5e.jpg",
+            "title": "Improved Stability and Low Latency",
+            "text": "<p>With 40nm ULP craftsmanship and a built-in 32-bit high-performance RISC-V chip, the M3 supports Digital Signal Processing and neural network accelerators. In addition, our integrated dual Bluetooth 5.2 offers ultra-distance transmission of more than 10 meters with low latency.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-f44936ae50.jpg",
+            "title": "IPX4 Waterproof",
+            "text": "<p>Forget the water splash, sweat, and rain; even if you drop it in water, the M3 still works perfectly fine. The ESD anti-static protection design and OVP over-voltage protection chip provide extra protection for optimal durability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s09_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-m3-0013214edd.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "s10_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What the advantages of Timekettle translator earbuds compared with translation App and handheld translators?",
+            "icon": "question_mark",
+            "row_content": "<p>Translation App and handheld translators are not convenient and user-friendly because you need to pass the device back and forth with the other person who speaks a different language in a conversation.</p><p>Timekettle Translator earbuds are designed and developed specially for the purpose of natural and high-efficient conversations in different languages. With our HyperComm™ technology, data has shown that communication efficiency conducted by our Translator Earbuds can increase up to 200%</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What languages does this M3 translator support?",
+            "icon": "question_mark",
+            "row_content": "<p>Here are all 43 languages and 96 accents that it can support. Language: Arabic / Bengali / Bulgarian / Burmese/ Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Finnish / Filipino / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian /Japanese / Korean /Malay / Norwegian / Persian/ Polish / Portuguese / Romanian / Russian / Slovak / Slovenian / Spanish / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Vietnamese /Arabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (United Kingdom, Ireland, USA, Canada, Australia, New Zealand, India, Philippines, South Africa, Ken</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What offline package do you have?",
+            "icon": "question_mark",
+            "row_content": "<p>Here are the detail languages we support for offline:English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanyChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-Germany* We will keep updating.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does Timekettle M3 compare to Timekettle M2?",
+            "icon": "question_mark",
+            "row_content": "<p>Any products in our M series integrate 3-in-1 functionality in translation, music, and phone calls. M3, being the upgraded generation of M2, is integrated with High-precision Active Noise Reduction controller that greatly enhances the translation user experience.</p>"
+          }
+        },
+        "b4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the core difference between WT2 Edge and M3?",
+            "icon": "question_mark",
+            "row_content": "<p>Our W series and M series are designed and developed for different user applications and needs.W series integrates our industry-leading HyperComm™2.0 technology so everyone can speak and listen simultaneously in the conversation. It is the best translation product when you need to conduct lengthy conversations with your friends, family, and business partners who speak a different language.M series integrates our industry-leading HyperComm™1.0 technology so you and your speaking partner can speak and listen in turns, this way of communication can help increase the conversation efficiency by 100% than conventional translators. In addition, you can use M3 for music and phone calls too! It is the best translation product for travelers.</p>"
+          }
+        },
+        "b5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the difference between Online and Offline version?",
+            "icon": "question_mark",
+            "row_content": "<p>Online version: Internet connection is required to use the translation feature that supports over 43 languages and 96 accents.Offline version: Internet connection is NOT required to use the translation feature. You can download our language pack in your smartphone, this way you can use the translation feature even without internet connection. Support of languages is limited in Offline version.</p>"
+          }
+        },
+        "b6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I want larger foam cushions for a better fit to stay inside the ear, what is the size to order?",
+            "icon": "question_mark",
+            "row_content": "<p>The M3 package contains two pairs of earplug caps of different sizes, one pair of large size and one pair of small size. If you need a larger size to fit your ears, wear the larger ear tip caps over the ear tips.</p>"
+          }
+        },
+        "b7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I don't understand what's the offline package.",
+            "icon": "question_mark",
+            "row_content": "<p>M3 translator with offline package can support offline translation, which means you can use translation feature when you don't have great wifi or mobile network.There is FISH CARD in the package, customer can download 6 offline package through redeeming FISH CARD.M3 translator earbuds without offline package can't support offline translation, which means you can use only online translation feature.Translation works when you have stable mobile network or wifi.That's why there is price difference between two version of M3.</p>"
+          }
+        },
+        "b8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does M3 support bluetooth?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes, the M3 translator earbuds can support both ordinary Bluetooth function (make a call/listen to music) and translation function.</p>"
+          }
+        },
+        "b9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you require a phone?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes, our translator needs to work with our Timekettle APP on a phone.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9"
+      ]
+    },
+    "s11_languages_scrolling": {
+      "type": "languages-scrolling",
+      "settings": {
+        "heading": "Covering the World, Accent by Accent.",
+        "heading_size": "h1",
+        "subheading": "43 languages and 96 regional accents — so you're always understood, no matter how you speak.",
+        "language_set": "m3",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "s12_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Product Tutorials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Listen Mode?",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Touch Mode?",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Speaker Mode?",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Offline Translation?",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Control Phone Call?",
+            "text": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Control Music Play?",
+            "text": ""
+          }
+        },
+        "b6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Voice Assistant?",
+            "text": ""
+          }
+        },
+        "b7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Use Volume Setting?",
+            "text": ""
+          }
+        },
+        "b8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-m3-252abf9df3.jpg",
+            "title": "How to Export Interpretation History?",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "s00_image_banner",
+    "s01_multicolumn",
+    "s02_multicolumn",
+    "s03_multicolumn",
+    "s04_collapsible_content",
+    "s05_image_banner",
+    "s06_rich_text",
+    "s07_multirow",
+    "s08_multicolumn",
+    "s09_image_banner",
+    "s10_collapsible_content",
+    "s11_languages_scrolling",
+    "s12_multicolumn",
+    "related-products"
+  ]
+}

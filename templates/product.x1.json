@@ -1,0 +1,1189 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "s00_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-4cf82c3fa1.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Multi-Terminal & Multi-Language Translation for Business",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/x1-meeting-interpreter-hub",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s01_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-8e3b14fac1.png",
+            "title": "up to 10 units",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-9fca61e085.png",
+            "title": "5 languages",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-e25a9eec9d.png",
+            "title": "up to 60 participants",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-6c7ea0a14d.png",
+            "title": "real‑time multilingual conversations",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s02_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Multi‑Person Real‑Time Interpretation",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The X1 Meeting Interpreter Hub is a flagship simultaneous interpretation solution for global business teams and cross-border meetings.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s03_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-cc37728204.jpg",
+            "title": "Multi‑language discussion meeting",
+            "text": "<p>One device per person – listen and speak in your native language</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-4352e4ea82.png",
+            "title": "Large event roadshows & training",
+            "text": "<p>Translation on screen, listen via phone</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-f38d6d1100.jpg",
+            "title": "Multi‑language classrooms, small lectures",
+            "text": "<p>Ask questions and get instant translation</p>"
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-c56dd93fc0.jpg",
+            "title": "One‑on‑one conversation",
+            "text": "<p>Two‑way simultaneous interpretation for in‑depth communication</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s04_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Break Language Barriers in Global Business Meetings",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Real‑time 5‑language translation for up to 10 speakers. No app, no IT setup – join via QR code from any device. Live subtitles for all‑hands and large events.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s05_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-813e111446.jpg",
+            "heading": "Enable Seamless Multilingual Collaboration",
+            "text": "<p>10 people. 5 languages. One seamless conversation. In a group discussion, up to 10 participants can speak at the same time, each in their own language. X1 Meeting translates 5 languages instantly — everyone hears the conversation in their preferred language. No one waits for a turn. Teamwork flows without interruption.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-8b7da8fc8c.png",
+            "heading": "Launch Meetings in 10 Seconds, No Setup Required",
+            "text": "<p>Zero friction. Zero setup. Zero wait. Start a multilingual meeting instantly — just share a QR code or meeting ID. No IT, no app downloads, no account registration. X1 Meeting works right out of the box. Perfect for spontaneous team talks or last-minute client calls.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-4927edd5c3.png",
+            "heading": "Join from Any Device, Anywhere",
+            "text": "<p>Participants Join via Their Own Devices Participants use their own laptop, tablet, or smartphone — no proprietary hardware needed. Remote employees, clients, and partners simply click a link and get live translation on their preferred device. Work happens where they are.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-883c1de3e0.jpg",
+            "heading": "Live Subtitles for Assemblies",
+            "text": "<p>One speaker. Four languages. Every attendee chooses their own. During large events like assemblies, seminars, or parent-teacher meetings, one spoken language is simultaneously translated into 4 languages. Each person chooses their preferred language on their own device — reading live subtitles and listening via personal earphones. Everyone stays informed and included.</p>"
+          }
+        },
+        "b4": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-aeb7fe848f.png",
+            "heading": "Instant Transcripts & Smart Meeting Minutes",
+            "text": "<p>Auto‑transcribed. Speaker‑labeled. Exportable in one click. Every word is captured live — with speaker identification and automatic transcription. No more frantic note-taking. The X1 Meeting turns conversations into clear, searchable minutes that you can export securely in one click. Focus on the discussion, not the paperwork.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "s06_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Five Modes for Every Business Communication Need",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From one‑on‑one negotiations and cross‑border phone calls to Zoom meetings, listen‑only conferences, and handheld instant translation – one device, all scenarios.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s07_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-fb54bb2cf0.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "One-on-One Translation – Natural Conversation, No Waiting",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Ideal for manager-client meetings, contract negotiations, or international tutoring. Each participant wears one earbud. X1 Meeting translates both sides instantly — no button pressing, no awkward pauses. Just natural, face-to-face conversation across languages."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s08_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-d87a486289.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Phone Call Translation – No App Needed",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Connect X1 Meeting to your phone via Bluetooth. Both parties wear one earbud and experience live, seamless translation – with no third‑party app required. High data privacy is built in. Ideal for overseas collaborators, institutions, or remote teams."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s09_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-1a9ed7f03b.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Live Video Translation for Zoom, Teams, Recordings & Streaming",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Connect X1 Meeting to your computer via Bluetooth. Join Zoom, Teams, Google Meet, or play a recorded video/streaming lecture. Everyone hears live translation in their earbuds and sees subtitles on screen. Ideal for global meetings, multilingual training, language learning, and remote guest lectures."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s10_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-a30f754836.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Listen & Play Translation – Quiet Participation, Clear Translation",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Place X1 Meeting on the desk. It streams live translation directly to your earbuds. Perfect for face‑to‑face consultations, private corporate meetings, or quiet executive suites. The session is also recorded automatically for later review."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s11_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-e3b536c8e1.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ask & Go Translation – No Earbuds Needed",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "No earbuds? No problem. Long‑press the home button, talk into X1 Meeting, and it translates out loud. Perfect for quick hallway chats, trade show booth conversations, or casual campus and office exchanges. No pairing. No waiting. Just ask and go."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s12_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 8
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Powerful Technology, Enterprise Ready",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Clear voice pickup, smart AI translation, full compliance, and global speed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s13_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-aa93d1d86b.png",
+            "heading": "Bone Conduction – Clear Voice in Any Noise",
+            "text": "<p>Your voice, isolated. Background noise, ignored. In bustling open offices, busy trade shows, or noisy classrooms, X1 Meeting uses advanced bone conduction technology to pick up only your voice – not the chaos around you. Delivers 90% accuracy even at 75dB, and 30% improvement over the previous generation at 80dB. Your words always get through.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-04dbacbe2c.jpg",
+            "heading": "AI Large Model – Understands Context, Corrects on the Fly",
+            "text": "<p>Natural, accurate translation – even with business jargon. X1 Meeting’s built‑in AI doesn’t just translate words – it understands the flow of conversation. It automatically corrects errors and adapts to specialized terminology, whether you're discussing KPIs, ROI, legal clauses, or academic research. The result? Translations that sound natural, fluent, and precisely on point.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-5251e0334f.jpg",
+            "heading": "Enterprise‑Grade Privacy – Fully Compliant & Encrypted",
+            "text": "<p>GDPR · CCPA · HIPAA · FERPA – your data is always protected. X1 Meeting meets strict global privacy standards. All translation conversations are end‑to‑end encrypted and never shared. Whether you're an HR manager, legal team, healthcare professional, or educator – use with confidence, knowing sensitive information stays completely private.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-5d116f6657.jpg",
+            "heading": "150+ Global Servers – Fast, Stable, Secure Anywhere",
+            "text": "<p>Encrypted high-speed translation, no matter where you are. With over 150 local servers worldwide, X1 Meeting creates an encrypted high-speed channel for your translations. Whether you're in a downtown HQ, a remote branch office, a suburban campus, or traveling internationally – expect fast, stable, and secure performance every time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s14_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-b9ee5a67dd.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lightweight & Practical – Built for Business on the Go",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "X1 Meeting is lightweight, well‑crafted, and ready for anywhere – from executive huddle rooms and open collaboration zones to off‑site meetings and business travel. Designed to handle multi‑user conversations with ease. No bulk. No hassle. Just professional translation that moves with you."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s15_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-f4a6d82ee7.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "No Subscription – Free Lifetime OTA Updates",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "All translation improvements, new features, and language updates come free via OTA. No recurring fees, no hidden costs. Perfect for finance teams, schools, and any business that plans ahead."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s16_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-6c6ffefe82.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Whole Team Speaks Freely – in Their Own Language.",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Whether your team speaks Spanish, Mandarin, Arabic, or Portuguese, X1 Meeting has them covered. With 52 languages and 106 accents supported, plus free OTA additions, you can onboard partners, clients, and employees from anywhere. Absolute inclusivity for global business, education, and beyond."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s17_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-x1-1b8a6d1ad6.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "8‑Hour Hub, 3‑Hour Earbuds, 5‑Minute Fast Charge",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "The hub runs for 8 hours. Earbuds last 3 hours of continuous translation. Need a boost? A 5‑minute quick charge gives you 1.5 hours of use – enough for a full client call or a team stand‑up. From morning briefings to late‑night cross‑time‑zone calls, X1 Meeting won’t let you down."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s18_languages_scrolling": {
+      "type": "languages-scrolling",
+      "settings": {
+        "heading": "Covering the World, Accent by Accent.",
+        "heading_size": "h1",
+        "subheading": "52 languages and 106 regional accents — so you're always understood, no matter how you speak.",
+        "language_set": "full",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "s19_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is bone voiceprint pickup technology?",
+            "icon": "question_mark",
+            "row_content": "<p>Bone voiceprint pickup technology refers to the built‑in bone voiceprint sensor inside the earbuds. When the user speaks, the sensor captures vibration signals within the ear canal to accurately determine whether the user is currently speaking. Through Timekettle’s proprietary hybrid algorithm that combines bone voiceprint signals with microphone signals, the earbuds can clearly extract the user’s voice even in extremely noisy environments, separating it from background noise.</p><p>(In simple terms, the earphone’s recording channel is activated only while the user is speaking, significantly enhancing noise reduction performance.)</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the difference between the X1 Meeting and ordinary translation earphones or mobile translation apps?",
+            "icon": "question_mark",
+            "row_content": "<p>The main differences are:</p><p>No extra devices or complicated setupThe X1 Meeting is a standalone terminal device – it can be used without downloading an app, registering an account, or connecting to a mobile phone. Ordinary translation earphones and mobile apps typically require a smartphone, software installation, and login.</p><p>Designed for multi‑person real‑time simultaneous interpretationThe X1 Meeting supports simultaneous interpretation of up to 5 languages and can serve up to 50 listeners, making it ideal for classrooms, meetings, and other group scenarios. Ordinary translation earphones or apps are mostly designed for one‑to‑one translation and cannot handle multi‑language, multi‑person simultaneous interpretation.</p><p>Superior voice pickup and noise reductionThe X1 Meeting uses bone conduction technology to accurately capture the speaker’s voice even in noisy environments, greatly improving recognition accuracy. Ordinary devices often suffer from poor pickup in loud settings.</p><p>Fully independent operation – no phone requiredOrdinary translation earphones usually need to connect to a phone via Bluetooth and rely on an app. The X1 Meeting is a complete device on its own – no need to distribute phones or rely on a network (core functions can be used offline).</p><p>In short, the X1 Meeting is an all‑in‑one device built for multi‑person, multi‑language, real‑time simultaneous interpretation scenarios. Ordinary translation earphones and mobile apps are better suited for personal, one‑on‑one, basic translation needs.</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the difference between the X1 Meeting and the W4/W4 Pro?",
+            "icon": "question_mark",
+            "row_content": "<p>They are designed for different use cases and complement each other:</p><p>X1 Meeting focuses on multi‑person cross‑language collaboration (e.g., group meetings, classrooms, training sessions).</p><p>W4/W4 Pro focuses on one‑on‑one, in‑depth conversations (e.g., coffee shop chats, business negotiations).</p><p>X1 Meeting – Ideal for scenarios where multiple people need real‑time interpretation simultaneously, such as team meetings, lectures, or workshops.</p><p>W4/W4 Pro – Better suited for private, two‑person interactions that require natural, continuous dialogue.</p><p>In short, the X1 Meeting is built for group communication, while the W4/W4 Pro excels at personal, face‑to‑face conversations. They work together to cover different cross‑language needs.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What improvements does the X1 Meeting have over the older X1 model?",
+            "icon": "question_mark",
+            "row_content": "<p>The X1 Meeting brings several hardware and software upgrades:</p><p>Host performance – Unchanged from the old X1 (consistent core performance).</p><p>Headset pickup – Added a bone conduction microphone, which improves voice recognition accuracy in moderate‑to‑high noise environments and reduces crosstalk between speakers.</p><p>Battery life – earbuds' battery increased from 45mAh to 50mAh, extending battery life from 2.5 hours to 3 hours.</p><p>Multi‑person translation mode – Stability and usability have been significantly optimized.</p><p>Meeting capacity – Supports up to 10 X1 Meeting hosts and 50 peripheral devices joining the same meeting simultaneously.</p>"
+          }
+        },
+        "b4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "In multi‑person meeting mode, does the speaker need to wear both earbuds?",
+            "icon": "question_mark",
+            "row_content": "<p>No, it's not mandatory. You may wear only one earbud, but you must ensure that this earbud is the device currently selected by the host as the sound source. The host can switch the active recording earphone and check its status on the host screen.</p>"
+          }
+        },
+        "b5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "In multi‑person meeting mode, does the X1 Meeting support external earbuds or microphones?",
+            "icon": "question_mark",
+            "row_content": "<p>External earbuds are not supported. However, the device does support connecting a wireless lavalier microphone via the Type‑C interface.</p><p>Please note: When using the wireless lavalier microphone, the device can only output the user's speech for translation – it cannot play back the translated audio to the user.</p>"
+          }
+        },
+        "b6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "If I join the meeting and speak using a peripheral device such as a mobile phone, does it have noise reduction capability?",
+            "icon": "question_mark",
+            "row_content": "<p>No, it does not. Noise reduction relies on the bone conduction chip and algorithm built into the X1 Meeting earbuds. Peripheral devices like mobile phones use omnidirectional microphones, which cannot achieve directional voice pickup. It is recommended to keep the environment quiet while speaking via such devices to avoid interference from others; otherwise, recognition accuracy will decline.</p>"
+          }
+        },
+        "b7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the maximum number of participants supported in a multi‑person meeting?",
+            "icon": "question_mark",
+            "row_content": "<p>The system supports up to 10 X1 Meeting hosts (serving as speaking endpoints) and 50 peripheral devices (such as mobile phones, tablets, and computers) as receiving endpoints, all online simultaneously.</p>"
+          }
+        },
+        "b8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many languages does the multi‑person translation mode support?",
+            "icon": "question_mark",
+            "row_content": "<p>It supports up to 5 languages for real‑time mutual translation.</p>"
+          }
+        },
+        "b9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Besides the multi‑person meeting mode, are other modes (such as duo conversation, listen mode, and call translation) completely consistent in terms of languages, functions, and settings?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes, currently, all modes remain consistent in supported languages, core functions, and setting logic. In the future, the number of supported languages will continue to increase and be updated.</p>"
+          }
+        },
+        "b10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How accurate is offline translation on the X1 Meeting?",
+            "icon": "question_mark",
+            "row_content": "<p>Offline translation accuracy is lower than that of the New T1 model. Since the X1 Meeting is primarily designed for Wi‑Fi‑enabled scenarios such as meeting rooms, online translation is strongly recommended. Additionally, creating a meeting room itself requires an internet connection.</p>"
+          }
+        },
+        "b11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the battery last, and how do you charge it?",
+            "icon": "question_mark",
+            "row_content": "<p>Earphone battery life: Approximately 3 hours (upgraded from the older model).</p><p>Main unit battery life: Up to 8 hours, with actual usage depending on the mode – average battery life ranges from 7 to 8 hours.</p><p>Charging method: Both the main unit and the earphone charging case are charged via the included USB‑C cable (standard USB‑C port).</p>"
+          }
+        },
+        "b12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I do if the earphones fail to connect, or if they do not disconnect after being placed back into the charging case?",
+            "icon": "question_mark",
+            "row_content": "<p>Please try the following steps:</p><p>Take the earphones out of the charging case, then put them back in, making sure they are firmly seated. Wait 2 seconds, then take them out again.</p><p>If the issue persists, wipe the charging pins on the earphones with a clean cloth or an alcohol wipe, then repeat step 1.</p><p>Try inserting and removing the earphones from the case several times to see if that resolves the problem.</p><p>If none of the above works, please contact customer service for a return or replacement.</p>"
+          }
+        },
+        "b13": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there any regional network restrictions?",
+            "icon": "question_mark",
+            "row_content": "<p>No, the X1 Meeting can be used under normal mobile networks or public Wi‑Fi without geographic restrictions. However, some enterprise or school intranets have firewalls installed. In such cases, you may need to add the X1 Meeting server domain name or IP address to the allowlist to use it normally.</p>"
+          }
+        },
+        "b14": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can the device be used normally in low‑temperature environments?",
+            "icon": "question_mark",
+            "row_content": "<p>The X1 Meeting has an operating temperature range of 0°C to 40°C (32°F to 104°F). Within this range, the device operates stably. Using it in temperatures below 0°C is not recommended and may affect performance or battery life.</p>"
+          }
+        },
+        "b15": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is the data secure? Does it get uploaded to the cloud?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes, data security is a top priority for the X1 Meeting. The device employs multiple layers of protection:</p><p>Bank‑grade encryption: The server uses bank‑level data encryption to ensure communication privacy and security.</p><p>End‑to‑end encryption: The BabelOS security system follows Responsible AI standards and encrypts data throughout the entire transmission process.</p><p>Three‑layer privacy protection: The system is built on bank‑grade encryption and data transmission, effectively securing conversations from interception.</p><p>Regarding cloud uploads: While translation requires an internet connection and the system utilizes the UniSmart translation cloud for processing and regular vocabulary updates, translation data is stored locally only, without backing up to servers. This ensures full control over your information and protects business confidentiality.</p><p>For the complete privacy policy, please refer to the official Timekettle documentation.</p>"
+          }
+        },
+        "b16": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I export conversation history? What if the exported file shows garbled text?",
+            "icon": "question_mark",
+            "row_content": "<p>Here’s how to handle exporting history and related issues:</p><p>The exported file appears garbledTo ensure compatibility across all languages, the X1 Meeting uses UTF‑8 encoding only. If you open the exported file with software like Microsoft Word, you must manually select UTF‑8 encoding when opening the file. Alternatively, you can open the file directly with a plain text editor such as Notepad (Windows) or TextEdit (Mac) – they typically handle UTF‑8 automatically.</p><p>Cannot see folders when connecting X1 Meeting to a Mac computerThe X1 Meeting runs on an Android‑based system. Connecting it to a Mac requires cross‑platform file transfer. You will need to install a third‑party MTP (Media Transfer Protocol) client on your Mac. For users outside mainland China: Search for and download MacDroid – Android File Transfer from the Mac App Store. For users in mainland China: Search for MacDroid – Android Manager (or similar local versions). Alternatively, you can download Google’s official Android File Transfer tool from https://www.android.com/filetransfer/ (note: a VPN may be required to access this link in some regions).</p><p>Once the proper MTP client is installed, you can browse the X1 Meeting’s internal storage and locate the exported history files normally.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12",
+        "b13",
+        "b14",
+        "b15",
+        "b16"
+      ]
+    },
+    "s20_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Find your ideal translation earbuds.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-a645b373f7.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-79f8374bda.png",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s21_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Product Tutorials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "How to Use Timekettle X1 Meeting Interpreter Hub?",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Operation for X1 Meeting Participant",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Operations for Mobile Participants",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Operations for Computer Participants",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Multi-Person Translation Mode",
+            "text": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Earbuds Audio Recording Notes",
+            "text": ""
+          }
+        },
+        "b6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Media Translation Mode",
+            "text": ""
+          }
+        },
+        "b7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Offline Translation Mode",
+            "text": ""
+          }
+        },
+        "b8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "One-on-One Translation Mode",
+            "text": ""
+          }
+        },
+        "b9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Listen & Play Translation Mode",
+            "text": ""
+          }
+        },
+        "b10": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "Ask & Go Handheld Translation Mode",
+            "text": ""
+          }
+        },
+        "b11": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-x1-98cf02d5a4.png",
+            "title": "More Setting Function",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "s00_image_banner",
+    "s01_multicolumn",
+    "s02_rich_text",
+    "s03_multicolumn",
+    "s04_rich_text",
+    "s05_multirow",
+    "s06_rich_text",
+    "s07_image_banner",
+    "s08_image_banner",
+    "s09_image_banner",
+    "s10_image_banner",
+    "s11_image_banner",
+    "s12_rich_text",
+    "s13_multirow",
+    "s14_image_banner",
+    "s15_image_banner",
+    "s16_image_banner",
+    "s17_image_banner",
+    "s18_languages_scrolling",
+    "s19_collapsible_content",
+    "s20_multicolumn",
+    "s21_multicolumn",
+    "related-products"
+  ]
+}

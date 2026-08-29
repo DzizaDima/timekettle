@@ -1,0 +1,10 @@
+# Secrets / local env
+.env
+.env.local
+.env.*.local
+.shopify-token.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+node_modules/

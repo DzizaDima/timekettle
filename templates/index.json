@@ -9,76 +9,587 @@
  */
 {
   "sections": {
-    "image_banner": {
+    "hero_x1": {
       "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/home-hero-x1.jpg",
+        "image_2": "shopify://shop_images/home-hero-x1-mobile.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "text_0": {
+          "type": "text",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "text": "Real-Time AI Interpretation for Multi-Person, Multi-Language Meetings",
+            "text_style": "caption-with-letter-spacing"
           }
         },
-        "button": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "X1 Meeting Interpreter Hub",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_1": "See More",
+            "button_link_1": "shopify://products/x1-meeting-interpreter-hub",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
-      ],
+        "text_0",
+        "heading_1",
+        "buttons_2"
+      ]
+    },
+    "x1_detail": {
+      "type": "rich-text",
       "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true
+      },
+      "blocks": {
+        "caption_0": {
+          "type": "caption",
+          "settings": {
+            "caption": "Real-Time AI Interpretation for Multi-Person, Multi-Language Meetings",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "X1 Meeting Interpreter Hub",
+            "heading_size": "h1"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Designed specifically for meetings and K12 multilingual classrooms, this solution supports up to 50 participants across 5 languages for seamless real-time interaction. No app installation is required, and setup is extremely straightforward. Powered by bone-conduction voice capture technology, it ensures accurate translation even in noisy environments. With support for 52 languages and 106 accents, there are no subscription fees, and free OTA updates are included for life.</p>"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "button_label": "See More",
+            "button_link": "shopify://products/x1-meeting-interpreter-hub",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "caption_0",
+        "heading_1",
+        "text_2",
+        "button_3"
+      ]
+    },
+    "w4_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/home-w4.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "text_0": {
+          "type": "text",
+          "settings": {
+            "text": "Timekettle W4",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "The World's First Bone-Conduction Interpreter Earbuds",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Find W4",
+            "button_link_1": "shopify://products/w4-ai-interpreter-earbuds",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "text_0",
+        "heading_1",
+        "buttons_2"
+      ]
+    },
+    "product_cards": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Meet the Timekettle Family",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true
+      },
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/home-w4.jpg",
+            "title": "W4",
+            "text": "<p>AI Interpreter Earbuds</p>",
+            "link_label": "Shop W4",
+            "link": "shopify://products/w4-ai-interpreter-earbuds"
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/home-card-w4pro.jpg",
+            "title": "W4 Pro",
+            "text": "<p>AI Interpreter Earbuds</p>",
+            "link_label": "Shop W4 Pro",
+            "link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/home-card-x1.jpg",
+            "title": "X1 Meeting",
+            "text": "<p>Meeting Interpreter Hub</p>",
+            "link_label": "Shop X1",
+            "link": "shopify://products/x1-meeting-interpreter-hub"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/home-card-m3.jpg",
+            "title": "M3",
+            "text": "<p>Language Translator Earbuds</p>",
+            "link_label": "Shop M3",
+            "link": "shopify://products/m3-travel-translator-earbuds"
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/home-card-t1.jpg",
+            "title": "NEW T1",
+            "text": "<p>Handheld Translator Device</p>",
+            "link_label": "Shop T1",
+            "link": "shopify://products/fluentalk-t1-handheld-translator-device"
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4"
+      ]
+    },
+    "w4pro_leadin": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true
+      },
+      "blocks": {
+        "caption_0": {
+          "type": "caption",
+          "settings": {
+            "caption": "W4 Pro AI Interpreter Earbuds",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Personal global business assistant",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_0",
+        "heading_1"
+      ]
+    },
+    "w4pro_usecases": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1"
+      },
+      "blocks": {
+        "row_0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-call.jpg",
+            "caption": "Foreign Calls Translation",
+            "heading": "Powerful Immersive Voice-Call Translation",
+            "text": "<p>Transcend language barriers in calls among phone or app. No device needed on the other end.</p>"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-meeting.jpg",
+            "caption": "Online Meeting Translation",
+            "heading": "Online Meeting Now with Translation",
+            "text": "<p>Translate and display subtitles during virtual meetings on your phone or tablet.</p>"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-media.jpg",
+            "caption": "Media Translation",
+            "heading": "News, Series, and Broadcast, Audio Translating with Subtitles",
+            "text": "<p>Translates both videos and audios from your phone, tablet, or computer and delivers real-time subtitles.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_0",
+        "row_1",
+        "row_2"
+      ]
+    },
+    "w4pro_detail": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "heading": "W4 Pro AI Interpreter Earbuds",
+            "heading_size": "h2"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The W4 Pro AI Interpreter Earbuds are more than just a device – they are your personal global business assistant, help to communicate in onsite or online communications, and summarize post-meeting notes, the W4 Pro earbuds are by your side every step of the way, empowering efficient business collaborate communication, ushering in a new era of seamless global business interactions.</p>"
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "See More",
+            "button_link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1",
+        "button_2"
+      ]
+    },
+    "perks": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/home-perks.jpg",
+        "image_2": "shopify://shop_images/home-perks-mobile.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
+        "show_text_box": true,
         "color_scheme": "scheme-3",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
-      }
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Exclusive Perks for Timekettle Fans",
+            "heading_size": "h1"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "Connect with real Timekettle users. Unlock early access & exclusive rewards"
+          }
+        },
+        "buttons_2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Join Our Facebook Community",
+            "button_link_1": "#",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1",
+        "buttons_2"
+      ]
     },
-    "featured_collection": {
+    "business": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify://shop_images/home-business.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1"
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Top AI Translation Solutions for Business by Timekettle",
+            "heading_size": "h2"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Timekettle’s translation solutions are specifically designed to break down language barriers, offering businesses the tools they need for seamless, real-time communication. Explore our products and empower your business today!</p>",
+            "text_style": "body"
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1",
+        "button_2"
+      ]
+    },
+    "languages": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Covering the World, Accent by Accent.",
+            "heading_size": "h1"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>52 languages and 106 regional accents — so you’re always understood, no matter how you speak.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1"
+      ]
+    },
+    "testimonials": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Real Reviews. Real Results.",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true
+      },
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "title": "Aldona Glowczynska",
+            "text": "<p>“In my case, they work very well. My partner and I speak different languages. And these headphones allow us to communicate reliably. I'm super satisfied. Thank you.”</p><p><strong>W4 Pro AI Interpreter Earbuds</strong></p>",
+            "link_label": "Shop W4 Pro",
+            "link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026"
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "title": "George Brown",
+            "text": "<p>“Works well, 1:1 conversations is perfect – and even if another language is spoken outside of selected languages, it will detect and translate it into selected languages.”</p><p><strong>W4 AI Interpreter Earbuds</strong></p>",
+            "link_label": "Shop W4",
+            "link": "shopify://products/w4-ai-interpreter-earbuds"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "title": "JBogle",
+            "text": "<p>“Super easy to use. This little handheld is super easy to use and provides good translations of audio or text. Snap a picture of a page of text, and the translation appears in seconds.”</p><p><strong>NEW T1 Handheld Translator Device</strong></p>",
+            "link_label": "Shop T1",
+            "link": "shopify://products/fluentalk-t1-handheld-translator-device"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "title": "Stefan Crowe",
+            "text": "<p>“I previously purchased another brand, they were garbage. My W4 Pro's are not, they work as published. Very happy. The AI features are real, they are solid premium devices. I recommend.”</p><p><strong>W4 Pro AI Interpreter Earbuds</strong></p>",
+            "link_label": "Shop W4 Pro",
+            "link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026"
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "title": "Julia Kendra",
+            "text": "<p>“They translate accurately with just slight time delay, got a lot of languages and dialects aswell. Worth the money!!!”</p><p><strong>M3 Language Translator Earbuds</strong></p>",
+            "link_label": "Shop M3",
+            "link": "shopify://products/m3-travel-translator-earbuds"
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4"
+      ]
+    },
+    "quiz": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Find Your Perfect Translator in 30 Seconds",
+            "heading_size": "h1"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Take our smart quiz — we’ll ask about your scenarios, must-have features, and preferred form. Then match you to the ideal Timekettle device.</p>"
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Take the Quiz",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1",
+        "button_2"
+      ]
+    },
+    "shop": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Shop Timekettle Translators",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
+        "products_to_show": 5,
+        "columns_desktop": 5,
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
         "image_ratio": "adapt",
-        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "columns_mobile": "2"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_x1",
+    "x1_detail",
+    "w4_banner",
+    "product_cards",
+    "w4pro_leadin",
+    "w4pro_usecases",
+    "w4pro_detail",
+    "perks",
+    "business",
+    "languages",
+    "testimonials",
+    "quiz",
+    "shop"
   ]
 }

@@ -793,13 +793,13 @@
     "s18_languages_scrolling": {
       "type": "languages-scrolling",
       "settings": {
-        "heading": "Covering the World, Accent by Accent.",
-        "heading_size": "h1",
-        "subheading": "52 languages and 106 regional accents — so you're always understood, no matter how you speak.",
-        "language_set": "full",
-        "color_scheme": "scheme-2",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "background": "#f5f5f5",
+        "text_color": "#333333",
+        "button_background": "#3456e6",
+        "button_text_color": "#ffffff",
+        "speed": 60,
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "s19_collapsible_content": {

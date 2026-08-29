@@ -168,18 +168,18 @@ export function mapSection(sec, ctx) {
 
   switch (sec.layout) {
     case "marquee": {
-      const langCount = sec.items?.length || 0;
-      const sub = uniq(sec.secParas).find((p) => /language|accent/i.test(p)) || "";
+      // содержимое (языки, флаги, таблица) приходит из метаполя custom.language_table,
+      // здесь только оформление — стили сняты с исходника
       return {
         type: "languages-scrolling",
         settings: {
-          heading: title || "Covering the World, Accent by Accent.",
-          heading_size: "h1",
-          subheading: sub || "52 languages and 106 regional accents — so you're always understood, no matter how you speak.",
-          language_set: /43 languages|96 accents/i.test(sub) ? "m3" : "full",
-          color_scheme: "scheme-2",
-          padding_top: 48,
-          padding_bottom: 48,
+          background: "#f5f5f5",
+          text_color: "#333333",
+          button_background: "#3456e6",
+          button_text_color: "#ffffff",
+          speed: 60,
+          padding_top: 56,
+          padding_bottom: 56,
         },
       };
     }

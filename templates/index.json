@@ -11,19 +11,6 @@
   "sections": {
     "hero_x1": {
       "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/home-hero-x1.jpg",
-        "image_2": "shopify://shop_images/home-hero-x1-mobile.jpg",
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      },
       "blocks": {
         "text_0": {
           "type": "text",
@@ -44,7 +31,10 @@
           "settings": {
             "button_label_1": "See More",
             "button_link_1": "shopify://products/x1-meeting-interpreter-hub",
-            "button_style_secondary_1": false
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -52,16 +42,24 @@
         "text_0",
         "heading_1",
         "buttons_2"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/home-hero-x1.jpg",
+        "image_2": "shopify://shop_images/home-hero-x1-mobile.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
     },
     "x1_detail": {
       "type": "rich-text",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true
-      },
       "blocks": {
         "caption_0": {
           "type": "caption",
@@ -89,7 +87,10 @@
           "settings": {
             "button_label": "See More",
             "button_link": "shopify://products/x1-meeting-interpreter-hub",
-            "button_style_secondary": true
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -98,22 +99,18 @@
         "heading_1",
         "text_2",
         "button_3"
-      ]
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
     "w4_banner": {
       "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/home-w4.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      },
       "blocks": {
         "text_0": {
           "type": "text",
@@ -134,7 +131,10 @@
           "settings": {
             "button_label_1": "Find W4",
             "button_link_1": "shopify://products/w4-ai-interpreter-earbuds",
-            "button_style_secondary_1": false
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -142,22 +142,23 @@
         "text_0",
         "heading_1",
         "buttons_2"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/home-w4.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
     },
     "product_cards": {
       "type": "multicolumn",
-      "settings": {
-        "title": "Meet the Timekettle Family",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 5,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true
-      },
       "blocks": {
         "column_0": {
           "type": "column",
@@ -216,16 +217,26 @@
         "column_2",
         "column_3",
         "column_4"
-      ]
+      ],
+      "settings": {
+        "title": "Meet the Timekettle Family",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "w4pro_leadin": {
       "type": "rich-text",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true
-      },
       "blocks": {
         "caption_0": {
           "type": "caption",
@@ -246,10 +257,58 @@
       "block_order": [
         "caption_0",
         "heading_1"
-      ]
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
     "w4pro_usecases": {
       "type": "multirow",
+      "blocks": {
+        "row_0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-call.jpg",
+            "caption": "Foreign Calls Translation",
+            "heading": "Powerful Immersive Voice-Call Translation",
+            "text": "<p>Transcend language barriers in calls among phone or app. No device needed on the other end.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-meeting.jpg",
+            "caption": "Online Meeting Translation",
+            "heading": "Online Meeting Now with Translation",
+            "text": "<p>Translate and display subtitles during virtual meetings on your phone or tablet.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/home-usecase-media.jpg",
+            "caption": "Media Translation",
+            "heading": "News, Series, and Broadcast, Audio Translating with Subtitles",
+            "text": "<p>Translates both videos and audios from your phone, tablet, or computer and delivers real-time subtitles.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_0",
+        "row_1",
+        "row_2"
+      ],
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
@@ -261,51 +320,13 @@
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-1",
-        "row_color_scheme": "scheme-1"
-      },
-      "blocks": {
-        "row_0": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-call.jpg",
-            "caption": "Foreign Calls Translation",
-            "heading": "Powerful Immersive Voice-Call Translation",
-            "text": "<p>Transcend language barriers in calls among phone or app. No device needed on the other end.</p>"
-          }
-        },
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-meeting.jpg",
-            "caption": "Online Meeting Translation",
-            "heading": "Online Meeting Now with Translation",
-            "text": "<p>Translate and display subtitles during virtual meetings on your phone or tablet.</p>"
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-media.jpg",
-            "caption": "Media Translation",
-            "heading": "News, Series, and Broadcast, Audio Translating with Subtitles",
-            "text": "<p>Translates both videos and audios from your phone, tablet, or computer and delivers real-time subtitles.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "row_0",
-        "row_1",
-        "row_2"
-      ]
+        "row_color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "w4pro_detail": {
       "type": "rich-text",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
@@ -325,7 +346,10 @@
           "settings": {
             "button_label": "See More",
             "button_link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026",
-            "button_style_secondary": true
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -333,23 +357,18 @@
         "heading_0",
         "text_1",
         "button_2"
-      ]
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
     "perks": {
       "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/home-perks.jpg",
-        "image_2": "shopify://shop_images/home-perks-mobile.jpg",
-        "image_overlay_opacity": 20,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
@@ -361,7 +380,8 @@
         "text_1": {
           "type": "text",
           "settings": {
-            "text": "Connect with real Timekettle users. Unlock early access & exclusive rewards"
+            "text": "Connect with real Timekettle users. Unlock early access & exclusive rewards",
+            "text_style": "body"
           }
         },
         "buttons_2": {
@@ -369,7 +389,10 @@
           "settings": {
             "button_label_1": "Join Our Facebook Community",
             "button_link_1": "#",
-            "button_style_secondary_1": false
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -377,22 +400,24 @@
         "heading_0",
         "text_1",
         "buttons_2"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/home-perks.jpg",
+        "image_2": "shopify://shop_images/home-perks-mobile.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
     },
     "business": {
       "type": "image-with-text",
-      "settings": {
-        "image": "shopify://shop_images/home-business.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1"
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
@@ -401,36 +426,45 @@
             "heading_size": "h2"
           }
         },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": true
+          }
+        },
         "text_1": {
           "type": "text",
           "settings": {
             "text": "<p>Timekettle’s translation solutions are specifically designed to break down language barriers, offering businesses the tools they need for seamless, real-time communication. Explore our products and empower your business today!</p>",
             "text_style": "body"
           }
-        },
-        "button_2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
         "heading_0",
-        "text_1",
-        "button_2"
-      ]
+        "button_2",
+        "text_1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/home-business.jpg",
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "languages": {
       "type": "rich-text",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-5",
-        "full_width": true
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
@@ -449,22 +483,18 @@
       "block_order": [
         "heading_0",
         "text_1"
-      ]
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
     "testimonials": {
       "type": "multicolumn",
-      "settings": {
-        "title": "Real Reviews. Real Results.",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true
-      },
       "blocks": {
         "column_0": {
           "type": "column",
@@ -518,16 +548,26 @@
         "column_2",
         "column_3",
         "column_4"
-      ]
+      ],
+      "settings": {
+        "title": "Real Reviews. Real Results.",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "quiz": {
       "type": "rich-text",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
@@ -547,7 +587,10 @@
           "settings": {
             "button_label": "Take the Quiz",
             "button_link": "#",
-            "button_style_secondary": false
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -555,25 +598,42 @@
         "heading_0",
         "text_1",
         "button_2"
-      ]
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
     "shop": {
       "type": "featured-collection",
       "settings": {
-        "title": "Shop Timekettle Translators",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 5,
+        "title": "Shop Timekettle Translators",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 5,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2"
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },

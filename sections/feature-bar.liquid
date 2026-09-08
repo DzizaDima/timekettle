@@ -1,0 +1,212 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="feature-bar color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding{% if section.settings.show_line_separator %} feature-bar--bottom-border{% endif %}"
+  style="--feature-bar-count: {{ section.blocks.size | at_least: 1 }};"
+>
+  <div class="page-width">
+    <ul class="feature-bar__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="feature-bar__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != 'none' -%}
+            <span class="feature-bar__icon svg-wrapper" aria-hidden="true">
+              {%- case block.settings.icon -%}
+                {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
+                {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
+                {%- when 'tick' -%}{{ 'icon-tick.svg' | inline_asset_content }}
+                {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
+                {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
+                {%- when 'fire' -%}{{ 'icon-fire.svg' | inline_asset_content }}
+                {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                {%- when 'question' -%}{{ 'icon-question-mark.svg' | inline_asset_content }}
+                {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
+                {%- when 'return' -%}{{ 'icon-return.svg' | inline_asset_content }}
+                {%- when 'stopwatch' -%}{{ 'icon-stopwatch.svg' | inline_asset_content }}
+                {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                {%- when 'map-pin' -%}{{ 'icon-map-pin.svg' | inline_asset_content }}
+                {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
+              {%- endcase -%}
+            </span>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <span class="feature-bar__text">{{ block.settings.text | escape }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .feature-bar {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .feature-bar .feature-bar__item {
+    color: rgb(var(--color-foreground));
+  }
+
+  .feature-bar--bottom-border {
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  }
+
+  .feature-bar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 1rem 2.4rem;
+  }
+
+  .feature-bar__item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-body-family);
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .feature-bar__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .feature-bar__icon svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .feature-bar__icon svg path {
+    fill: currentColor;
+  }
+
+  @media screen and (min-width: 750px) {
+    .feature-bar__list {
+      grid-template-columns: repeat(var(--feature-bar-count, 4), auto);
+      gap: 3.2rem;
+    }
+
+    .feature-bar__item {
+      font-size: 1.4rem;
+    }
+
+    .feature-bar__icon svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Feature bar",
+  "class": "section-feature-bar",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "label": "Show bottom border",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "check",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "check", "label": "Check mark" },
+            { "value": "tick", "label": "Tick" },
+            { "value": "star", "label": "Star" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "fire", "label": "Fire" },
+            { "value": "chat", "label": "Chat bubble" },
+            { "value": "question", "label": "Question mark" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "return", "label": "Return" },
+            { "value": "stopwatch", "label": "Stopwatch" },
+            { "value": "plane", "label": "Plane" },
+            { "value": "map-pin", "label": "Map pin" },
+            { "value": "discount", "label": "Discount" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free delivery in 48h"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Feature bar",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "truck", "text": "Free delivery in 48h" } },
+        { "type": "feature", "settings": { "icon": "check", "text": "Partner Timekettle" } },
+        { "type": "feature", "settings": { "icon": "star", "text": "Genuine Products" } },
+        { "type": "feature", "settings": { "icon": "chat", "text": "UK Support" } }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

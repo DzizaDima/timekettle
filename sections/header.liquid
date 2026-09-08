@@ -18,8 +18,10 @@
 
 <style>
   header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
+    display: flex;
+    align-items: center;
+    order: 1;
+    margin-left: 0.4rem;
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -35,6 +37,13 @@
       }
     }
   {%- endif -%}
+
+  /* Mobile: menu trigger sits to the right of the cart icon */
+  @media screen and (max-width: 989px) {
+    .header {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
 
   .menu-drawer-container {
     display: flex;
@@ -169,10 +178,6 @@
       assign render_search_left = false
       if section.settings.logo_position == 'top-center' or section.settings.menu == blank or shop.customer_accounts_enabled
         assign render_search_left = true
-      endif
-
-      if section.settings.menu != blank
-        render 'header-drawer', show_country_selector: country_selector, show_language_selector: language_selector, show_social_links: social_links
       endif
 
       if render_search_left
@@ -315,6 +320,14 @@
           </div>
         {%- endif -%}
       </a>
+
+      {%- if section.settings.menu != blank -%}
+        {%- render 'header-drawer',
+          show_country_selector: country_selector,
+          show_language_selector: language_selector,
+          show_social_links: social_links
+        -%}
+      {%- endif -%}
     </div>
   </header>
 </{{ header_tag }}>

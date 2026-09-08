@@ -29,6 +29,29 @@
   }
 {%- endstyle -%}
 
+{%- if section.settings.show_text_box == false -%}
+  {%- comment -%} Text sits directly on the photo — scrim gradient for legibility {%- endcomment -%}
+  {%- style -%}
+    #Banner-{{ section.id }}::after,
+    #Banner-{{ section.id }} .banner__media::after {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.32) 100%);
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 750px) {
+      #Banner-{{ section.id }}::after,
+      #Banner-{{ section.id }} .banner__media::after {
+        background: linear-gradient(
+          94deg,
+          rgba(0, 0, 0, 0.62) 6%,
+          rgba(0, 0, 0, 0.28) 48%,
+          rgba(0, 0, 0, 0) 82%
+        );
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
 {%- liquid
   assign full_width = '100vw'
   assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
@@ -165,6 +188,97 @@
     </div>
   </div>
 </div>
+
+{%- comment -%}
+  Timekettle hero tuning — id-scoped so it wins over section-image-banner.css
+  (the {% stylesheet %} bundle loads before Dawn's section CSS, so equal-specificity
+  overrides there lose). Figma: content 1320 / gutter 60 desktop, 16 mobile;
+  hero ~800 / ~520px; H1 88/50, subtitle 20/16, buttons stacked full-width on mobile.
+{%- endcomment -%}
+{%- style -%}
+  #Banner-{{ section.id }}.banner .page-width {
+    max-width: 144rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  #Banner-{{ section.id }} .banner__buttons {
+    gap: 1.6rem;
+    max-width: none;
+  }
+
+  #Banner-{{ section.id }} .banner__box .banner__heading + * {
+    margin-top: 2.4rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    #Banner-{{ section.id }}.banner--large:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
+      min-height: 52rem;
+    }
+
+    /* .banner__content.page-width already supplies the 1.6rem gutter */
+    #Banner-{{ section.id }}.banner--desktop-transparent .banner__box {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #Banner-{{ section.id }} .banner__text {
+      font-size: 1.6rem;
+    }
+
+    #Banner-{{ section.id }} .banner__box > * + .banner__buttons {
+      margin-top: 3.2rem;
+    }
+
+    /* full-width stacked buttons */
+    #Banner-{{ section.id }} .banner__buttons--multiple {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    #Banner-{{ section.id }} .banner__buttons--multiple > .button {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #Banner-{{ section.id }}.banner .page-width {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    #Banner-{{ section.id }}.banner--large:not(.banner--adapt) {
+      min-height: 80rem;
+    }
+
+    #Banner-{{ section.id }}.banner--content-align-left.banner--desktop-transparent .banner__box,
+    #Banner-{{ section.id }}.banner--content-align-right.banner--desktop-transparent .banner__box {
+      max-width: 90rem;
+    }
+
+    #Banner-{{ section.id }} .banner__text {
+      font-size: 2rem;
+      max-width: 40rem;
+    }
+
+    #Banner-{{ section.id }} .banner__box .banner__heading + * {
+      margin-top: 3.2rem;
+    }
+
+    #Banner-{{ section.id }} .banner__box > * + .banner__buttons {
+      margin-top: 4.8rem;
+    }
+
+    /* secondary button on the photo is a plain text + arrow link, no pill */
+    #Banner-{{ section.id }}.banner--desktop-transparent .banner__buttons--multiple .button--secondary {
+      border-color: transparent;
+      background: transparent;
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+    }
+  }
+{%- endstyle -%}
 
 {% schema %}
 {

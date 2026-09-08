@@ -12,47 +12,47 @@
     "hero_x1": {
       "type": "image-banner",
       "blocks": {
-        "text_0": {
-          "type": "text",
-          "settings": {
-            "text": "Real-Time AI Interpretation for Multi-Person, Multi-Language Meetings",
-            "text_style": "caption-with-letter-spacing"
-          }
-        },
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "X1 Meeting Interpreter Hub",
-            "heading_size": "h1"
+            "heading": "Speak any Language. Naturally.",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_0": {
+          "type": "text",
+          "settings": {
+            "text": "Real-time AI translation for travel, business and everyday conversations.",
+            "text_style": "body"
           }
         },
         "buttons_2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "See More",
-            "button_link_1": "shopify://products/x1-meeting-interpreter-hub",
+            "button_label_1": "Discover the Translator",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
-            "button_label_2": "Button label",
+            "button_label_2": "See how it works →",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "text_0",
         "heading_1",
+        "text_0",
         "buttons_2"
       ],
       "settings": {
         "image": "shopify://shop_images/home-hero-x1.jpg",
         "image_2": "shopify://shop_images/home-hero-x1-mobile.jpg",
-        "image_overlay_opacity": 30,
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
         "show_text_below": false

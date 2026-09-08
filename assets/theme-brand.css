@@ -245,8 +245,8 @@ button.shopify-payment-button__button--unbranded,
 /* ------------------------------------------------------------------ */
 
 .page-width {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -314,6 +314,30 @@ button.shopify-payment-button__button--unbranded,
 
   .header__inline-menu .list-menu--inline {
     column-gap: 2.4rem;
+  }
+}
+
+/* Mobile: logo is ~96px in the Figma frame (desktop asset is 140px wide).
+   settings.logo_width is global, so cap the wrapper below the header breakpoint.
+   Also drop the stray link/icons inset so logo and icons sit on the 2.4rem gutter. */
+@media screen and (max-width: 989px) {
+  .header__heading-logo-wrapper {
+    width: 9.6rem;
+  }
+
+  .header__heading-link {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header__icons {
+    padding-right: 0;
+  }
+
+  /* pull the last icon's 44px hit-box slack off the gutter so the glyph
+     sits on the same 2.4rem edge as the logo */
+  header-drawer {
+    margin-right: -1rem;
   }
 }
 

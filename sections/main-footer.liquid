@@ -1,12 +1,18 @@
 {% comment %}
-  Timekettle brand footer — layout matched to the Figma design (node 58:2121):
-  left = logo + newsletter, right = menu + social, divider, bottom = copyright + payment icons.
+  Timekettle brand footer — matched 1:1 to the Figma design (node 58:2121).
+
+  Desktop grid:            Mobile grid (stacked):
+    brand      nav           brand
+    divider  divider         nav
+    copyright  payments      payments
+                             divider
+                             copyright
 {% endcomment %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.85 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.85 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -22,176 +28,177 @@
   if section.settings.social_facebook_link != blank or section.settings.social_instagram_link != blank or section.settings.social_x_link != blank or section.settings.social_tiktok_link != blank or section.settings.social_youtube_link != blank or section.settings.social_linkedin_link != blank
     assign social_links = true
   endif
+
+  assign payment_types = section.settings.payment_icons | split: ','
 -%}
 
 <footer class="brand-footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="page-width">
-    <div class="brand-footer__top">
-      <div class="brand-footer__brand">
-        <a href="{{ routes.root_url }}" class="brand-footer__logo-link" aria-label="{{ shop.name | escape }}">
-          {%- if section.settings.logo != blank -%}
-            {%- assign logo_h = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
-            {{
-              section.settings.logo
-              | image_url: width: 600
-              | image_tag:
-                loading: 'lazy',
-                widths: '150, 199, 300, 400, 600',
-                width: section.settings.logo_width,
-                height: logo_h,
-                class: 'brand-footer__logo',
-                alt: shop.name
-            }}
-          {%- elsif settings.logo != blank -%}
-            {%- assign logo_h = section.settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-            {{
-              settings.logo
-              | image_url: width: 600
-              | image_tag:
-                loading: 'lazy',
-                widths: '150, 199, 300, 400, 600',
-                width: section.settings.logo_width,
-                height: logo_h,
-                class: 'brand-footer__logo',
-                alt: shop.name
-            }}
-          {%- else -%}
-            <span class="brand-footer__logo-text h3">{{ shop.name }}</span>
+  <div class="page-width brand-footer__inner">
+    <div class="brand-footer__brand">
+      <a href="{{ routes.root_url }}" class="brand-footer__logo-link" aria-label="{{ shop.name | escape }}">
+        {%- if section.settings.logo != blank -%}
+          {%- assign logo_h = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+          {{
+            section.settings.logo
+            | image_url: width: 600
+            | image_tag:
+              loading: 'lazy',
+              widths: '150, 199, 300, 400, 600',
+              width: section.settings.logo_width,
+              height: logo_h,
+              class: 'brand-footer__logo',
+              alt: shop.name
+          }}
+        {%- elsif settings.logo != blank -%}
+          {%- assign logo_h = section.settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+          {{
+            settings.logo
+            | image_url: width: 600
+            | image_tag:
+              loading: 'lazy',
+              widths: '150, 199, 300, 400, 600',
+              width: section.settings.logo_width,
+              height: logo_h,
+              class: 'brand-footer__logo',
+              alt: shop.name
+          }}
+        {%- else -%}
+          <span class="brand-footer__logo-text h3">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+
+      {%- if section.settings.show_newsletter -%}
+        {%- if section.settings.newsletter_heading != blank -%}
+          <p class="brand-footer__newsletter-heading">{{ section.settings.newsletter_heading }}</p>
+        {%- endif -%}
+        {%- form 'customer', id: 'BrandFooterNewsletter', class: 'brand-footer__newsletter' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="brand-footer__email-field">
+            <label class="visually-hidden" for="BrandFooterEmail-{{ section.id }}">
+              {{ 'newsletter.label' | t }}
+            </label>
+            <input
+              id="BrandFooterEmail-{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              placeholder="{{ section.settings.email_placeholder | default: 'Your email' }}"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              required
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="BrandFooterNewsletter-error"
+              {% endif %}
+            >
+            <button type="submit" name="commit" aria-label="{{ 'newsletter.button_label' | t }}">
+              <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+            </button>
+          </div>
+          {%- if form.errors -%}
+            <small class="brand-footer__form-message" id="BrandFooterNewsletter-error">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </small>
+          {%- elsif form.posted_successfully? -%}
+            <small class="brand-footer__form-message brand-footer__form-message--success">
+              {{ 'newsletter.success' | t }}
+            </small>
           {%- endif -%}
-        </a>
-
-        {%- if section.settings.show_newsletter -%}
-          {%- if section.settings.newsletter_heading != blank -%}
-            <p class="brand-footer__newsletter-heading">{{ section.settings.newsletter_heading }}</p>
-          {%- endif -%}
-          {%- form 'customer', id: 'BrandFooterNewsletter', class: 'brand-footer__newsletter' -%}
-            <input type="hidden" name="contact[tags]" value="newsletter">
-            <div class="brand-footer__email-field">
-              <label class="visually-hidden" for="BrandFooterEmail-{{ section.id }}">
-                {{ 'newsletter.label' | t }}
-              </label>
-              <input
-                id="BrandFooterEmail-{{ section.id }}"
-                type="email"
-                name="contact[email]"
-                value="{{ form.email }}"
-                placeholder="{{ 'newsletter.label' | t }}"
-                autocorrect="off"
-                autocapitalize="off"
-                autocomplete="email"
-                required
-                {% if form.errors %}
-                  aria-invalid="true"
-                  aria-describedby="BrandFooterNewsletter-error"
-                {% endif %}
-              >
-              <button type="submit" name="commit" aria-label="{{ 'newsletter.button_label' | t }}">
-                <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-              </button>
-            </div>
-            {%- if form.errors -%}
-              <small class="brand-footer__form-message" id="BrandFooterNewsletter-error">
-                {{ form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email }}
-              </small>
-            {%- elsif form.posted_successfully? -%}
-              <small class="brand-footer__form-message brand-footer__form-message--success">
-                {{ 'newsletter.success' | t }}
-              </small>
-            {%- endif -%}
-          {%- endform -%}
-        {%- endif -%}
-      </div>
-
-      <div class="brand-footer__nav">
-        {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-          <nav class="brand-footer__menu-wrap" aria-label="Footer">
-            <ul class="brand-footer__menu list-unstyled" role="list">
-              {%- for link in section.settings.menu.links -%}
-                <li>
-                  <a href="{{ link.url }}" class="brand-footer__menu-link{% if link.active %} brand-footer__menu-link--active{% endif %}">
-                    {{- link.title | escape -}}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </nav>
-        {%- endif -%}
-
-        {%- if social_links -%}
-          <ul class="brand-footer__social list-unstyled" role="list">
-            {%- if section.settings.social_facebook_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_facebook_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-facebook.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">Facebook</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if section.settings.social_instagram_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_instagram_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-instagram.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">Instagram</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if section.settings.social_x_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_x_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-twitter.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">X</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if section.settings.social_tiktok_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_tiktok_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-tiktok.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">TikTok</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if section.settings.social_youtube_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_youtube_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-youtube.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">YouTube</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if section.settings.social_linkedin_link != blank -%}
-              <li>
-                <a href="{{ section.settings.social_linkedin_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
-                  <span class="svg-wrapper">{{- 'icon-linkedin.svg' | inline_asset_content -}}</span>
-                  <span class="visually-hidden">LinkedIn</span>
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        {%- endif -%}
-      </div>
+        {%- endform -%}
+      {%- endif -%}
     </div>
 
-    <hr class="brand-footer__divider">
+    <div class="brand-footer__nav">
+      {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+        <nav class="brand-footer__menu-wrap" aria-label="Footer">
+          <ul class="brand-footer__menu list-unstyled" role="list">
+            {%- for link in section.settings.menu.links -%}
+              <li>
+                <a href="{{ link.url }}" class="brand-footer__menu-link{% if link.active %} brand-footer__menu-link--active{% endif %}">
+                  {{- link.title | escape -}}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
 
-    <div class="brand-footer__bottom">
-      <p class="brand-footer__copyright">
-        {%- if section.settings.copyright_text != blank -%}
-          Copyright &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text }}
-        {%- else -%}
-          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
-        {%- endif -%}
-      </p>
-
-      {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
-        <ul class="brand-footer__payments list-unstyled" role="list">
-          {%- for type in shop.enabled_payment_types -%}
-            <li>{{ type | payment_type_svg_tag: class: 'brand-footer__payment-icon' }}</li>
-          {%- endfor -%}
+      {%- if social_links -%}
+        <ul class="brand-footer__social list-unstyled" role="list">
+          {%- if section.settings.social_facebook_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_facebook_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-facebook.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">Facebook</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.social_instagram_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_instagram_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-instagram.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">Instagram</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.social_x_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_x_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-twitter.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">X</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.social_tiktok_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_tiktok_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-tiktok.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">TikTok</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.social_youtube_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_youtube_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-youtube.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">YouTube</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.social_linkedin_link != blank -%}
+            <li>
+              <a href="{{ section.settings.social_linkedin_link }}" class="brand-footer__social-link" rel="noopener" target="_blank">
+                <span class="svg-wrapper">{{- 'icon-linkedin.svg' | inline_asset_content -}}</span>
+                <span class="visually-hidden">LinkedIn</span>
+              </a>
+            </li>
+          {%- endif -%}
         </ul>
       {%- endif -%}
     </div>
+
+    {%- if section.settings.show_payment_icons and payment_types.size > 0 -%}
+      <ul class="brand-footer__payments list-unstyled" role="list">
+        {%- for pt in payment_types -%}
+          {%- assign pt_key = pt | strip -%}
+          {%- if pt_key != blank -%}
+            <li>{{ pt_key | payment_type_svg_tag: class: 'brand-footer__payment-icon' }}</li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <hr class="brand-footer__divider">
+
+    <p class="brand-footer__copyright">
+      {%- if section.settings.copyright_text != blank -%}
+        Copyright &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text }}
+      {%- else -%}
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+      {%- endif -%}
+    </p>
   </div>
 </footer>
 
@@ -201,28 +208,52 @@
     color: rgb(var(--color-foreground));
   }
 
-  .brand-footer__top {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+  /* Figma: content 1320, side gutters 60 (desktop) / 16 (mobile).
+     Dawn's --page-width (1300) clamps before the padding, pushing content
+     ~130px in on wide screens — restore the design gutter for the footer. */
+  .brand-footer .page-width {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .brand-footer .page-width {
+      max-width: 144rem;
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+
+  .brand-footer__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'brand'
+      'nav'
+      'payments'
+      'divider'
+      'copyright';
+    row-gap: 4rem;
   }
 
   .brand-footer__brand {
+    grid-area: brand;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.4rem;
-    max-width: 42.5rem;
+    gap: 2rem;
   }
 
   .brand-footer__logo-link {
     display: inline-block;
+    margin-bottom: 1.2rem;
     text-decoration: none;
     color: inherit;
   }
 
   .brand-footer__logo {
     display: block;
+    width: 11.2rem;
     height: auto;
   }
 
@@ -234,7 +265,7 @@
     margin: 0;
     font-family: var(--font-body-family);
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height: 1.45;
     color: rgb(var(--color-foreground));
   }
 
@@ -245,14 +276,13 @@
   .brand-footer__email-field {
     position: relative;
     width: 100%;
-    max-width: 34rem;
   }
 
   .brand-footer__email-field input {
     width: 100%;
     height: 4.6rem;
-    padding: 0 5.4rem 0 1.8rem;
-    border: 0.1rem solid rgba(var(--color-foreground), 0.25);
+    padding: 0 5.6rem 0 2rem;
+    border: 0.1rem solid rgba(52, 86, 230, 0.18);
     border-radius: 10rem;
     background: rgb(var(--color-background));
     color: rgb(var(--color-foreground));
@@ -261,7 +291,7 @@
   }
 
   .brand-footer__email-field input::placeholder {
-    color: rgba(var(--color-foreground), 0.55);
+    color: rgba(var(--color-foreground), 0.5);
   }
 
   .brand-footer__email-field input:focus {
@@ -272,10 +302,10 @@
   .brand-footer__email-field button {
     position: absolute;
     top: 50%;
-    right: 0.45rem;
+    right: 0.3rem;
     transform: translateY(-50%);
-    width: 3.8rem;
-    height: 3.8rem;
+    width: 4rem;
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,8 +323,8 @@
 
   .brand-footer__email-field button .svg-wrapper,
   .brand-footer__email-field button svg {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.7rem;
+    height: 1.7rem;
     color: #fff;
   }
 
@@ -309,6 +339,7 @@
   }
 
   .brand-footer__nav {
+    grid-area: nav;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -318,7 +349,7 @@
   .brand-footer__menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.2rem 4rem;
+    gap: 1.2rem 3.6rem;
     margin: 0;
   }
 
@@ -358,28 +389,8 @@
     transform: scale(1.08);
   }
 
-  .brand-footer__divider {
-    height: 0;
-    margin: 3.6rem 0 0;
-    border: 0;
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.15);
-  }
-
-  .brand-footer__bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-    padding-top: 3.2rem;
-  }
-
-  .brand-footer__copyright {
-    margin: 0;
-    font-family: var(--font-body-family);
-    font-size: 1.3rem;
-    color: rgba(var(--color-foreground), 0.7);
-  }
-
   .brand-footer__payments {
+    grid-area: payments;
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
@@ -391,26 +402,69 @@
     height: 2.4rem;
   }
 
+  .brand-footer__divider {
+    grid-area: divider;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  }
+
+  .brand-footer__copyright {
+    grid-area: copyright;
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 1.3rem;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
   @media screen and (min-width: 990px) {
-    .brand-footer__top {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 4rem;
+    .brand-footer__inner {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'brand nav'
+        'divider divider'
+        'copyright payments';
+      row-gap: 3.6rem;
+      column-gap: 4rem;
+    }
+
+    .brand-footer__brand {
+      max-width: 38rem;
+    }
+
+    .brand-footer__email-field {
+      max-width: 32rem;
+    }
+
+    .brand-footer__email-field button {
+      width: 3.8rem;
+      height: 3.8rem;
+      right: 0.4rem;
+    }
+
+    .brand-footer__logo {
+      width: 19.9rem;
     }
 
     .brand-footer__nav {
       align-items: flex-end;
       text-align: right;
+      gap: 4rem;
     }
 
     .brand-footer__menu {
       justify-content: flex-end;
     }
 
-    .brand-footer__bottom {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+    .brand-footer__payments {
+      justify-content: flex-end;
+      align-self: center;
+    }
+
+    .brand-footer__copyright {
+      align-self: center;
     }
   }
 {% endstylesheet %}
@@ -442,8 +496,8 @@
       "max": 320,
       "step": 5,
       "unit": "px",
-      "label": "Logo width",
-      "default": 180
+      "label": "Logo width (desktop asset)",
+      "default": 200
     },
     {
       "type": "header",
@@ -460,6 +514,12 @@
       "id": "newsletter_heading",
       "label": "Heading",
       "default": "Sign up now — for news and exclusive offers"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email field placeholder",
+      "default": "Your email"
     },
     {
       "type": "header",
@@ -523,6 +583,13 @@
       "default": true
     },
     {
+      "type": "text",
+      "id": "payment_icons",
+      "label": "Payment icons",
+      "info": "Comma-separated Shopify payment types, in display order.",
+      "default": "american_express, apple_pay, google_pay, master, visa, paypal, bancontact, diners_club, discover, shopify_pay"
+    },
+    {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
     },
@@ -534,7 +601,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 40
+      "default": 48
     },
     {
       "type": "range",
@@ -544,7 +611,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 40
+      "default": 48
     }
   ],
   "enabled_on": {

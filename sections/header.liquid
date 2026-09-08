@@ -38,11 +38,12 @@
     }
   {%- endif -%}
 
-  /* Mobile: menu trigger sits to the right of the cart icon */
-  @media screen and (max-width: 989px) {
-    .header {
-      grid-template-columns: 1fr auto 1fr;
-    }
+  /* Dawn forces .header__icon--cart .icon to 4.4rem (stock cart svg had a 40x40
+     viewBox with built-in padding). Our icons use tight viewBoxes, so normalise
+     every header icon to the same 2rem glyph. */
+  .header__icon--cart .icon {
+    width: 2rem;
+    height: 2rem;
   }
 
   .menu-drawer-container {
@@ -111,7 +112,9 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    /* horizontal gutters come from .page-width (theme-brand.css): 2.4rem mobile / 6rem desktop */
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   .section-header {

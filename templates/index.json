@@ -158,81 +158,19 @@
       }
     },
     "product_cards": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_0": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/home-w4.jpg",
-            "title": "W4",
-            "text": "<p>AI Interpreter Earbuds</p>",
-            "link_label": "Shop W4",
-            "link": "shopify://products/w4-ai-interpreter-earbuds"
-          }
-        },
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/home-card-w4pro.jpg",
-            "title": "W4 Pro",
-            "text": "<p>AI Interpreter Earbuds</p>",
-            "link_label": "Shop W4 Pro",
-            "link": "shopify://products/w4-pro-ai-interpreter-earbuds-2026"
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/home-card-x1.jpg",
-            "title": "X1 Meeting",
-            "text": "<p>Meeting Interpreter Hub</p>",
-            "link_label": "Shop X1",
-            "link": "shopify://products/x1-meeting-interpreter-hub"
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/home-card-m3.jpg",
-            "title": "M3",
-            "text": "<p>Language Translator Earbuds</p>",
-            "link_label": "Shop M3",
-            "link": "shopify://products/m3-travel-translator-earbuds"
-          }
-        },
-        "column_4": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/home-card-t1.jpg",
-            "title": "NEW T1",
-            "text": "<p>Handheld Translator Device</p>",
-            "link_label": "Shop T1",
-            "link": "shopify://products/fluentalk-t1-handheld-translator-device"
-          }
-        }
-      },
-      "block_order": [
-        "column_0",
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_4"
-      ],
+      "type": "featured-products",
       "settings": {
-        "title": "Meet the Timekettle Family",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "Button label",
-        "button_link": "",
-        "columns_desktop": 5,
-        "column_alignment": "center",
-        "background_style": "none",
+        "collection": "find-your-timekettle",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "caption": "Find Your Timekettle",
+        "title": "Find Your Timekettle",
+        "heading_size": "h0",
+        "button_label": "Compare All Models",
+        "button_link": "shopify://collections/all",
         "color_scheme": "scheme-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "w4pro_leadin": {

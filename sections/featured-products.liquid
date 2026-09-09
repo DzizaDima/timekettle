@@ -1,0 +1,499 @@
+{% comment %}
+  Timekettle "Find Your Timekettle" — curated product cards.
+  Collection-driven. Per-product marketing content comes from metafields:
+    custom.card_title       (single line text)  — short name, e.g. "W4 Pro" (falls back to product title)
+    custom.card_badge       (single line text)  — badge label, e.g. "Best for Travel"
+    custom.card_badge_icon  (single line text)  — icon key: chat / star / plane / truck / check / heart / lock / discount
+    custom.card_blurb       (multi-line text)   — 1–2 sentence description (falls back to product description)
+  Falls back gracefully when a collection / metafields are not set yet.
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.8 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.8 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #FeaturedProducts-{{ section.id }} .page-width {
+    max-width: 144rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  /* id-scoped so it beats theme-brand's .h0 (section CSS bundle loads first) */
+  #FeaturedProducts-{{ section.id }} .featured-products__title {
+    font-size: 3.6rem;
+    line-height: 1.12;
+  }
+
+  @media screen and (min-width: 750px) {
+    #FeaturedProducts-{{ section.id }} .page-width {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    #FeaturedProducts-{{ section.id }} .featured-products__title {
+      font-size: 6.4rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign coll = section.settings.collection
+  assign limit = section.settings.products_to_show
+  assign products = coll.products
+  assign count = products.size
+  if count > limit
+    assign count = limit
+  endif
+  assign use_placeholder = false
+  if count == 0
+    assign use_placeholder = true
+    assign count = section.settings.columns_desktop
+  endif
+  assign show_slider = false
+  if count > 1
+    assign show_slider = true
+  endif
+-%}
+
+<div
+  id="FeaturedProducts-{{ section.id }}"
+  class="featured-products color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+>
+  <div class="page-width">
+    {%- if section.settings.caption != blank -%}
+      <p class="featured-products__caption caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h2 class="featured-products__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+
+    <div class="featured-products__slider">
+      <ul
+        class="featured-products__grid{% if show_slider %} slider{% endif %}"
+        role="list"
+        style="--fp-cols: {{ section.settings.columns_desktop }};"
+      >
+        {%- if use_placeholder -%}
+          {%- for i in (1..count) -%}
+            <li class="featured-products__item{% if show_slider %} slider__slide{% endif %}">
+              <div class="fp-card">
+                <div class="fp-card__media">
+                  {{ 'product-apparel-1' | placeholder_svg_tag: 'fp-card__placeholder' }}
+                </div>
+                <div class="fp-card__body">
+                  <h3 class="fp-card__title">Product name</h3>
+                  <p class="fp-card__blurb">Add a collection to this section and it will show your products here.</p>
+                  <span class="button button--primary fp-card__button">Shop now</span>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for product in products limit: limit -%}
+            {%- liquid
+              assign card_title = product.metafields.custom.card_title.value | default: product.title
+              assign badge = product.metafields.custom.card_badge.value
+              assign badge_icon = product.metafields.custom.card_badge_icon.value | default: 'star' | downcase | strip
+              assign blurb = product.metafields.custom.card_blurb.value
+              if blurb == blank
+                assign blurb = product.description | strip_html | truncatewords: 14
+              endif
+            -%}
+            <li class="featured-products__item{% if show_slider %} slider__slide{% endif %}">
+              <div class="fp-card">
+                <a href="{{ product.url }}" class="fp-card__media" aria-label="{{ product.title | escape }}">
+                  {%- if badge != blank -%}
+                    <span class="fp-card__badge">
+                      <span class="fp-card__badge-icon" aria-hidden="true">
+                        {%- case badge_icon -%}
+                          {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
+                          {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
+                          {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
+                          {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
+                          {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                          {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
+                          {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                          {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
+                          {%- else -%}{{ 'icon-star.svg' | inline_asset_content }}
+                        {%- endcase -%}
+                      </span>
+                      {{ badge | escape }}
+                    </span>
+                  {%- endif -%}
+                  {%- if product.featured_media -%}
+                    {{
+                      product.featured_media
+                      | image_url: width: 900
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '300, 450, 600, 900',
+                        sizes: '(min-width: 750px) 40rem, 90vw',
+                        class: 'fp-card__image',
+                        alt: product.featured_media.alt | default: product.title | escape
+                    }}
+                  {%- else -%}
+                    {{ 'product-apparel-1' | placeholder_svg_tag: 'fp-card__placeholder' }}
+                  {%- endif -%}
+                </a>
+                <div class="fp-card__body">
+                  <h3 class="fp-card__title">
+                    <a href="{{ product.url }}">{{ card_title | escape }}</a>
+                  </h3>
+                  {%- if blurb != blank -%}
+                    <p class="fp-card__blurb">{{ blurb }}</p>
+                  {%- endif -%}
+                  <a href="{{ product.url }}" class="button button--primary fp-card__button">
+                    Shop {{ card_title | escape }}
+                  </a>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="featured-products__cta">
+        <a
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+          class="button button--secondary fp-compare"
+        >
+          {{ section.settings.button_label | escape }}
+          <span class="fp-compare__arrow svg-wrapper" aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .featured-products {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .featured-products__caption {
+    margin: 0 0 1.2rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--tk-blue, #3456e6);
+  }
+
+  .featured-products__title {
+    margin: 0 0 4rem;
+    text-align: center;
+  }
+
+  .featured-products__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .featured-products__item {
+    min-width: 0;
+  }
+
+  .fp-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(var(--color-foreground), 0.04);
+    border-radius: 2.4rem;
+    overflow: hidden;
+  }
+
+  .fp-card__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(155deg, #eef2fd 0%, #dde6fb 60%, #cdd9f6 100%);
+  }
+
+  .fp-card__image,
+  .fp-card__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .fp-card__badge {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.6rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: calc(100% - 3.2rem);
+    padding: 0.7rem 1.4rem;
+    border-radius: 10rem;
+    background: #191f52;
+    color: #fff;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .fp-card__badge-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    color: #55f89b;
+  }
+
+  .fp-card__badge-icon svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .fp-card__badge-icon svg path,
+  .fp-card__badge-icon svg rect {
+    fill: currentColor;
+  }
+
+  .fp-card__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 2.4rem;
+  }
+
+  .fp-card__title {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .fp-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fp-card__blurb {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
+  .fp-card__button {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .featured-products__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .fp-compare {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .fp-compare__arrow svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .fp-compare__arrow svg path {
+    fill: currentColor;
+  }
+
+  /* Mobile: swipe carousel, one card ~86% of the viewport with the next peeking */
+  @media screen and (max-width: 749px) {
+    .featured-products__slider {
+      display: block;
+      margin-left: -1.6rem;
+      margin-right: -1.6rem;
+    }
+
+    .featured-products__grid.slider {
+      display: flex;
+      grid-template-columns: none;
+      gap: 1.6rem;
+      padding: 0 1.6rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 1.6rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .featured-products__grid.slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .featured-products__grid.slider .featured-products__item {
+      flex: 0 0 86vw;
+      scroll-snap-align: start;
+    }
+
+    .fp-card__title {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .featured-products__grid {
+      grid-template-columns: repeat(var(--fp-cols, 3), 1fr);
+    }
+
+    .featured-products__title {
+      margin-bottom: 4.8rem;
+    }
+
+    .fp-card__body {
+      gap: 1.4rem;
+      padding: 2.8rem;
+    }
+
+    .fp-card__title {
+      font-size: 2.8rem;
+    }
+
+    .featured-products__cta {
+      margin-top: 4.8rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Featured products",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 3,
+      "label": "Products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Eyebrow",
+      "default": "Find Your Timekettle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Find Your Timekettle"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h0"
+    },
+    {
+      "type": "header",
+      "content": "Compare button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Label",
+      "default": "Compare All Models"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured products"
+    }
+  ]
+}
+{% endschema %}

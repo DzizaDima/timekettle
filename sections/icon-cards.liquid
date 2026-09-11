@@ -1,0 +1,348 @@
+{% comment %}
+  Icon value cards — "Buy Timekettle with Confidence".
+  Centered heading, a grid of bordered cards (circle icon + title + text),
+  and a primary button below. 5 cards render 3 + 2 centred on desktop,
+  1 column on mobile.
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.8 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.8 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #IconCards-{{ section.id }} .page-width {
+    max-width: 144rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  #IconCards-{{ section.id }} .ic__title {
+    font-size: 3.2rem;
+    line-height: 1.16;
+  }
+
+  @media screen and (min-width: 750px) {
+    #IconCards-{{ section.id }} .page-width {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    #IconCards-{{ section.id }} .ic__title {
+      font-size: 6.4rem;
+    }
+
+    #IconCards-{{ section.id }} .ic__card {
+      flex: 0 0 calc((100% - 4.8rem) / 3);
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="IconCards-{{ section.id }}"
+  class="icon-cards color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ic__title">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="ic__grid" role="list">
+        {%- for block in section.blocks -%}
+          <li class="ic__card" {{ block.shopify_attributes }}>
+            <span class="ic__icon" aria-hidden="true">
+              {%- case block.settings.icon -%}
+                {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
+                {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
+                {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
+                {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                {%- when 'support' -%}{{ 'icon-account.svg' | inline_asset_content }}
+                {%- when 'warranty' -%}{{ 'icon-return.svg' | inline_asset_content }}
+                {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
+                {%- when 'pin' -%}{{ 'icon-map-pin.svg' | inline_asset_content }}
+                {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
+                {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
+                {%- when 'clock' -%}{{ 'icon-stopwatch.svg' | inline_asset_content }}
+                {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                {%- else -%}{{ 'icon-tick.svg' | inline_asset_content }}
+              {%- endcase -%}
+            </span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="ic__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="ic__card-text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="ic__cta">
+        <a
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+          class="button button--primary ic__btn"
+        >
+          {{ section.settings.button_label | escape }}
+          <span class="ic__btn-arrow svg-wrapper" aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .icon-cards {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .ic__title {
+    margin: 0 0 3.2rem;
+    text-align: center;
+  }
+
+  .ic__grid {
+    list-style: none;
+    margin: 0 0 3.2rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem;
+  }
+
+  .ic__card {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 3rem 2.4rem;
+    border: 0.1rem solid rgba(52, 86, 230, 0.16);
+    border-radius: 2rem;
+    background: rgb(var(--color-background));
+  }
+
+  .ic__icon {
+    display: grid;
+    place-items: center;
+    width: 8.4rem;
+    height: 8.4rem;
+    margin-bottom: 0.6rem;
+    border-radius: 50%;
+    background: #ebeefc;
+    color: var(--tk-blue, #3456e6);
+  }
+
+  .ic__icon svg {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .ic__icon svg path,
+  .ic__icon svg rect,
+  .ic__icon svg circle {
+    fill: currentColor;
+  }
+
+  .ic__card-title {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 1.25;
+  }
+
+  .ic__card-text {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: rgba(var(--color-foreground), 0.62);
+  }
+
+  .ic__cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ic__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ic__btn-arrow svg {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .ic__btn-arrow svg path {
+    fill: currentColor;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ic__title {
+      margin-bottom: 4.8rem;
+    }
+
+    .ic__grid {
+      gap: 2.4rem;
+      margin-bottom: 4rem;
+    }
+
+    .ic__card {
+      padding: 3.6rem 3rem;
+      gap: 1.2rem;
+    }
+
+    .ic__icon {
+      width: 9.6rem;
+      height: 9.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .ic__icon svg {
+      width: 3.8rem;
+      height: 3.8rem;
+    }
+
+    .ic__card-title {
+      font-size: 2.2rem;
+    }
+
+    .ic__btn {
+      width: auto;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Icon cards",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Buy Timekettle with Confidence"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "check",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "star", "label": "Star" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "support", "label": "Support (person)" },
+            { "value": "warranty", "label": "Warranty (return)" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "pin", "label": "Map pin" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "discount", "label": "Discount" },
+            { "value": "clock", "label": "Stopwatch" },
+            { "value": "plane", "label": "Plane" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Card title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Short supporting sentence about this benefit."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Icon cards",
+      "blocks": [
+        { "type": "card", "settings": { "icon": "check", "title": "Authorised UK Distributor", "text": "Shop with confidence from an officially authorised Timekettle distributor in the UK." } },
+        { "type": "card", "settings": { "icon": "star", "title": "Genuine Timekettle Products", "text": "Every product is 100% genuine, original and sourced directly through authorised channels." } },
+        { "type": "card", "settings": { "icon": "truck", "title": "UK Delivery", "text": "Fast and reliable delivery across the UK, with your order dispatched locally." } },
+        { "type": "card", "settings": { "icon": "support", "title": "UK Customer Support", "text": "Get friendly, responsive support from our UK-based team whenever you need help." } },
+        { "type": "card", "settings": { "icon": "warranty", "title": "Warranty Support", "text": "Buy with peace of mind with reliable warranty support for your Timekettle device." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

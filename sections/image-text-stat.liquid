@@ -1,0 +1,518 @@
+{% comment %}
+  Timekettle "Why Timekettle / Stop Passing Your Phone" —
+  eyebrow + heading, image with overlay chips + progress bars,
+  body copy, ghost button, and a dark stat card.
+  Draft: copy / image / chip values are placeholders to fill in the editor.
+{% endcomment %}
+
+{%- liquid
+  assign chips = section.blocks | where: 'type', 'chip'
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.8 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.8 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #ImageTextStat-{{ section.id }} .page-width {
+    max-width: 144rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  #ImageTextStat-{{ section.id }} .its__title {
+    font-size: 3.4rem;
+    line-height: 1.14;
+  }
+
+  @media screen and (min-width: 750px) {
+    #ImageTextStat-{{ section.id }} .page-width {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+
+    #ImageTextStat-{{ section.id }} .its__title {
+      font-size: 6.4rem;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="ImageTextStat-{{ section.id }}"
+  class="image-text-stat color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+>
+  <div class="page-width">
+    {%- if section.settings.caption != blank -%}
+      <p class="its__caption caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="its__title">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="its__row">
+      <figure class="its__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              widths: '600, 900, 1200, 1600',
+              sizes: '(min-width: 750px) 76rem, 92vw',
+              class: 'its__image',
+              alt: section.settings.image.alt | default: section.settings.heading | escape
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'its__image its__image--placeholder' }}
+        {%- endif -%}
+
+        {%- if chips.size > 0 -%}
+          <ul class="its__chips" role="list">
+            {%- for chip in chips -%}
+              <li class="its__chip" {{ chip.shopify_attributes }} style="--its-progress: {{ chip.settings.progress | default: 60 }}%;">
+                <span class="its__chip-head">
+                  <span class="its__chip-icon" aria-hidden="true">
+                    {%- case chip.settings.icon -%}
+                      {%- when 'person' -%}{{ 'icon-account.svg' | inline_asset_content }}
+                      {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                      {%- when 'eye' -%}{{ 'icon-eye.svg' | inline_asset_content }}
+                      {%- when 'bolt' -%}{{ 'icon-lightning-bolt.svg' | inline_asset_content }}
+                      {%- when 'globe' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                      {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
+                      {%- else -%}{{ 'icon-checkmark.svg' | inline_asset_content }}
+                    {%- endcase -%}
+                  </span>
+                  {%- if chip.settings.label != blank -%}
+                    <span class="its__chip-label">{{ chip.settings.label | escape }}</span>
+                  {%- endif -%}
+                </span>
+                <span class="its__chip-bar"><span class="its__chip-fill"></span></span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </figure>
+
+      <div class="its__aside">
+        {%- if section.settings.body != blank -%}
+          <div class="its__body rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.show_stat -%}
+          <div class="its__stat">
+            <span class="its__stat-num">{{ section.settings.stat_number | escape }}</span>
+            {%- if section.settings.stat_label != blank -%}
+              <span class="its__stat-label">{{ section.settings.stat_label | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+            class="button button--secondary its__btn"
+          >
+            {{ section.settings.button_label | escape }}
+            <span class="its__btn-arrow svg-wrapper" aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .image-text-stat {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .its__caption {
+    margin: 0 0 1.2rem;
+    font-size: 1.3rem;
+    color: var(--tk-blue, #3456e6);
+  }
+
+  .its__title {
+    margin: 0 0 3.2rem;
+  }
+
+  .its__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+  }
+
+  .its__media {
+    position: relative;
+    margin: 0;
+    border-radius: 2.4rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(var(--color-foreground), 0.06);
+  }
+
+  .its__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .its__chips {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem 1rem;
+    padding: 1.4rem 1.2rem;
+    margin: 0;
+    list-style: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  }
+
+  .its__chip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+    color: #fff;
+  }
+
+  .its__chip-head {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body-family);
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .its__chip-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .its__chip-icon svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .its__chip-icon svg path {
+    fill: currentColor;
+  }
+
+  .its__chip-label {
+    min-width: 0;
+  }
+
+  .its__chip-bar {
+    display: block;
+    height: 0.6rem;
+    border-radius: 10rem;
+    background: rgba(255, 255, 255, 0.28);
+    overflow: hidden;
+  }
+
+  .its__chip-fill {
+    display: block;
+    height: 100%;
+    width: var(--its-progress, 60%);
+    border-radius: inherit;
+    background: linear-gradient(90deg, #35c8b8 0%, #3456e6 100%);
+  }
+
+  .its__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.4rem;
+  }
+
+  .its__body {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.55;
+  }
+
+  .its__body > :first-child { margin-top: 0; }
+  .its__body > :last-child { margin-bottom: 0; }
+
+  .its__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .its__btn-arrow svg {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .its__btn-arrow svg path {
+    fill: currentColor;
+  }
+
+  .its__stat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    padding: 3.2rem 2.6rem;
+    border-radius: 2.4rem;
+    color: #fff;
+    background: linear-gradient(115deg, #05060c 0%, #0b1030 42%, #2a3ec6 100%);
+  }
+
+  .its__stat-num {
+    font-family: var(--font-heading-family);
+    font-weight: 400;
+    font-size: 5.6rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .its__stat-label {
+    font-family: var(--font-body-family);
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  @media screen and (min-width: 750px) {
+    .its__title {
+      margin-bottom: 4rem;
+    }
+
+    .its__row {
+      grid-template-columns: 76rem 1fr;
+      gap: 8rem;
+      align-items: stretch;
+    }
+
+    .its__media {
+      aspect-ratio: 76 / 48;
+    }
+
+    .its__chips {
+      padding: 2.4rem;
+      gap: 1.2rem 2rem;
+      max-width: 52rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
+    }
+
+    .its__chip-head {
+      font-size: 1.4rem;
+      gap: 0.6rem;
+    }
+
+    .its__chip-icon svg {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+
+    .its__aside {
+      justify-content: center;
+      gap: 2.4rem;
+    }
+
+    .its__body {
+      font-size: 1.9rem;
+    }
+
+    .its__btn {
+      width: auto;
+      order: 1;
+    }
+
+    .its__stat {
+      order: 2;
+      align-items: flex-start;
+      text-align: left;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      padding: 2.6rem 3rem;
+      min-height: 15.6rem;
+      justify-content: center;
+    }
+
+    .its__stat-num {
+      font-size: 4.8rem;
+    }
+
+    .its__stat-label {
+      font-size: 1.4rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Image, text & stat",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-3"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Eyebrow",
+      "default": "Why Timekettle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stop Passing Your Phone Back and Forth."
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Body"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Text",
+      "default": "<p>Timekettle makes multilingual conversations feel more natural — without constantly typing into a translation app.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See How It Works"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Stat card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stat",
+      "label": "Show stat card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat_number",
+      "label": "Number",
+      "default": "52"
+    },
+    {
+      "type": "text",
+      "id": "stat_label",
+      "label": "Label",
+      "default": "Languages Supported"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Image chip",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "person",
+          "options": [
+            { "value": "person", "label": "Person" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "bolt", "label": "Bolt" },
+            { "value": "globe", "label": "Globe" },
+            { "value": "heart", "label": "Heart" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Wear."
+        },
+        {
+          "type": "range",
+          "id": "progress",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Progress",
+          "default": 60
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Image, text & stat",
+      "blocks": [
+        { "type": "chip", "settings": { "icon": "person", "label": "Wear.", "progress": 40 } },
+        { "type": "chip", "settings": { "icon": "chat", "label": "Speak.", "progress": 65 } },
+        { "type": "chip", "settings": { "icon": "eye", "label": "Understand.", "progress": 90 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

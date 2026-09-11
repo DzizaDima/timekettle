@@ -59,35 +59,76 @@
       }
     },
     "x1_detail": {
-      "type": "rich-text",
+      "type": "image-text-stat",
       "blocks": {
-        "caption_0": {
-          "type": "caption",
+        "chip_1": {
+          "type": "chip",
           "settings": {
-            "caption": "Real-Time AI Interpretation for Multi-Person, Multi-Language Meetings",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "icon": "person",
+            "label": "Wear.",
+            "progress": 40
           }
         },
+        "chip_2": {
+          "type": "chip",
+          "settings": {
+            "icon": "chat",
+            "label": "Speak.",
+            "progress": 65
+          }
+        },
+        "chip_3": {
+          "type": "chip",
+          "settings": {
+            "icon": "eye",
+            "label": "Understand.",
+            "progress": 90
+          }
+        }
+      },
+      "block_order": [
+        "chip_1",
+        "chip_2",
+        "chip_3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "caption": "Why Timekettle",
+        "heading": "Stop Passing Your Phone Back and Forth.",
+        "body": "<p>Timekettle makes multilingual conversations feel more natural — without constantly typing into a translation app.</p>",
+        "button_label": "See How It Works",
+        "button_link": "shopify://collections/all",
+        "show_stat": true,
+        "stat_number": "52",
+        "stat_label": "Languages Supported",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopify://shop_images/home-business.jpg"
+      }
+    },
+    "w4_banner": {
+      "type": "image-banner",
+      "blocks": {
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "X1 Meeting Interpreter Hub",
+            "heading": "Less Translating. More Talking.",
             "heading_size": "h1"
           }
         },
-        "text_2": {
+        "text_0": {
           "type": "text",
           "settings": {
-            "text": "<p>Designed specifically for meetings and K12 multilingual classrooms, this solution supports up to 50 participants across 5 languages for seamless real-time interaction. No app installation is required, and setup is extremely straightforward. Powered by bone-conduction voice capture technology, it ensures accurate translation even in noisy environments. With support for 52 languages and 106 accents, there are no subscription fees, and free OTA updates are included for life.</p>"
+            "text": "Find the Timekettle made for your conversations",
+            "text_style": "body"
           }
         },
-        "button_3": {
-          "type": "button",
+        "buttons_2": {
+          "type": "buttons",
           "settings": {
-            "button_label": "See More",
-            "button_link": "shopify://products/x1-meeting-interpreter-hub",
-            "button_style_secondary": true,
+            "button_label_1": "Shop Timekettle →",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -95,65 +136,21 @@
         }
       },
       "block_order": [
-        "caption_0",
         "heading_1",
-        "text_2",
-        "button_3"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "w4_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "text_0": {
-          "type": "text",
-          "settings": {
-            "text": "Timekettle W4",
-            "text_style": "caption-with-letter-spacing"
-          }
-        },
-        "heading_1": {
-          "type": "heading",
-          "settings": {
-            "heading": "The World's First Bone-Conduction Interpreter Earbuds",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Find W4",
-            "button_link_1": "shopify://products/w4-ai-interpreter-earbuds",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
         "text_0",
-        "heading_1",
         "buttons_2"
       ],
       "settings": {
         "image": "shopify://shop_images/home-w4.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
         "image_behavior": "none",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
         "stack_images_on_mobile": false,
-        "mobile_content_alignment": "left",
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
@@ -206,61 +203,16 @@
       }
     },
     "w4pro_usecases": {
-      "type": "multirow",
-      "blocks": {
-        "row_0": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-call.jpg",
-            "caption": "Foreign Calls Translation",
-            "heading": "Powerful Immersive Voice-Call Translation",
-            "text": "<p>Transcend language barriers in calls among phone or app. No device needed on the other end.</p>",
-            "button_label": "Button label",
-            "button_link": ""
-          }
-        },
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-meeting.jpg",
-            "caption": "Online Meeting Translation",
-            "heading": "Online Meeting Now with Translation",
-            "text": "<p>Translate and display subtitles during virtual meetings on your phone or tablet.</p>",
-            "button_label": "Button label",
-            "button_link": ""
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/home-usecase-media.jpg",
-            "caption": "Media Translation",
-            "heading": "News, Series, and Broadcast, Audio Translating with Subtitles",
-            "text": "<p>Translates both videos and audios from your phone, tablet, or computer and delivers real-time subtitles.</p>",
-            "button_label": "Button label",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_0",
-        "row_1",
-        "row_2"
-      ],
+      "type": "image-showcase",
       "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h2",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "row_color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "image": "shopify://shop_images/home-usecase-meeting.jpg",
+        "image_alt": "Timekettle earbuds worn in business, travel and everyday conversations",
+        "heading": "Made for Real Conversations",
+        "link": "",
+        "rounded": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "w4pro_detail": {
@@ -306,52 +258,63 @@
       }
     },
     "perks": {
-      "type": "image-banner",
+      "type": "icon-cards",
       "blocks": {
-        "heading_0": {
-          "type": "heading",
+        "c1": {
+          "type": "card",
           "settings": {
-            "heading": "Exclusive Perks for Timekettle Fans",
-            "heading_size": "h1"
+            "icon": "check",
+            "title": "Authorised UK Distributor",
+            "text": "Shop with confidence from an officially authorised Timekettle distributor in the UK."
           }
         },
-        "text_1": {
-          "type": "text",
+        "c2": {
+          "type": "card",
           "settings": {
-            "text": "Connect with real Timekettle users. Unlock early access & exclusive rewards",
-            "text_style": "body"
+            "icon": "star",
+            "title": "Genuine Timekettle Products",
+            "text": "Every product is 100% genuine, original and sourced directly through authorised channels."
           }
         },
-        "buttons_2": {
-          "type": "buttons",
+        "c3": {
+          "type": "card",
           "settings": {
-            "button_label_1": "Join Our Facebook Community",
-            "button_link_1": "#",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "truck",
+            "title": "UK Delivery",
+            "text": "Fast and reliable delivery across the UK, with your order dispatched locally."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "support",
+            "title": "UK Customer Support",
+            "text": "Get friendly, responsive support from our UK-based team whenever you need help."
+          }
+        },
+        "c5": {
+          "type": "card",
+          "settings": {
+            "icon": "warranty",
+            "title": "Warranty Support",
+            "text": "Buy with peace of mind with reliable warranty support for your Timekettle device."
           }
         }
       },
       "block_order": [
-        "heading_0",
-        "text_1",
-        "buttons_2"
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
       ],
       "settings": {
-        "image": "shopify://shop_images/home-perks.jpg",
-        "image_2": "shopify://shop_images/home-perks-mobile.jpg",
-        "image_overlay_opacity": 20,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
+        "color_scheme": "scheme-1",
+        "heading": "Buy Timekettle with Confidence",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "business": {
@@ -505,45 +468,25 @@
       }
     },
     "quiz": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Find Your Perfect Translator in 30 Seconds",
-            "heading_size": "h1"
-          }
-        },
-        "text_1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Take our smart quiz — we’ll ask about your scenarios, must-have features, and preferred form. Then match you to the ideal Timekettle device.</p>"
-          }
-        },
-        "button_2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Take the Quiz",
-            "button_link": "#",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_0",
-        "text_1",
-        "button_2"
-      ],
+      "type": "media-cta",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
         "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "image": "shopify://shop_images/home-usecase-call.jpg",
+        "heading": "Not Sure Which Model You Need?",
+        "text": "We will help you choose the right Timekettle for how you actually plan to use it.",
+        "video_color_scheme": "scheme-3",
+        "video_heading": "How it works?",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "cover_image": "shopify://shop_images/home-perks.jpg",
+        "video_description": "How Timekettle earbuds work",
+        "button_label_1": "Compare Models",
+        "button_link_1": "shopify://collections/all",
+        "button_style_secondary_1": false,
+        "button_label_2": "Contact Our UK Team",
+        "button_link_2": "shopify://pages/contact",
+        "button_style_secondary_2": true,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "shop": {
@@ -577,17 +520,17 @@
   },
   "order": [
     "hero_x1",
-    "x1_detail",
-    "w4_banner",
     "product_cards",
-    "w4pro_leadin",
+    "x1_detail",
     "w4pro_usecases",
-    "w4pro_detail",
     "perks",
+    "w4pro_leadin",
+    "w4pro_detail",
     "business",
     "languages",
     "testimonials",
     "quiz",
-    "shop"
+    "shop",
+    "w4_banner"
   ]
 }

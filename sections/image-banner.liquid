@@ -240,6 +240,15 @@
     #Banner-{{ section.id }} .banner__buttons--multiple > .button {
       width: 100%;
     }
+
+    /* single button (no --multiple class) also goes full-width on mobile */
+    #Banner-{{ section.id }} .banner__buttons:not(.banner__buttons--multiple) {
+      width: 100%;
+    }
+
+    #Banner-{{ section.id }} .banner__buttons:not(.banner__buttons--multiple) > .button {
+      width: 100%;
+    }
   }
 
   @media screen and (min-width: 750px) {
@@ -257,9 +266,19 @@
       max-width: 90rem;
     }
 
+    /* centered banners (e.g. medium-height CTA banners) get a wider box so a
+       short one-line heading isn't forced to wrap by Dawn's 68rem default */
+    #Banner-{{ section.id }}.banner--content-align-center.banner--desktop-transparent .banner__box {
+      max-width: 96rem;
+    }
+
     #Banner-{{ section.id }} .banner__text {
       font-size: 2rem;
       max-width: 40rem;
+    }
+
+    #Banner-{{ section.id }}.banner--content-align-center .banner__text {
+      max-width: 56rem;
     }
 
     #Banner-{{ section.id }} .banner__box .banner__heading + * {

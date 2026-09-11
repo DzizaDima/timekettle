@@ -1,0 +1,195 @@
+{% comment %}
+  Full-bleed image card — a single pre-composed graphic per breakpoint
+  (e.g. "Made for Real Conversations"). Desktop + mobile images are set in
+  the editor; everything in the artwork (headings, icons, connectors) is
+  baked into the image. Optional hidden heading + alt text carry the meaning
+  for SEO / screen readers.
+{% endcomment %}
+
+{%- liquid
+  assign img_d = section.settings.image
+  assign img_m = section.settings.image_mobile | default: section.settings.image
+  assign alt = section.settings.image_alt | default: section.settings.heading
+  assign has_link = false
+  if section.settings.link != blank
+    assign has_link = true
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.8 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.8 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #ImageShowcase-{{ section.id }} .page-width {
+    max-width: 144rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    #ImageShowcase-{{ section.id }} .page-width {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="ImageShowcase-{{ section.id }}"
+  class="image-showcase color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="visually-hidden">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <{% if has_link %}a href="{{ section.settings.link }}"{% else %}div{% endif %}
+      class="image-showcase__frame{% unless section.settings.rounded %} image-showcase__frame--square{% endunless %}"
+    >
+      {%- if img_d != blank -%}
+        <picture>
+          {%- if img_m != blank -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="{{ img_m | image_url: width: 900 }} 900w, {{ img_m | image_url: width: 1200 }} 1200w"
+            >
+          {%- endif -%}
+          <img
+            src="{{ img_d | image_url: width: 1600 }}"
+            srcset="{{ img_d | image_url: width: 900 }} 900w, {{ img_d | image_url: width: 1400 }} 1400w, {{ img_d | image_url: width: 2000 }} 2000w"
+            sizes="(min-width: 1440px) 132rem, 92vw"
+            width="{{ img_d.width }}"
+            height="{{ img_d.height }}"
+            alt="{{ alt | escape }}"
+            loading="lazy"
+            class="image-showcase__img"
+          >
+        </picture>
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'image-showcase__img image-showcase__img--placeholder' }}
+      {%- endif -%}
+    </{% if has_link %}a{% else %}div{% endif %}>
+  </div>
+</section>
+
+{% stylesheet %}
+  .image-showcase {
+    background: rgb(var(--color-background));
+  }
+
+  .image-showcase__frame {
+    display: block;
+    overflow: hidden;
+    border-radius: 2.4rem;
+  }
+
+  .image-showcase__frame--square {
+    border-radius: 0;
+  }
+
+  .image-showcase__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .image-showcase__img--placeholder {
+    aspect-ratio: 16 / 9;
+    background: rgba(var(--color-foreground), 0.06);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Image showcase",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A single artwork per breakpoint. Bake headings, icons and connectors into the image; use the fields below for accessibility only."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image — desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image — mobile",
+      "info": "Falls back to the desktop image."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Alt text",
+      "info": "Falls back to the hidden heading."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Hidden heading (SEO)",
+      "default": "Made for Real Conversations"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "label": "Rounded corners",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image showcase"
+    }
+  ]
+}
+{% endschema %}

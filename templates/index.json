@@ -44,9 +44,8 @@
         "buttons_2"
       ],
       "settings": {
-        "image": "shopify://shop_images/home-hero-x1.jpg",
-        "image_2": "shopify://shop_images/home-hero-x1-mobile.jpg",
-        "image_overlay_opacity": 0,
+        "image": "shopify://shop_images/e6eb1fd8176389e68f903a7e386773be92dbe532.png",
+        "image_overlay_opacity": 100,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
@@ -111,6 +110,7 @@
         "color_scheme": "scheme-3",
         "caption": "Why Timekettle",
         "heading": "Stop Passing Your Phone Back and Forth.",
+        "image": "shopify://shop_images/home-business.jpg",
         "body": "<p>Timekettle makes multilingual conversations feel more natural — without constantly typing into a translation app.</p>",
         "button_label": "See How It Works",
         "button_link": "shopify://collections/all",
@@ -118,8 +118,7 @@
         "stat_number": "52",
         "stat_label": "Languages Supported",
         "padding_top": 80,
-        "padding_bottom": 80,
-        "image": "shopify://shop_images/home-business.jpg"
+        "padding_bottom": 80
       }
     },
     "made_for_real": {

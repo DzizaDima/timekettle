@@ -124,7 +124,8 @@
     "made_for_real": {
       "type": "image-showcase",
       "settings": {
-        "image": "shopify://shop_images/home-usecase-meeting.jpg",
+        "image": "shopify://shop_images/Card.png",
+        "image_mobile": "shopify://shop_images/Container.png",
         "image_alt": "Timekettle earbuds worn in business, travel and everyday conversations",
         "heading": "Made for Real Conversations",
         "link": "",

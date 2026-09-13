@@ -1,8 +1,8 @@
 {% comment %}
   Icon value cards — "Buy Timekettle with Confidence".
   Centered heading, a grid of bordered cards (circle icon + title + text),
-  and a primary button below. 5 cards render 3 + 2 centred on desktop,
-  1 column on mobile.
+  and a primary button below. Columns on desktop come from columns_desktop
+  (2–4; an incomplete last row is centred), 1 column on mobile.
 {% endcomment %}
 
 {%- style -%}
@@ -40,7 +40,7 @@
     }
 
     #IconCards-{{ section.id }} .ic__card {
-      flex: 0 0 calc((100% - 4.8rem) / 3);
+      flex: 0 0 calc((100% - {{ section.settings.columns_desktop | minus: 1 | times: 2.4 }}rem) / {{ section.settings.columns_desktop }});
     }
   }
 {%- endstyle -%}
@@ -61,17 +61,23 @@
             <span class="ic__icon" aria-hidden="true">
               {%- case block.settings.icon -%}
                 {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
-                {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
+                {%- when 'star' -%}{{ 'icon-star-filled.svg' | inline_asset_content }}
                 {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
                 {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
-                {%- when 'support' -%}{{ 'icon-account.svg' | inline_asset_content }}
-                {%- when 'warranty' -%}{{ 'icon-return.svg' | inline_asset_content }}
+                {%- when 'support' -%}{{ 'icon-headset.svg' | inline_asset_content }}
+                {%- when 'warranty' -%}{{ 'icon-medal.svg' | inline_asset_content }}
                 {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
                 {%- when 'pin' -%}{{ 'icon-map-pin.svg' | inline_asset_content }}
                 {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
                 {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
                 {%- when 'clock' -%}{{ 'icon-stopwatch.svg' | inline_asset_content }}
                 {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                {%- when 'headset' -%}{{ 'icon-headset.svg' | inline_asset_content }}
+                {%- when 'play' -%}{{ 'icon-play.svg' | inline_asset_content }}
+                {%- when 'clipboard' -%}{{ 'icon-clipboard.svg' | inline_asset_content }}
+                {%- when 'lightning' -%}{{ 'icon-lightning-bolt.svg' | inline_asset_content }}
+                {%- when 'medal' -%}{{ 'icon-medal.svg' | inline_asset_content }}
+                {%- when 'eye' -%}{{ 'icon-eye.svg' | inline_asset_content }}
                 {%- else -%}{{ 'icon-tick.svg' | inline_asset_content }}
               {%- endcase -%}
             </span>
@@ -137,8 +143,8 @@
   .ic__icon {
     display: grid;
     place-items: center;
-    width: 8.4rem;
-    height: 8.4rem;
+    width: 7.2rem;
+    height: 7.2rem;
     margin-bottom: 0.6rem;
     border-radius: 50%;
     background: #ebeefc;
@@ -146,8 +152,8 @@
   }
 
   .ic__icon svg {
-    width: 3.4rem;
-    height: 3.4rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   .ic__icon svg path,
@@ -160,16 +166,16 @@
     margin: 0;
     font-family: var(--font-body-family);
     font-weight: 600;
-    font-size: 1.9rem;
+    font-size: 2.4rem;
     line-height: 1.25;
   }
 
   .ic__card-text {
     margin: 0;
     font-family: var(--font-body-family);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     line-height: 1.5;
-    color: rgba(var(--color-foreground), 0.62);
+    color: rgb(var(--color-foreground));
   }
 
   .ic__cta {
@@ -221,7 +227,13 @@
     }
 
     .ic__card-title {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
+    }
+
+    /* Figma Body 5 — 18/26 */
+    .ic__card-text {
+      font-size: 1.8rem;
+      line-height: 1.44;
     }
 
     .ic__btn {
@@ -265,6 +277,19 @@
       "type": "url",
       "id": "button_link",
       "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 3
     },
     {
       "type": "header",
@@ -313,7 +338,13 @@
             { "value": "heart", "label": "Heart" },
             { "value": "discount", "label": "Discount" },
             { "value": "clock", "label": "Stopwatch" },
-            { "value": "plane", "label": "Plane" }
+            { "value": "plane", "label": "Plane" },
+            { "value": "headset", "label": "Headset" },
+            { "value": "play", "label": "Play (video)" },
+            { "value": "clipboard", "label": "Clipboard (notes)" },
+            { "value": "lightning", "label": "Lightning" },
+            { "value": "medal", "label": "Medal" },
+            { "value": "eye", "label": "Eye" }
           ]
         },
         {

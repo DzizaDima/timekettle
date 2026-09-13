@@ -76,6 +76,14 @@ strong {
   font-weight: 600;
 }
 
+/* Figma Body 6 = PJS 400 16/24, no tracking.
+   Dawn ships 15px, letter-spacing .06rem and line-height 1.8. */
+body {
+  font-size: 1.6rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
 /* ------------------------------------------------------------------ */
 /* 2. Headings — exact sizes per breakpoint + tight tracking          */
 /*    Figma: Sora 400, letter-spacing -6% on display text.            */
@@ -173,8 +181,24 @@ h4,
 .caption-with-letter-spacing {
   font-family: var(--font-heading-family);
   font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .caption-with-letter-spacing {
+    font-size: 1.6rem;
+  }
+}
+
+/* Section subheading / banner body — Figma Body 3 = PJS 400 24/32. */
+@media screen and (min-width: 750px) {
+  .banner__text {
+    font-size: 2.4rem;
+    line-height: 1.34;
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -216,8 +240,8 @@ button.shopify-payment-button__button--unbranded,
   .customer button,
   button.shopify-payment-button__button--unbranded {
     font-size: 2rem;
-    min-height: 5.2rem;
-    padding: 1.6rem 2.8rem;
+    min-height: 5.6rem;
+    padding: 1.8rem 2.8rem;
   }
 }
 
@@ -303,8 +327,10 @@ button.shopify-payment-button__button--unbranded,
   color: rgb(var(--color-foreground));
 }
 
+/* Figma marks the current page with weight only — Dawn underlines it. */
 .header__active-menu-item {
   color: rgb(var(--color-foreground));
+  text-decoration: none;
 }
 
 @media screen and (min-width: 990px) {

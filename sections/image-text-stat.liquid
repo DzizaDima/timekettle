@@ -240,7 +240,8 @@
   .its__body {
     margin: 0;
     font-size: 1.6rem;
-    line-height: 1.55;
+    line-height: 1.5;
+    color: rgb(var(--color-foreground));
   }
 
   .its__body > :first-child { margin-top: 0; }
@@ -307,28 +308,31 @@
 
     .its__chips {
       padding: 2.4rem;
-      gap: 1.2rem 2rem;
-      max-width: 52rem;
+      gap: 1.2rem 2.4rem;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0));
     }
 
     .its__chip-head {
-      font-size: 1.4rem;
-      gap: 0.6rem;
+      font-size: 2rem;
+      gap: 0.8rem;
     }
 
     .its__chip-icon svg {
-      width: 1.7rem;
-      height: 1.7rem;
+      width: 2.4rem;
+      height: 2.4rem;
     }
 
     .its__aside {
-      justify-content: center;
+      justify-content: flex-start;
       gap: 2.4rem;
+      /* Figma: right column starts ~60px below the image's top edge, not flush */
+      padding-top: 6rem;
     }
 
+    /* Figma Body 3 — 24/32 */
     .its__body {
-      font-size: 1.9rem;
+      font-size: 2.4rem;
+      line-height: 1.34;
     }
 
     .its__btn {
@@ -341,18 +345,21 @@
       align-items: flex-start;
       text-align: left;
       gap: 0.8rem;
-      margin-top: 2rem;
+      /* bottom edge lines up with the image, card hugs its content */
+      margin-top: auto;
+      width: fit-content;
+      min-width: 28rem;
       padding: 2.6rem 3rem;
       min-height: 15.6rem;
       justify-content: center;
     }
 
     .its__stat-num {
-      font-size: 4.8rem;
+      font-size: 6.4rem;
     }
 
     .its__stat-label {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
   }
 {% endstylesheet %}

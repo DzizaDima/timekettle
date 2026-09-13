@@ -1,6 +1,13 @@
 #!/usr/bin/env node
+// УСТАРЕЛО (2026-09-12). Не запускать.
+// Данные языков переехали в метаполе МАГАЗИНА shop.metafields.custom.language_table
+// (одно значение на весь сайт) — см. scripts/setup-language-shop-metafield.mjs.
+// Определение метаполя продукта custom.language_table удалено вместе со значениями;
+// этот скрипт создаст его заново и разведёт данные по товарам. Оставлен как история
+// того, откуда взялся исходный JSON (scripts/data/language-tables.json).
+//
 // Кладёт данные секции языков (список + детальная таблица) в метаполе продукта
-// custom.language_table (json). Секция sections/languages-scrolling.liquid читает его.
+// custom.language_table (json).
 //
 // Использование:  node scripts/set-language-metafields.mjs [--dry] [w4 m3 ...]
 

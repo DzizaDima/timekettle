@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "main-pdp",
       "blocks": {
         "vendor": {
           "type": "text",
@@ -23,9 +23,21 @@
           "type": "title",
           "settings": {}
         },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
+        },
+        "highlights": {
+          "type": "highlights",
+          "settings": {
+            "items": "52 Languages with 106 Accents\nReal-Time AI Translation\nOffline Translation Packs\nUK Warranty and Customer Support"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -45,9 +57,33 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
+        "delivery": {
+          "type": "delivery",
+          "settings": {
+            "order_label": "Order today",
+            "arrives_label": "Estimated arrival",
+            "days_min": 1,
+            "days_max": 2,
+            "note": "<p>Free UK delivery in 48h, dispatched locally by our UK team.</p>"
+          }
+        },
+        "trust": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "check_mark",
+            "heading_1": "Authorised UK Distributor",
+            "icon_2": "chat_bubble",
+            "heading_2": "UK Customer Support",
+            "icon_3": "return",
+            "heading_3": "Warranty Support"
+          }
+        },
+        "details": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.description != blank -%}\n<div class=\"product__accordion accordion\">\n  <details>\n    <summary>\n      <div class=\"summary__title\"><h2 class=\"h4 accordion__title\">Product details</h2></div>\n      {{- 'icon-caret.svg' | inline_asset_content -}}\n    </summary>\n    <div class=\"accordion__content rte product__description\">{{ product.description }}</div>\n  </details>\n</div>\n{%- endif -%}"
+          }
         },
         "share": {
           "type": "share",
@@ -59,41 +95,800 @@
       "block_order": [
         "vendor",
         "title",
+        "rating",
         "price",
+        "highlights",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
+        "delivery",
+        "trust",
+        "details",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 40,
+        "padding_bottom": 80
       }
     },
-    "disclosures": {
-      "type": "disclosures",
+    "features": {
+      "type": "icon-cards",
+      "blocks": {
+        "f1": {
+          "type": "card",
+          "settings": {
+            "icon": "lightning",
+            "title": "Simultaneous Interpreting",
+            "text": "Instant real-time interpreting for natural, effortless conversations."
+          }
+        },
+        "f2": {
+          "type": "card",
+          "settings": {
+            "icon": "chat",
+            "title": "Phone Call Translation",
+            "text": "Two-way call translation with live subtitles — no device needed on the other end."
+          }
+        },
+        "f3": {
+          "type": "card",
+          "settings": {
+            "icon": "play",
+            "title": "Video Translation",
+            "text": "Translate videos, streams and online meetings with real-time subtitles."
+          }
+        },
+        "f4": {
+          "type": "card",
+          "settings": {
+            "icon": "clipboard",
+            "title": "Audio and Text Saved",
+            "text": "Keep the original audio and translations, then export an AI memo."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
       "settings": {
-        "padding_top": 36,
+        "color_scheme": "scheme-3",
+        "heading": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your Personal Global Business Assistant",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The World's First Earbuds for Phone & Remote Meeting Translation",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The W4 Pro AI Interpreter Earbuds are more than just a device – they are your personal global business assistant, helping to communicate onsite or online and summarize post-meeting notes. The W4 Pro earbuds are by your side every step of the way, empowering efficient business collaborate communication, ushering in a new era of seamless global business interactions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "scenarios": {
+      "type": "multicolumn",
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-c6beb2ce6f.jpg",
+            "title": "Powerful Immersive Voice-Call Translation",
+            "text": "<p>Transcend Language Barriers in Calls Among Phone or APP With W4 Pro, you can now have a two-way assisted translation of the caller's language and see real-time transcription subtitles. Making it easy to understand and engage in conversations.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-3c8400976c.jpg",
+            "title": "Online Meeting Now with Translation",
+            "text": "<p>Elevate Your Mobile Meetings with Online Meetings Now with Translation. Seamlessly translate and display subtitles during virtual meetings on your phone or tablet. Capture meeting notes effortlessly, ensuring clear communication and efficient collaboration across languages. Stay connected and productive wherever you are, breaking down language barriers with ease.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-f9ca130be3.jpg",
+            "title": "News, Series, and Broadcast, Audio Translating with Subtitles",
+            "text": "<p>Experience seamless translation while tuning into the latest news updates. Hear translations and see subtitles in real-time, enabling swift access to international information and insights. Stay ahead with rapid, accurate translations at your fingertips. W4 Pro translates both videos and audios from your phone, tablet, or computer and delivers real-time subtitles. Compatible with popular streaming and conferencing apps.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "mic": {
+      "type": "image-text-stat",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "caption": "Clear Audio Capture",
+        "heading": "3-Mic Voice Reduce, Precise Pick-up",
+        "image": "shopify://shop_images/pp-w4-pro-1cad8cccc2.jpg",
+        "body": "<p>Precisely capture your voice with 3-Mic Voice Reduction even in side-by-side conversations. The clearer the recognition, the better the translation.</p><p>No sound leakage, clear speaking and listening. CVC technology and 3-Mic Voice Reduce work together to cancel noise for an immersive experience.</p>",
+        "button_label": "",
+        "button_link": "",
+        "show_stat": true,
+        "stat_number": "50%",
+        "stat_label": "Lower Recognition Error Rate",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "modes": {
+      "type": "multicolumn",
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "One-on-One Simultaneous Interpreting",
+            "text": "<p>Streamlined and rapid exchange of information, provides natural and effortless cross-language communication.</p><p>Immerse yourself in the experience of instant real-time interpreting for effortless communication. Break down language barriers and connect with others in a whole new way.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Listen & Play Translation",
+            "text": "<p>Facilitate fast interactions during in-person meetings, and enhance efficiency in on-site discussions and decision-making.</p><p>Switching between listening and speaking during meetings, and simultaneous interpretation in multilingual conferences fosters collaboration and understanding across diverse perspectives for shared success, fostering a collaborative environment where diverse perspectives unite for shared success.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Multi-Media Translation",
+            "text": "<p>Timekettle W4 Pro supports translations for movies, podcasts, streaming services, allowing you to enjoy foreign-language content with real time subtitles.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "title": "Three More Modes for Global Business Interactions",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "ai_banner": {
+      "type": "image-banner",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-pro-28fac5e192.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "ai_features": {
+      "type": "multicolumn",
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-366249af13.jpg",
+            "title": "2-Directional Tunnels for Translation",
+            "text": "<p>Engage in bilingual conversations with simultaneous real-time translation in both directions, enabling natural and efficient communication at its best.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-8b8681e5d6.jpg",
+            "title": "Hands-Free Translation, No Taps Needed",
+            "text": "<p>Translate automatically without touching your phone or earbuds, so you can stay focused on your tasks.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-ef6fcdb92f.jpg",
+            "title": "Privacy-First Translation Earbuds",
+            "text": "<p>Only you can hear the translation, keeping your conversations private and secure.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "title": "AI Interpreter Earbuds",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "languages_stats": {
+      "type": "icon-cards",
+      "blocks": {
+        "l1": {
+          "type": "card",
+          "settings": {
+            "icon": "pin",
+            "title": "52 Languages",
+            "text": "Online translation covering 95% of the world's population."
+          }
+        },
+        "l2": {
+          "type": "card",
+          "settings": {
+            "icon": "chat",
+            "title": "106 Accents",
+            "text": "Adapts to regional dialects and variations, so locals understand you."
+          }
+        },
+        "l3": {
+          "type": "card",
+          "settings": {
+            "icon": "plane",
+            "title": "13 Offline Language Packs",
+            "text": "Download packs ahead of your trip and keep translating without a connection."
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "heading": "52 Languages and 106 Accents",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "padding_top": 80,
         "padding_bottom": 0
+      }
+    },
+    "languages": {
+      "type": "languages-scrolling",
+      "settings": {
+        "show_heading": false,
+        "heading": "",
+        "subheading": "",
+        "background": "#eff4ff",
+        "text_color": "#131313",
+        "label_color": "#3456e6",
+        "show_table": true,
+        "button_background": "#3456e6",
+        "button_text_color": "#ffffff",
+        "padding_top": 48,
+        "padding_bottom": 80
+      }
+    },
+    "extra_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "For the Ultimate User Experience",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unleashing Additional Features",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    },
+    "extra_rows": {
+      "type": "multirow",
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-3dfbcdff0e.jpg",
+            "caption": "",
+            "heading": "Preserve Original Audio",
+            "text": "<p>Compare and review meeting details anytime by accessing both the original audio and translations.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-1f36785dc4.jpg",
+            "caption": "",
+            "heading": "Personalized and Precise Translation",
+            "text": "<p>Create a personal glossary for custom terms and jargon. Tailor translations to fit your needs, making them accurate and enriching your translations with individuality and precision.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-1417c59606.jpg",
+            "caption": "",
+            "heading": "Innovative Open-Ear Design",
+            "text": "<p>No in-ear design makes sharing easy and hygienic. Enjoy clear sound in noisy places, with minimal leakage to keep conversations private.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "more_features": {
+      "type": "multicolumn",
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-115ef06946.png",
+            "title": "Great Sound Quality Sets Us Apart",
+            "text": "<p>Translation is essential, but great audio makes a difference. Partnered with top music studios, the sound quality rivals other Bluetooth headphones in the same price range.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-f6398a709e.jpg",
+            "title": "Soft & Circular Design",
+            "text": "<p>Pleasant for long wear. The circular shape fits perfectly around your ear, providing a light and comfortable feel.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-0058ef85f9.jpg",
+            "title": "10-Minute Charge for 1 Hour of Translation",
+            "text": "<p>Enjoy up to 6 hours of continuous translation. When the battery is low, a quick 10-minute charge gives you an extra hour of translation time.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "title": "Unlocking More Features",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "lifestyle_banner": {
+      "type": "image-banner",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-pro-d3226f2bb5.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "compare": {
+      "type": "featured-products",
+      "settings": {
+        "collection": "find-your-timekettle",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "caption": "Compare Models",
+        "title": "Find Your Ideal Translation Earbuds",
+        "heading_size": "h0",
+        "button_label": "Compare All Models",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the greatest advantage of W4 Pro compared to other translation products on the market?",
+            "icon": "none",
+            "row_content": "<p>Compared to other translator devices:1. W4 Pro is more suitable for in-depth communication scenarios. It allows recording and hearing translations simultaneously, significantly enhancing communication efficiency 2. W4 Pro supports translating videos, online meetings, and phone calls on a mobile phone. Compared to other translator earbuds:1. Only Timekettle earbuds offer the One-on-One mode, where each person wears one earbud, enabling both parties to speak and hear the translation results simultaneously, greatly improving communication efficiency.2. Exclusive \"AI Semantic Judgment\" technology in Timekettle earbuds provides faster translation, minimizing the delay in hearing translated languages, approaching the effect of a live interpreter.3. When translating videos, online meetings, and c</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What languages does this W4 Pro translator support?",
+            "icon": "none",
+            "row_content": "<p>Here are all 52 languages and 106 accents that it can support. Language: Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / VietnameseArabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (Un</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many offline language packs can be downloaded? Is there a limit?",
+            "icon": "none",
+            "row_content": "<p>The W4 Pro offers 13 offline translation packs, and you can download all of them without any limit.</p><p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanyChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-Germany* We will keep updating.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does the device support two-way translation during video calls? Do both parties need to wear the earbuds for it to work?",
+            "icon": "none",
+            "row_content": "<p>The W4 Pro supports two-way voice call translation—only one person needs to wear the earbuds, allowing both parties to speak in their native languages and receive translations for smooth, effective communication using just a single W4 Pro device.</p>"
+          }
+        },
+        "b4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "In what scenarios would you recommend using the main translation modes of W4 Pro?",
+            "icon": "none",
+            "row_content": "<p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p>"
+          }
+        },
+        "b5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does W4 Pro need to work with a phone?",
+            "icon": "none",
+            "row_content": "<p>Yes, W4 Pro needs to work with our Timekettle APP on a smart phone.</p>"
+          }
+        },
+        "b6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do all translation modes of W4 Pro require an internet connection?",
+            "icon": "none",
+            "row_content": "<p>One-on-One and Listen & Play mode support online and offline translation; while Media Translation only works with an internet connection.</p>"
+          }
+        },
+        "b7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does it offer music playback or just translation?",
+            "icon": "none",
+            "row_content": "<p>W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls, offering a comprehensive set of features like standard Bluetooth earbuds.</p>"
+          }
+        },
+        "b8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "If there are two or more people watching a foreign movie and want translation, how many devices are needed?",
+            "icon": "none",
+            "row_content": "<p>In Multi-media mode, you can watch foreign movies with real-time translation. For two people, only one W4 Pro is needed—each person can wear one earbud. For groups larger than two, the number of devices required depends on the number of users.</p>"
+          }
+        },
+        "b9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the difference between W4 Pro & X1？",
+            "icon": "none",
+            "row_content": "<p>Our W4 Pro AI Interpreter Earbuds feature three translation modes: One-on-One, Listen & Play, Voice Call Translation and Media Translation.</p><p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p><p>X1 AI Interpreter Hub offers a broader range of functionalities, including One-on-One, Listen & Play, Ask & Go, Voice Call, and Multi-Person capabilities.</p><p>Ask & Go: This function serves for small chats with the device held in hand. Hold the button to speak and release to play the audio for a translation.</p><p>Voice Call Feature: X1 allows for real-time voice calls, enabling communication and translation between individuals in different locations. (*This feature requires the use of two devices.)</p><p>Multi-Person Communication:With X1 Meeting, a single device can host meetings for up to 50 participants. Attendees simply join via a QR code or link to view, listen to, or speak through real-time translation on their own devices. For larger multilingual events, up to 10 X1 devices can be connected to support simultaneous interpretation in up to 5 languages.</p><p>Mode of operation: The X1 Interpreter Hub is a stand-alone device that can work independently via Wifi, while the W4 Pro needs to be connected to the Timekettle APP on a phone by connecting to Wifi or using the mobile data of the phone.Besides, W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls on a phone, offering a comprehensive set of features like standard Bluetooth earbuds.</p>"
+          }
+        },
+        "b10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many phones are required to use the W4 Pro?",
+            "icon": "none",
+            "row_content": "<p>Only one phone is needed to use the W4 Pro, and it works with both iOS and Android devices.</p>"
+          }
+        },
+        "b11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How loud can the W4 Pro get at maximum volume?",
+            "icon": "none",
+            "row_content": "<p>The volume of the W4 Pro is adjusted based on the phone’s volume settings.</p>"
+          }
+        },
+        "b12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does the ChatGPT mentioned in the promotion have a complete ChatGPT conversational interface or feature built-in?",
+            "icon": "none",
+            "row_content": "<p>The “Access to ChatGPT” mentioned in our device refers to the integration of the technical capability of large language modeling in the process of speech recognition and translation processing to enhance the accuracy and contextual understanding of translation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "FAQs",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "tutorials": {
+      "type": "multicolumn",
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to Use Timekettle W4 Pro?",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to quickly wear Timekettle W4 Pro?",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to Use One-on-One Mode？",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to Use Listening & Speaking Modes？",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to Use Call & Video Translation？",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-pro-dcff084033.jpg",
+            "title": "How to Use Al-generated Meeting Minutes?",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ],
+      "settings": {
+        "title": "Product Tutorials",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 40
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
+        "heading": "You May Also Like",
+        "heading_size": "h1",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -103,14 +898,29 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 40,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "disclosures",
+    "features",
+    "intro",
+    "scenarios",
+    "mic",
+    "modes",
+    "ai_banner",
+    "ai_features",
+    "languages_stats",
+    "languages",
+    "extra_intro",
+    "extra_rows",
+    "more_features",
+    "lifestyle_banner",
+    "compare",
+    "faq",
+    "tutorials",
     "related-products"
   ]
 }

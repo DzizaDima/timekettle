@@ -1,20 +1,26 @@
 {%- comment -%}
-  Секция «Covering the World, Accent by Accent» — повтор блока aa_languages_scrolling
-  с timekettle.co (в Dawn аналога нет).
+  Секция «грид языков» из макета главной (Figma 5:97, часть лавандового блока
+  вместе с «Stop Passing Your Phone Back and Forth»). В Dawn аналога нет.
 
-  Данные (языки, флаги, акценты, офлайн-пакеты) берутся из метаполя продукта
-  custom.language_table (json), которое заполняет scripts/set-language-metafields.mjs.
+  Данные (языки, флаги, акценты, офлайн-пакеты) берутся из метаполя МАГАЗИНА
+  shop.metafields.custom.language_table (json) — одно значение на весь сайт,
+  поэтому секция работает на любом шаблоне: главная, товар, страница.
+  Заполняет scripts/setup-language-shop-metafield.mjs.
   Если метаполя нет — секция показывает только заголовок с подзаголовком.
 
-  Размеры и цвета сняты с исходника:
-    фон секции #f5f5f5, отступы 56px; карточка 140×106, padding 15px, радиус 8px,
-    рамка 1px #ebebeb; флаг 48px круглый; подпись 13px/600; между карточками 10px;
-    три ряда, средний едет вправо; полный цикл 60s;
-    кнопка-пилюля #3456e6, радиус 30px, padding 15px 30px, 15px/600.
+  Размеры/цвета карточек — из макета (scripts/data/figma): фон #EFF4FF;
+  подзаголовок по центру 24/1.35 (моб 18/1.55); карточка 172×130 (моб 85×64),
+  белая, радиус 12 (моб 10), без бордера и тени; флаг в круге 60 (моб 30);
+  подпись #3456E6 14/600 (моб 11).
+
+  Автопрокрутка (бесконечная лента, средний ряд едет в обратную сторону,
+  пауза по hover) — в макете её нет (там статичный грид), но сайт всегда
+  так работал и это поведение сохраняем по просьбе пользователя. Из-за
+  дублирования рядов лента идёт от края до края экрана — так и должно быть.
 {%- endcomment -%}
 
 {%- liquid
-  assign lt = product.metafields.custom.language_table.value
+  assign lt = shop.metafields.custom.language_table.value
   assign langs = lt.languages
   assign heading = section.settings.heading | default: lt.heading
   assign subheading = section.settings.subheading | default: lt.subheading
@@ -27,7 +33,7 @@
   .lang-scroll-{{ section.id }} {
     background: {{ section.settings.background }};
     padding-top: {{ section.settings.padding_top | times: 0.7 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.7 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
     overflow: hidden;
   }
   @media screen and (min-width: 750px) {
@@ -36,41 +42,53 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .lang-scroll-{{ section.id }} .lang-scroll__head { text-align: center; }
   .lang-scroll-{{ section.id }} .lang-scroll__heading {
-    margin: 0 0 10px;
-    padding-top: 20px;
-    font-size: 2.8rem;
-    font-weight: 600;
-    letter-spacing: -0.034em;
-    line-height: 1.21;
+    margin: 0 0 1.2rem;
+    font-size: 3rem;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
     color: {{ section.settings.text_color }};
   }
   @media screen and (min-width: 750px) {
-    .lang-scroll-{{ section.id }} .lang-scroll__heading { font-size: 3.9rem; }
+    .lang-scroll-{{ section.id }} .lang-scroll__heading { font-size: 4.8rem; }
   }
   .lang-scroll-{{ section.id }} .lang-scroll__sub {
-    margin: 0;
-    font-size: 1.6rem;
-    line-height: 1.71;
+    max-width: 76rem;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 1.55;
     color: {{ section.settings.text_color }};
   }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} .lang-scroll__sub { font-size: 2.4rem; line-height: 1.35; }
+  }
+
   .lang-scroll-{{ section.id }} .lang-scroll__rows {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 34px;
+    gap: 1.05rem;
+    margin-top: 3.2rem;
   }
   .lang-scroll-{{ section.id }} .lang-scroll__row { overflow: hidden; }
   .lang-scroll-{{ section.id }} .lang-scroll__track {
     display: flex;
-    gap: 10px;
+    gap: 0.75rem;
     width: max-content;
     animation: lang-scroll-left-{{ section.id }} {{ section.settings.speed }}s linear infinite;
   }
   .lang-scroll-{{ section.id }} .lang-scroll__track--reverse {
     animation-name: lang-scroll-right-{{ section.id }};
   }
-  .lang-scroll-{{ section.id }}:hover .lang-scroll__track { animation-play-state: paused; }
+  .lang-scroll-{{ section.id }}:hover .lang-scroll__track {
+    animation-play-state: paused;
+  }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} .lang-scroll__rows { gap: 2rem; }
+    .lang-scroll-{{ section.id }} .lang-scroll__track { gap: 1.6rem; }
+  }
+
   .lang-scroll-{{ section.id }} .lang-scroll__chip {
     box-sizing: border-box;
     flex: 0 0 auto;
@@ -78,22 +96,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 140px;
-    height: 106px;
-    padding: 15px;
+    gap: 0.6rem;
+    width: 8.5rem;
+    height: 6.4rem;
+    padding: 0.4rem;
     background: #fff;
-    border: 1px solid #ebebeb;
-    border-radius: 8px;
+    border-radius: 1rem;
     text-align: center;
   }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} .lang-scroll__chip {
+      gap: 1.2rem;
+      width: 17.2rem;
+      height: 13rem;
+      padding: 0.8rem;
+      border-radius: 1.2rem;
+    }
+  }
+
   .lang-scroll-{{ section.id }} .lang-scroll__flag {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     overflow: hidden;
     flex: 0 0 auto;
     background: #f2f2f2;
+  }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} .lang-scroll__flag { width: 6rem; height: 6rem; }
   }
   .lang-scroll-{{ section.id }} .lang-scroll__flag svg,
   .lang-scroll-{{ section.id }} .lang-scroll__flag img {
@@ -102,15 +132,24 @@
     display: block;
     object-fit: cover;
   }
+
   .lang-scroll-{{ section.id }} .lang-scroll__name {
     margin: 0;
-    font-size: 1.3rem;
+    max-width: 100%;
+    font-size: 1.1rem;
     font-weight: 600;
-    line-height: 1.21;
-    color: #333;
+    line-height: 1.2;
+    color: {{ section.settings.label_color }};
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .lang-scroll-{{ section.id }} .lang-scroll__cta { margin-top: 34px; text-align: center; }
+  @media screen and (min-width: 750px) {
+    .lang-scroll-{{ section.id }} .lang-scroll__name { font-size: 1.4rem; }
+  }
+
+  /* Развёрнутая таблица — в макете главной её нет, включается настройкой */
+  .lang-scroll-{{ section.id }} .lang-scroll__cta { margin-top: 3.6rem; text-align: center; }
   .lang-scroll-{{ section.id }} .lang-scroll__details > summary {
     display: inline-flex;
     align-items: center;
@@ -148,8 +187,7 @@
     max-height: 60vh;
     overflow: auto;
     background: #fff;
-    border: 1px solid #ebebeb;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: left;
   }
   .lang-scroll-{{ section.id }} table { width: 100%; border-collapse: collapse; font-size: 1.4rem; }
@@ -158,7 +196,7 @@
     padding: 12px 16px;
     border-bottom: 1px solid #ebebeb;
     vertical-align: top;
-    color: #333;
+    color: #131313;
   }
   .lang-scroll-{{ section.id }} th {
     position: sticky;
@@ -184,10 +222,17 @@
   }
 {%- endstyle -%}
 
-<div class="lang-scroll-{{ section.id }} lang-scroll isolate">
-  {%- if heading != blank or subheading != blank -%}
-    <div class="page-width">
-      {%- if heading != blank -%}
+{%- liquid
+  assign show_heading = false
+  if section.settings.show_heading and heading != blank
+    assign show_heading = true
+  endif
+-%}
+
+<div id="LangScroll-{{ section.id }}" class="lang-scroll-{{ section.id }} lang-scroll isolate">
+  {%- if show_heading or subheading != blank -%}
+    <div class="page-width lang-scroll__head">
+      {%- if show_heading -%}
         <h2 class="lang-scroll__heading">{{ heading }}</h2>
       {%- endif -%}
       {%- if subheading != blank -%}
@@ -211,7 +256,7 @@
                       {%- if lang.flag != blank -%}
                         {{ lang.flag | replace: '<svg', '<svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"' }}
                       {%- elsif lang.flag_img != blank -%}
-                        <img src="{{ lang.flag_img }}" alt="" loading="lazy" width="48" height="48">
+                        <img src="{{ lang.flag_img }}" alt="" loading="lazy" width="60" height="60">
                       {%- endif -%}
                     </span>
                     <h3 class="lang-scroll__name">{{ lang.name }}</h3>
@@ -224,70 +269,83 @@
       {%- endfor -%}
     </div>
 
-    <div class="page-width lang-scroll__cta">
-      <details class="lang-scroll__details">
-        <summary>
-          <span class="lang-scroll__plus" aria-hidden="true"></span>
-          <span>{{ btn_label }}</span>
-        </summary>
-        <div class="lang-scroll__tablewrap">
-          <table>
-            <thead>
-              <tr>
-                {%- for col in lt.columns -%}
-                  <th>{{ col }}</th>
-                {%- endfor -%}
-              </tr>
-            </thead>
-            <tbody>
-              {%- for lang in langs -%}
+    {%- if section.settings.show_table -%}
+      <div class="page-width lang-scroll__cta">
+        <details class="lang-scroll__details">
+          <summary>
+            <span class="lang-scroll__plus" aria-hidden="true"></span>
+            <span>{{ btn_label }}</span>
+          </summary>
+          <div class="lang-scroll__tablewrap">
+            <table>
+              <thead>
                 <tr>
-                  <td>
-                    <span class="lang-scroll__lang">
-                      <span class="lang-scroll__flag">
-                        {%- if lang.flag != blank -%}
-                          {{ lang.flag | replace: '<svg', '<svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"' }}
-                        {%- elsif lang.flag_img != blank -%}
-                          <img src="{{ lang.flag_img }}" alt="" loading="lazy" width="24" height="24">
-                        {%- endif -%}
-                      </span>
-                      {{ lang.name }}
-                    </span>
-                  </td>
-                  <td class="lang-scroll__mark">{% if lang.online %}&#10003;{% else %}&#10007;{% endif %}</td>
-                  <td>{{ lang.accents | default: '&#10007;' }}</td>
-                  <td class="lang-scroll__mark">{% if lang.offline %}&#10003;{% else %}&#10007;{% endif %}</td>
+                  {%- for col in lt.columns -%}
+                    <th>{{ col }}</th>
+                  {%- endfor -%}
                 </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        </div>
-      </details>
-    </div>
+              </thead>
+              <tbody>
+                {%- for lang in langs -%}
+                  <tr>
+                    <td>
+                      <span class="lang-scroll__lang">
+                        <span class="lang-scroll__flag">
+                          {%- if lang.flag != blank -%}
+                            {{ lang.flag | replace: '<svg', '<svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"' }}
+                          {%- elsif lang.flag_img != blank -%}
+                            <img src="{{ lang.flag_img }}" alt="" loading="lazy" width="24" height="24">
+                          {%- endif -%}
+                        </span>
+                        {{ lang.name }}
+                      </span>
+                    </td>
+                    <td class="lang-scroll__mark">{% if lang.online %}&#10003;{% else %}&#10007;{% endif %}</td>
+                    <td>{{ lang.accents | default: '&#10007;' }}</td>
+                    <td class="lang-scroll__mark">{% if lang.offline %}&#10003;{% else %}&#10007;{% endif %}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    {%- endif -%}
   {%- endif -%}
 </div>
 
 {% schema %}
 {
-  "name": "Languages scrolling",
+  "name": "Languages grid",
   "tag": "section",
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
     {
       "type": "paragraph",
-      "content": "Список языков, флаги и таблица берутся из метаполя продукта custom.language_table."
+      "content": "Список языков, флаги и таблица берутся из метаполя магазина custom.language_table (одно на весь сайт). Настройки ниже переопределяют заголовок и подзаголовок."
     },
+    { "type": "checkbox", "id": "show_heading", "label": "Show heading", "default": true },
     { "type": "inline_richtext", "id": "heading", "label": "Heading (переопределяет метаполе)" },
     { "type": "text", "id": "subheading", "label": "Subheading (переопределяет метаполе)" },
-    { "type": "color", "id": "background", "label": "Background", "default": "#f5f5f5" },
-    { "type": "color", "id": "text_color", "label": "Heading and text", "default": "#333333" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#eff4ff" },
+    { "type": "color", "id": "text_color", "label": "Heading and text", "default": "#131313" },
+    { "type": "color", "id": "label_color", "label": "Language label", "default": "#3456e6" },
+    { "type": "range", "id": "speed", "min": 20, "max": 120, "step": 5, "unit": "s", "label": "Scroll cycle", "default": 60 },
+    { "type": "header", "content": "Detailed table" },
+    {
+      "type": "checkbox",
+      "id": "show_table",
+      "label": "Show «View Detailed Language Table»",
+      "info": "В макете главной этого блока нет — включайте на страницах товара.",
+      "default": true
+    },
     { "type": "color", "id": "button_background", "label": "Button background", "default": "#3456e6" },
     { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#ffffff" },
-    { "type": "range", "id": "speed", "min": 20, "max": 120, "step": 5, "unit": "s", "label": "Scroll cycle", "default": 60 },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 56 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 56 }
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 88 }
   ],
-  "presets": [{ "name": "Languages scrolling" }]
+  "presets": [{ "name": "Languages grid" }]
 }
 {% endschema %}

@@ -140,6 +140,23 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "email-popup": {
+        "type": "email-popup",
+        "settings": {
+          "enable": true,
+          "delay_seconds": 6,
+          "show_on_interaction": true,
+          "reshow_after_days": 90,
+          "eyebrow": "Limited offer",
+          "heading": "Get 10% off your first order",
+          "subheading": "<p>Subscribe to our newsletter and get an exclusive welcome discount sent straight to your inbox.</p>",
+          "button_label": "Get my discount",
+          "disclaimer": "<p>By subscribing, you agree to receive marketing emails. Unsubscribe anytime.</p>",
+          "success_heading": "You're in!",
+          "success_text": "Check your inbox — your discount code is on its way.",
+          "color_scheme": ""
+        }
       }
     },
     "content_for_index": [],

@@ -30,17 +30,24 @@
 {%- endstyle -%}
 
 {%- if section.settings.show_text_box == false -%}
-  {%- comment -%} Text sits directly on the photo — scrim gradient for legibility {%- endcomment -%}
+  {%- comment -%}
+    Text sits directly on the photo — legibility scrim on its own element
+    (.banner__scrim), not on ::after. It used to share #Banner-<section.id>::after
+    with the "Image overlay opacity" rule above and always won (rendered later,
+    same specificity, hardcoded opacity: 1) — so that slider had no visible effect
+    on any banner with "Show text box" off. Now the two layer independently.
+  {%- endcomment -%}
   {%- style -%}
-    #Banner-{{ section.id }}::after,
-    #Banner-{{ section.id }} .banner__media::after {
+    #Banner-{{ section.id }} .banner__scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.32) 100%);
-      opacity: 1;
     }
 
     @media screen and (min-width: 750px) {
-      #Banner-{{ section.id }}::after,
-      #Banner-{{ section.id }} .banner__media::after {
+      #Banner-{{ section.id }} .banner__scrim {
         background: linear-gradient(
           94deg,
           rgba(0, 0, 0, 0.62) 6%,
@@ -137,6 +144,9 @@
           fetchpriority: fetch_priority
       }}
     </div>
+  {%- endif -%}
+  {%- if section.settings.show_text_box == false -%}
+    <span class="banner__scrim" aria-hidden="true"></span>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">

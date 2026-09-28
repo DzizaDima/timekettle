@@ -379,7 +379,11 @@
     }
 
     setHeaderHeight() {
-      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+      this.headerHeight = this.header.offsetHeight;
+      document.documentElement.style.setProperty('--header-height', `${this.headerHeight}px`);
+      if (!this.header.classList.contains('shopify-section-header-hidden')) {
+        document.documentElement.style.setProperty('--header-offset', `${this.headerHeight}px`);
+      }
     }
 
     disconnectedCallback() {
@@ -430,6 +434,7 @@
     hide() {
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
+      document.documentElement.style.setProperty('--header-offset', '0px');
       this.closeMenuDisclosure();
       this.closeSearchModal();
     }
@@ -438,11 +443,13 @@
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-sticky', 'animate');
       this.header.classList.remove('shopify-section-header-hidden');
+      document.documentElement.style.setProperty('--header-offset', `${this.headerHeight}px`);
     }
 
     reset() {
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+      document.documentElement.style.setProperty('--header-offset', `${this.headerHeight}px`);
     }
 
     closeMenuDisclosure() {

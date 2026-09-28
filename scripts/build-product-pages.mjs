@@ -124,7 +124,12 @@ function buildMainAndRelated() {
   const main = tpl.sections.main;
   main.blocks.rating = { type: "custom_liquid", settings: { custom_liquid: RATING_LIQUID } };
   const bo = main.block_order;
-  bo.splice(bo.indexOf("price") + 1, 0, "rating");
+  // product.json's default block_order may already carry a native "rating" key (blank —
+  // it reads reviews.* which isn't populated here); only splice in a new one if absent,
+  // otherwise this would duplicate the same key and render the block twice.
+  if (!bo.includes("rating")) {
+    bo.splice(bo.indexOf("price") + 1, 0, "rating");
+  }
   return { main, related: tpl.sections["related-products"] };
 }
 

@@ -35,28 +35,35 @@
         "feature-1": {
           "type": "feature",
           "settings": {
-            "icon": "truck",
-            "text": "Free delivery in 48h"
+            "icon": "map-pin",
+            "text": "Stocked in the UK"
           }
         },
         "feature-2": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "text": "Partner Timekettle"
+            "icon": "truck",
+            "text": "Free 1–2 Day Delivery"
           }
         },
         "feature-3": {
           "type": "feature",
           "settings": {
-            "icon": "star",
-            "text": "Genuine Products"
+            "icon": "check",
+            "text": "Official Timekettle Partner"
           }
         },
         "feature-4": {
           "type": "feature",
           "settings": {
-            "icon": "chat",
+            "icon": "globe",
+            "text": "Online & Offline Translation"
+          }
+        },
+        "feature-5": {
+          "type": "feature",
+          "settings": {
+            "icon": "headset",
             "text": "UK Support"
           }
         }
@@ -65,11 +72,13 @@
         "feature-1",
         "feature-2",
         "feature-3",
-        "feature-4"
+        "feature-4",
+        "feature-5"
       ],
       "settings": {
         "color_scheme": "scheme-5",
         "show_line_separator": false,
+        "sticky_type": "none",
         "padding_top": 12,
         "padding_bottom": 12
       }

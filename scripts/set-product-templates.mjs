@@ -10,6 +10,7 @@ const UNSET = process.argv.includes("--unset");
 
 const MAP = {
   "w4-ai-interpreter-earbuds": "w4",
+  "w4-plus-ai-interpreter-earbuds": "w4-plus",
   "w4-pro-ai-interpreter-earbuds-2026": "w4-pro",
   "x1-meeting-interpreter-hub": "x1",
   "m3-travel-translator-earbuds": "m3",

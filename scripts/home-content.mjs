@@ -7,6 +7,7 @@
 
 export const PRODUCT_URL = {
   w4: "shopify://products/w4-ai-interpreter-earbuds",
+  w4plus: "shopify://products/w4-plus-ai-interpreter-earbuds",
   w4pro: "shopify://products/w4-pro-ai-interpreter-earbuds-2026",
   x1: "shopify://products/x1-meeting-interpreter-hub",
   m3: "shopify://products/m3-travel-translator-earbuds",
@@ -19,6 +20,7 @@ export const IMAGE_SOURCES = {
   "hero-x1": "https://www.timekettle.co/cdn/shop/files/1-PC_baa5f911-7b4d-4b49-81a5-2c39182f282a.jpg?v=1781623674",
   "hero-x1-mobile": "https://www.timekettle.co/cdn/shop/files/1-m_1580e0a8-92af-4324-b4a5-f7f3b3a97cec.jpg?v=1781623673",
   "w4": "https://www.timekettle.co/cdn/shop/files/W4...jpg?v=1756978464",
+  "card-w4plus": "https://www.timekettle.co/cdn/shop/files/W4_plus_58cc39aa-3ecb-4f7d-9d34-48a92124767a.png?v=1790566818",
   "card-w4pro": "https://www.timekettle.co/cdn/shop/files/W4-Pro_51531828-ffe8-47c9-bdb0-d3ba37d65437.jpg?v=1748329486",
   "card-x1": "https://www.timekettle.co/cdn/shop/files/X1..jpg?v=1781765070",
   "card-m3": "https://www.timekettle.co/cdn/shop/files/M3_4bea56bc-5b28-4be2-a429-2a3def96ae11.jpg?v=1748329486",
@@ -102,7 +104,7 @@ export const SECTIONS = [
       heading_size: "h2",
       image_width: "full",
       image_ratio: "adapt",
-      columns_desktop: 5,
+      columns_desktop: 6,
       column_alignment: "center",
       background_style: "none",
       color_scheme: "scheme-1",
@@ -111,6 +113,7 @@ export const SECTIONS = [
     },
     blocks: [
       { type: "column", settings: { image: "w4", title: "W4", text: "<p>AI Interpreter Earbuds</p>", link_label: "Shop W4", link: PRODUCT_URL.w4 } },
+      { type: "column", settings: { image: "card-w4plus", title: "W4 Plus", text: "<p>AI Interpreter Earbuds</p>", link_label: "Shop W4 Plus", link: PRODUCT_URL.w4plus } },
       { type: "column", settings: { image: "card-w4pro", title: "W4 Pro", text: "<p>AI Interpreter Earbuds</p>", link_label: "Shop W4 Pro", link: PRODUCT_URL.w4pro } },
       { type: "column", settings: { image: "card-x1", title: "X1 Meeting", text: "<p>Meeting Interpreter Hub</p>", link_label: "Shop X1", link: PRODUCT_URL.x1 } },
       { type: "column", settings: { image: "card-m3", title: "M3", text: "<p>Language Translator Earbuds</p>", link_label: "Shop M3", link: PRODUCT_URL.m3 } },

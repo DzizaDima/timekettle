@@ -68,6 +68,86 @@
     "warnings": []
   },
   {
+    "sourceUrl": "https://www.timekettle.co/products/w4-plus-ai-interpreter-earbuds",
+    "handle": "w4-plus-ai-interpreter-earbuds",
+    "sourceProductId": 9661029875943,
+    "title": "W4 Plus AI Interpreter Earbuds",
+    "descriptionHtml": "<ul>\n<li>Bone-Conduction Voice Capture with VoiceFocus Dual Mics</li>\n<li>Babel OS 3.0 AI-Refined, Natural-Sounding Translation</li>\n<li>52 Languages, 106 Accents Supported</li>\n<li>Offline Translation for 13 Language Pairs</li>\n<li>Lag-Free Global Communication via Intelligent Server Routing</li>\n<li>4 Versatile Translation Modes: One-on-One, Multi-Media, Voice Call, Listen &amp; Play</li>\n</ul>",
+    "descriptionSource": "manual-override",
+    "vendor": "Timekettle",
+    "productType": "",
+    "tags": [],
+    "hasRealOptions": true,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Space Black",
+          "Midnight Blue",
+          "Sandy Gold"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "title": "Space Black",
+        "sku": "C01050001",
+        "barcode": "192644002509",
+        "price": "379.00",
+        "compareAtPrice": "399.00",
+        "currency": "GBP",
+        "optionValues": [
+          {
+            "optionName": "Color",
+            "name": "Space Black"
+          }
+        ]
+      },
+      {
+        "title": "Midnight Blue",
+        "sku": "C01050003",
+        "barcode": "192644002516",
+        "price": "379.00",
+        "compareAtPrice": "399.00",
+        "currency": "GBP",
+        "optionValues": [
+          {
+            "optionName": "Color",
+            "name": "Midnight Blue"
+          }
+        ]
+      },
+      {
+        "title": "Sandy Gold",
+        "sku": "C01050005",
+        "barcode": "192644002523",
+        "price": "379.00",
+        "compareAtPrice": "399.00",
+        "currency": "GBP",
+        "optionValues": [
+          {
+            "optionName": "Color",
+            "name": "Sandy Gold"
+          }
+        ]
+      }
+    ],
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_plus_58cc39aa-3ecb-4f7d-9d34-48a92124767a.png?v=1790566818",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_6.jpg?v=1787208420",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P.jpg?v=1787208421",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_7.jpg?v=1787208421",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_2.jpg?v=1787208420",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_3.jpg?v=1787208420",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_8.jpg?v=1787208421",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_4.jpg?v=1787208421",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_P_5.jpg?v=1787208420",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_Plus_Blue-800x800_px-07.jpg?v=1785986884",
+      "https://cdn.shopify.com/s/files/1/0090/3797/1519/files/W4_Plus_Gold-800x800_px-07.jpg?v=1785986884"
+    ],
+    "warnings": []
+  },
+  {
     "sourceUrl": "https://www.timekettle.co/products/w4-pro-ai-interpreter-earbuds-2026",
     "handle": "w4-pro-ai-interpreter-earbuds-2026",
     "sourceProductId": 8994545271015,

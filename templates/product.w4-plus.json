@@ -1,0 +1,1232 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-pdp",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "highlights": {
+          "type": "highlights",
+          "settings": {
+            "items": "52 Languages with 106 Accents\nReal-Time AI Translation\nOffline Translation Packs\nUK Warranty and Customer Support"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "delivery": {
+          "type": "delivery",
+          "settings": {
+            "order_label": "Order today",
+            "arrives_label": "Estimated arrival",
+            "days_min": 1,
+            "days_max": 2,
+            "note": "<p>Free UK delivery in 48h, dispatched locally by our UK team.</p>"
+          }
+        },
+        "trust": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "check_mark",
+            "heading_1": "Authorised UK Distributor",
+            "icon_2": "chat_bubble",
+            "heading_2": "UK Customer Support",
+            "icon_3": "return",
+            "heading_3": "Warranty Support"
+          }
+        },
+        "details": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.description != blank -%}\n<div class=\"product__accordion accordion\">\n  <details>\n    <summary>\n      <div class=\"summary__title\"><h2 class=\"h4 accordion__title\">Product details</h2></div>\n      {{- 'icon-caret.svg' | inline_asset_content -}}\n    </summary>\n    <div class=\"accordion__content rte product__description\">{{ product.description }}</div>\n  </details>\n</div>\n{%- endif -%}"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating",
+        "price",
+        "highlights",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "delivery",
+        "trust",
+        "details",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "s00_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-3915291a43.png",
+        "image_2": "shopify://shop_images/pp-w4-plus-34295269a6.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pocket AI Interpreter",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Driven by bone-conduction pickup and our advanced VoiceFocus algorithm — so every word is captured, every meaning is preserved."
+          }
+        },
+        "b2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/w4-plus-ai-interpreter-earbuds",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s01_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-2c644cae1f.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "s02_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Communication Without Boundaries — Powered by Timekettle",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Engineered for clarity. Built for every conversation. Ready for the world.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s03_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-a03aa7e5a0.png",
+            "heading": "Speak Naturally. We Capture Every Word.",
+            "text": "<p>No need to raise your voice. Just talk at your normal volume — we’ll ensure your conversations stay seamless and uninterrupted, wherever you are. Bone Conduction — picks up your voice through cranial vibration, blocking out ambient noise.</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-6157b8173d.png",
+            "heading": "Elevate Every Conversation with True Fluency",
+            "text": "<p>Babel OS 3.0 + Smart AI Refinement Powered by Timekettle’s latest proprietary translation OS, Babel OS 3.0 doesn’t just translate — it refines. It instantly transforms word‑for‑word outputs into natural, context‑aware expressions that sound like you. No more robotic translations. Just fluid, human‑like communication.</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-ea787d13be.jpg",
+            "heading": "52 Languages. 106 Accents. And Counting.",
+            "text": "<p>Our expanding language library already covers over 90% of the world’s population — with high‑precision dialect recognition that captures local nuances. Wherever you go, speak with confidence, knowing our system continuously learns and updates to keep pace with the real world.</p>"
+          }
+        },
+        "b3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-f93049e9c6.jpg",
+            "heading": "Stay Connected — Online or Off.",
+            "text": "<p>No Wi‑Fi? No problem. With offline support for 13 major language pairs, your conversations stay seamless, secure, and uninterrupted — even when you're off the grid. Built for business travelers and global professionals who demand privacy and reliability, wherever the road takes you.</p>"
+          }
+        },
+        "b4": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-5c8e31af29.jpg",
+            "heading": "Lag‑Free Global Communication via Intelligent Server Routing",
+            "text": "<p>Minimize communication delays wherever your business takes you. Our dynamically expanding global server network automatically routes each session to the optimal translation engine, ensuring consistently stable connections and ultra‑low latency — so you can negotiate, present, and collaborate without a single pause.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "s04_rich_text": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 24
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Next‑Level Interpretation, Powered by All‑New AI",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>AI Specialized Translation ｜AI Conversation Memory｜AI Live Summary</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s05_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Precision for Experts — AI Specialized Translation",
+            "icon": "question_mark",
+            "row_content": "<p>Minimize costly terminology errors in high‑stakes professional settings. Tailored for fast‑moving sectors like Tech & Internet, Manufacturing & Industry, New Energy & Green Tech, and Biotech & Pharma — our continuously expanding terminology library ensures industry‑specific accuracy at every turn.</p><p>Available on W4 Plus and W4 Plus (subscription version) with an active plan.</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Flawless Consistency with AI Conversation Memory",
+            "icon": "question_mark",
+            "row_content": "<p>Keep your narrative intact from opening to closing. Our system securely retains dialogue context throughout your longest meetings — ensuring that specialized terms, proper names, and phrasing styles stay consistent from start to finish. No more repetitive clarifications. Just a seamless, uninterrupted flow.</p><p>* Available on W4 Plus and W4 Plus (subscription version) with an active plan.</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Capture Every Insight with AI Live Summary",
+            "icon": "question_mark",
+            "row_content": "<p>Stay fully present in the conversation — let us handle the notes. With a single click, instantly distill high‑density discussions into clear, actionable takeaways. No more scrambling to capture key points; just sharp, organized insights that keep you ahead in fast‑moving business environments.</p><p>* Available on W4 Plus and W4 Plus (subscription version) with an active plan.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s06_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "52 Languages and 106 Accents",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "52 Languages",
+            "icon": "question_mark",
+            "row_content": "<p>Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / Vietnamese</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "106 Accents",
+            "icon": "question_mark",
+            "row_content": "<p>Arabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (United Kingdom, Ireland, USA, Canada, Australia, New Zealand, India, Philippines, South Africa, Kenya, Tanzania, Nigeria, Ghana, Singapore);French (France, Canada);Portuguese (Portugal, Brazil);Spanish (Spain, USA, Mexico, Honduras, Nicaragua, Panama, Costa Rica, Argentina, Chile, Bolivia, Colombia, Dominican, Ecuador, Guatemala, Peru, Puerto Rico, Paraguay, Uruguay, Venezuela, Salvador);Tamil (India, Singapore, Sri Lanka, Malaysia);Urdu (Pakistan, India).Swahili (Kenya, Tanzania)</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "8-Language Offline Translation Package",
+            "icon": "question_mark",
+            "row_content": "<p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-German</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s07_languages_scrolling": {
+      "type": "languages-scrolling",
+      "settings": {
+        "background": "#f5f5f5",
+        "text_color": "#333333",
+        "button_background": "#3456e6",
+        "button_text_color": "#ffffff",
+        "speed": 60,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "s08_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Versatile Modes. Fluid Communication. Every Day.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-34295269a6.jpg",
+            "title": "One‑on‑One Translation",
+            "text": "<p>Natural face‑to‑face real-time translation for two-person conversations.</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-daac3d1f47.jpg",
+            "title": "Multi‑Media Translation",
+            "text": "<p>Translate audio and video in real time, Follow videos, audio content with translated subtitles as you watch or listen.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-c15db8b1a0.jpg",
+            "title": "Voice Call Translation",
+            "text": "<p>across popular apps. Follow multilingual meetings through a real-time translation chat.</p>"
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-4980ec0c0e.jpg",
+            "title": "Listen & Play Translation",
+            "text": "<p>Hear & speak with instant playback. Hear translated speech in your earbuds, then reply through your phone speaker.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s09_multirow": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "b0": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-8fd5716041.jpg",
+            "heading": "For Decision Makers",
+            "text": "<p>The AI Interpreter of Professional Clarity Face‑to‑Face Negotiation — read the room, not just the words</p>"
+          }
+        },
+        "b1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-f990c9fd4d.jpg",
+            "heading": "For Global Families",
+            "text": "<p>The AI Interpreter of Meaningful Connection Intimate Cross‑Border Dialogue — say it from the heart, hear it like home</p>"
+          }
+        },
+        "b2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-75ee8a3147.jpg",
+            "heading": "For Remote Explorers",
+            "text": "<p>The AI Interpreter of Borderless Collaboration Global Client Call — close deals across time zones</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s10_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-51de96f21d.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Power That Keeps Up With Your Day",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Never let a low battery interrupt a critical conversation. Enjoy over 3 hours of continuous active translation on a single charge, with up to 12 hours of total backup power from the sleek charging case. From morning briefings to evening dinners — stay connected, non‑stop."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s11_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-0998524da6.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pocket‑Sized Intelligence",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Engineered for maximum mobility. At just 116.5 grams, the ultra‑light charging case glides effortlessly into any pocket or travel bag — keeping professional‑grade translation always within reach, no matter where your work takes you."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s12_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-dd1b44dc45.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Always Updated. Always Improving.",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Enjoy continuous OTA system updates that keep your device performing at its peak — with optimized translation engines, smoother response times, and an ever‑refining cross‑border communication experience. No manual intervention needed. Just better, every time you use it."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s13_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-dc3f61576a.png",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Conversations, Fully Encrypted",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "We take your privacy as seriously as you do. Strictly compliant with GDPR and FERPA, every conversation is processed through secure protocols — never stored, never used for training, and never shared. Your words remain yours alone. Absolute confidentiality for your global business."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s14_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "How to Connect to the Timekettle App",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-c9c1e9f343.jpg",
+            "title": "Download the App",
+            "text": "<p>Tap the card, scan the QR code</p>"
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-595b6884ef.jpg",
+            "title": "Remove the Stickers",
+            "text": "<p>Peel off the earbud stickers</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-4eb8fc4171.jpg",
+            "title": "Open the Case to Pair",
+            "text": "<p>Keep the earbuds inside, open the case, and wait for the lights to flash.</p>"
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-171dca0693.jpg",
+            "title": "Follow the App Steps",
+            "text": "<p>Open the app and follow the on-screen instructions to connect.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s15_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-163818f172.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      },
+      "blocks": {
+        "b0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Timekettle App — Effortless Control From Day One",
+            "heading_size": "h1"
+          }
+        },
+        "b1": {
+          "type": "text",
+          "settings": {
+            "text": "Get up and running in seconds. Our latest app puts professional‑grade interpretation at your fingertips with zero friction."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1"
+      ]
+    },
+    "s16_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "What’s in the Box",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-3678f6bc9a.png",
+            "title": "W4 Plus",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-84366525e8.png",
+            "title": "Charging Cable",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-286e3c4bdd.png",
+            "title": "Ear Hooks",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-c0c68c3751.png",
+            "title": "Ear Tips",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "s17_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "How to Wear W4 Plus Comfortably",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-b45be4c53e.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-d13ed9cfb2.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-98afd09486.png",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "s18_image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/pp-w4-plus-3bc7a74c24.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "s19_collapsible_content": {
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 44,
+        "padding_bottom": 44
+      },
+      "blocks": {
+        "b0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Should I choose W4 Plus (One-time Purchase Version) or W4 Plus (Subscription Version)?",
+            "icon": "question_mark",
+            "row_content": "<p>It depends on how you plan to use it.</p><p>Choose the One-time Purchase Version if you're a power user who wants all advanced AI features permanently unlocked — one purchase, done.</p><p>Choose the Subscription Edition if your usage is more casual or occasional. You get full base translation capabilities right out of the box, and you can always add a subscription later if your needs grow.</p>"
+          }
+        },
+        "b1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is a subscription required to use the W4 Plus Subscription Edition?",
+            "icon": "question_mark",
+            "row_content": "<p>Not at all. All core translation features are included for everyday use — no subscription needed. Advanced features like Voice Call Translation, Multi‑Media Translation, and AI capabilities come with a 7‑day free trial, so you can test them out and subscribe only when you actually need them.</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the difference between W4 and W4 Plus?",
+            "icon": "question_mark",
+            "row_content": "<p>W4 Plus is a significant leap forward. It brings:</p><p>Babel OS 3.0 — our latest translation operating system</p><p>All‑new VoiceFocus algorithm + bone conduction — superior noise isolation that captures your voice with crystal clarity</p><p>AI‑refined translations — natural, fluent, and context‑aware</p><p>Full support for advanced features: Voice Call Translation, Multi‑Media Translation, and premium AI capabilities.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the difference between W4 Plus (One-time Purchase Version) and W4 Plus (Subscription Version)?",
+            "icon": "question_mark",
+            "row_content": "<p>W4 Plus (Subscription Version) — Two‑Person Conversation and On‑Site Listening modes are unlimited and free forever. Media Translation, Call Translation, and advanced AI features come with a 7‑day free trial; after that, a monthly subscription unlocks full access.</p><p>W4 Plus (One-time Purchase Version) — A one‑time purchase that permanently unlocks all features (including all advanced AI features) with no recurring fees.</p><p>Choose the One-time Purchase Version if you're a heavy user who wants everything upfront. Choose the Subscription Version if you prefer to start with a lower entry cost and upgrade later if needed.</p>"
+          }
+        },
+        "b4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What features are available in each version?",
+            "icon": "question_mark",
+            "row_content": "<p>W4 — Unlimited access to One‑on‑One and Listen & Play modes. Comes with a 10‑minute trial of Media Translation and Voice Call Translation. No advanced AI features; no VoiceFocus algorithm.</p><p>W4 Plus (Subscription Version) — Unlimited access to all basic translation modes with Babel OS 3.0 AI Refine and VoiceFocus included. Plus a 7‑day free trial of Audio/Video Translation, Call Translation, and advanced AI features. After trial, $14.99/month unlocks all advanced capabilities.</p><p>W4 Plus (One-time Purchase Version) that permanently unlocks all features — including all advanced AI features and the full VoiceFocus algorithm. No recurring fees.</p><p>In short: W4 = entry‑level. W4 Plus (Subscription Version) = flexible monthly access. W4 Plus (One-time Purchase Version)= full ownership, one and done.</p>"
+          }
+        },
+        "b5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What exactly is included in the \"New AI Features\"?",
+            "icon": "question_mark",
+            "row_content": "<p>The suite includes three powerful AI‑driven capabilities, enabled by default for eligible users:</p><p>AI Specialized Translation — Optionally activate industry‑specific models (e.g., Tech, Finance, Biotech) to optimize professional terminology and reduce jargon errors.</p><p>AI Conversation Memory — Maintains consistent context throughout lengthy discussions, ensuring terms, names, and phrasing styles stay coherent from start to finish.</p><p>AI Live Summary — Automatically extracts key takeaways and meeting minutes from your translated conversations with a single tap.</p><p>These features are available to subscription‑plan users and permanent‑purchase (W4 Plus) users at no extra charge.</p>"
+          }
+        },
+        "b6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I use the W4 Plus for translation and calls?",
+            "icon": "question_mark",
+            "row_content": "<p>The W4 Plus is designed for effortless, hands‑free communication. Here's how it works:</p><p>For one‑on‑one conversations: Simply share the earbuds — one for you, one for your conversation partner. The device automatically translates in real time, so you can speak face‑to‑face naturally.</p><p>For phone calls, online meetings, or media playback: Open the Timekettle app and select the appropriate mode (e.g., Call Mode, Meeting Mode, or Media Mode) to match your activity.</p><p>Touch controls: Use double‑tap, triple‑tap, or long‑press gestures to play/pause, skip tracks, answer or end calls, and more. All gestures are customizable — check the user manual or the app's touch settings for detailed instructions.</p>"
+          }
+        },
+        "b7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When should I use \"Fast\" vs. \"Accurate\" translation on W4 Plus?",
+            "icon": "question_mark",
+            "row_content": "<p>Great question. The W4 Plus gives you two translation modes to match your needs:</p><p>Fast Translation is all about speed. It delivers almost instant results, making it perfect for quick exchanges — like ordering food, asking for directions, or casual small talk. The trade‑off is that it may miss some nuances.</p><p>Accurate Translation takes a bit more time (still just seconds) because it waits for a full sentence, then applies an advanced AI model to understand context, correct errors, and refine the output. This ensures professional‑grade precision for conference calls, contract discussions, or formal presentations.</p><p>The best part? You can toggle between the two with a single tap at the top of the translation screen — no need to pause or restart your conversation.</p>"
+          }
+        },
+        "b8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What can I use W4 Plus for? What modes does it have?",
+            "icon": "question_mark",
+            "row_content": "<p>W4 Plus adapts to almost any cross‑language scenario with four dedicated modes — all using the same set of earbuds and the same powerful cloud translation engine:</p><p>Two‑Person Conversation Mode — Give one earbud to your conversation partner. You'll both hear instant, two‑way translations with near‑zero delay. Perfect for face‑to‑face negotiations, traveling with friends, or bargaining at local markets.</p><p>On‑Site Listening Mode — Wear both earbuds and listen to one‑way real‑time translations. Great for attending academic lectures, following guided tours in foreign languages, or sitting through international conferences.</p><p>Call Translation Mode — Make or receive cross‑border calls and online meetings without asking the other party to install anything. The app translates both sides and saves bilingual transcripts for later review.</p><p>Audio & Video Translation Mode — Watch foreign movies, live broadcasts, or YouTube videos with real‑time subtitles while still hearing the original audio — so you never miss the emotion or context.</p><p>Best of all? You don't need to change hardware for different scenarios. Just switch modes in the app, and you're ready to go.</p>"
+          }
+        },
+        "b9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many languages are supported? Is offline translation available?",
+            "icon": "question_mark",
+            "row_content": "<p>Online: 52 languages and 106 accents.</p><p>Offline: 13 language pairs — all free to download. Supported pairs: CN ↔ EN/JP/KR/FR/DE/ES/RU and EN ↔ CN/JP/KR/FR/DE/ES/RU.</p><p>✅ Offline supported: Two‑Person Conversation and On‑Site Listening.</p><p>❌ Internet required: Call Translation and Audio & Video Translation.</p>"
+          }
+        },
+        "b10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which features of W4 Plus support offline translation?",
+            "icon": "question_mark",
+            "row_content": "<p>W4 Plus supports offline translation in the following scenarios:</p><p>✅ Offline supported:</p><p>Two‑Person Conversation — face‑to‑face translation without internet (requires offline package downloaded in advance).</p><p>Listen & Play — both “Listening” and “Speaking” directions work offline (requires offline package downloaded in advance).</p><p>❌ Offline not supported (internet required):</p><p>Voice Call Translation — requires network connection.</p><p>Multi‑Media Translation — requires network connection.</p><p>All AI Features (AI Specialized Translation / AI Conversation Memory / AI Live Summary) — require cloud processing.</p><p>Offline language packages:</p><p>Supports 13 free language pairs:</p><p>Chinese ↔ English/Japanese/Korean/French/German/Spanish/Russian</p><p>English ↔ Chinese/Japanese/Korean/French/German/Spanish/Russian</p><p>Packages must be downloaded while online before they can be used offline.</p>"
+          }
+        },
+        "b11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "With so many W4 models, which one is right for me?",
+            "icon": "question_mark",
+            "row_content": "<p>Instead of a one‑size‑fits‑all answer, let's walk through three dimensions:</p><p>① What features do you use most?</p><p>② Do you prefer a one‑time payment or monthly subscription?</p><p>③ Do you have specific needs for comfort and battery life?</p><p>If you're on a budget and mainly need face‑to‑face translation:</p><p>Choose W4. It's the most affordable and compact option, with unlimited One‑on‑One and Listen & Play — perfect for occasional cross‑language encounters.</p><p>If you want to test premium features at a low cost and subscribe only as needed:</p><p>Choose W4 Plus Subscription. Basic translation is unlimited, and premium features (Call Translation, Media Translation, AI Features) come with a 7‑day free trial — you only pay monthly after that. Flexible and cost‑efficient.</p><p>If you're a heavy user who wants everything permanently unlocked:</p><p>Choose W4 Plus (One-time Purchase). One payment gives you permanent access to Call/Media Translation, VoiceFocus, and the full AI suite (AI Specialized Translation, AI Conversation Memory, AI Live Summary). No monthly fees — ideal for foreign trade, cross‑border professionals, and frequent travelers.</p><p>If you're a business user who values comfort, long battery, and audio quality:</p><p>Choose W4 Pro. The open‑ear design makes it comfortable for all‑day wear, with 6+ hours of continuous translation and superior sound quality — ideal for indoor business negotiations and extended meetings.</p><p>Essential face‑to‑face translation → W4</p><p>Flexible monthly access to premium features → W4 Plus Subscription</p><p>Fully unlocked, permanent ownership → W4 Plus (One-time Purchase)</p><p>Long battery, comfort, flagship business → W4 Pro</p>"
+          }
+        },
+        "b12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When does bone‑conduction voiceprint pickup activate? Does it work during regular calls?",
+            "icon": "question_mark",
+            "row_content": "<p>Bone‑conduction pickup is automatically enabled only in translation modes — specifically during Two‑Person Conversation and On‑Site Listening when you are speaking.</p><p>It does not activate during regular phone calls, music playback, or any non‑translation use.</p><p>This design ensures the feature is used precisely where it's needed — capturing your voice clearly through vibration in noisy environments — without interfering with everyday audio functions.</p>"
+          }
+        },
+        "b13": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What makes W4 Plus so much better at picking up and recognizing my voice?",
+            "icon": "question_mark",
+            "row_content": "<p>The secret is a powerful combination of specialized hardware and smart algorithms:</p><p>Hardware advantage: W4 Plus is equipped with one bone‑conducting voiceprint sensor and two air‑conduction microphones. While the microphones pick up sound waves, the bone sensor captures your voice through skull vibration — which means it cuts through background noise to hear you clearly.</p><p>Algorithm power: These hardware inputs feed into a hybrid processing pipeline that includes dual‑mic pickup, VAD (Voice Activity Detection) noise reduction, and our proprietary VoiceFocus algorithm. Together, they separate your voice from the crowd with impressive precision.</p><p>Compared to the previous generation (W3), W4 Plus delivers a 25% boost in recognition accuracy.</p><p>For Chinese‑English translation, it hits 92% accuracy — reliable enough for business and professional use.</p><p>In quiet settings or when you speak softly, the error rate drops by 32% to 47%.</p><p>And in noisy environments (like busy streets or crowded lobbies), you don't need to shout — just speak naturally, and W4 Plus will catch every word.</p>"
+          }
+        },
+        "b14": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Babel OS 3.0? How does it improve translation quality?",
+            "icon": "question_mark",
+            "row_content": "<p>Babel OS 3.0 is Timekettle's proprietary end‑to‑end AI translation system, purpose‑built for the W4 Plus — handling everything from speech recognition to final output. It delivers three major upgrades over the previous generation:</p><p>More accurate — A large language model (LLM) drives the entire translation reasoning process, boosting accuracy by ≥30%. Built‑in AI Refine and error correction ensure even long or casual sentences sound natural and fluent.</p><p>Faster & more stable — Auto‑matches the optimal engine for each language, with global server nodes maintaining stable connections even on weak networks. Seamless switching between online and offline modes.</p><p>Broader & more native — Supports 52 languages and 106 accents, delivering idiomatic results even for less commonly spoken languages.</p><p>In short: It's smarter, faster, and sounds more like you.</p>"
+          }
+        },
+        "b15": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do call translation and audio/video translation require the other party to have a device? Which apps are supported?",
+            "icon": "question_mark",
+            "row_content": "<p>The other party does NOT need any device or earbuds — only you need the W4 Plus.</p><p>Call Translation works with system phone calls and major communication/meeting apps, including WeChat, Zoom, Microsoft Teams, DingTalk, WhatsApp, and more.</p><p>Audio & Video Translation supports popular streaming platforms like YouTube, Netflix, Amazon Prime Video, and others.</p><p>In short: If you can hear it on your phone, W4 Plus can translate it — the other side doesn't need to install or wear anything.</p>"
+          }
+        },
+        "b16": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is call translation bidirectional? Can I hear both the original audio and the translation? Can I prevent the other party from hearing my original voice?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes, call translation is fully bidirectional — both sides are translated in real time.</p><p>You can adjust the volume of the original audio and the translated audio independently to suit your preference.</p><p>After updating to the latest firmware, you can disable the option that lets the other party hear your original voice. Once turned off, they will onlyhear the translated version of what you say — your original voice remains private to you.</p><p>Tip: Check for firmware updates in the app to access this privacy feature.</p>"
+          }
+        },
+        "b17": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the VoiceFocus algorithm? Which versions support it?",
+            "icon": "question_mark",
+            "row_content": "<p>VoiceFocus is a focused noise‑reduction pickup algorithm that dramatically improves voice recognition accuracy in low‑volume and noisy environments — so you can be understood clearly even when you speak softly or the room is loud.</p><p>✅ W4 Plus (Subscription) and W4 Plus (One-time Purchase) — both include VoiceFocus.</p><p>❌ W4 (original) — does not support VoiceFocus.If you want the best performance in challenging acoustic conditions, choose a W4 Plus model.</p>"
+          }
+        },
+        "b18": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How much does the subscription cost? How do I subscribe?",
+            "icon": "question_mark",
+            "row_content": "<p>Price: $14.99/month for unlimited access to all premium features. Regional pricing is automatically adjusted by the app store based on local exchange rates and taxes — no manual calculation needed.</p><p>How to subscribe: Open the Timekettle app → go to your device page → tap \"Upgrade Plan\" → log in to your account and complete the payment.</p><p>Important: You must be logged in to purchase a subscription. Without logging in, only the free basic features are available.</p>"
+          }
+        },
+        "b19": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the 7‑day free trial work? What happens after it ends?",
+            "icon": "question_mark",
+            "row_content": "<p>The subscription version includes a 7‑day free trial for Audio/Video Translation, Call Translation, and all advanced AI features.</p><p>After the trial, your subscription will automatically renew at the standard rate unless you cancel before the trial ends.</p><p>If you choose not to subscribe, those premium features will be locked — but the basic Two‑Person Conversation and On‑Site Listening modes remain free and unlimited, completely unaffected.</p><p>Tip: Cancel via the app store (Apple/Google) at least 24 hours before the trial ends to avoid charges.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12",
+        "b13",
+        "b14",
+        "b15",
+        "b16",
+        "b17",
+        "b18",
+        "b19"
+      ]
+    },
+    "s20_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "The Voices of Our Users",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-f18075fed7.png",
+            "title": "You don’t just translate; you communicate and learn by speaking and listening.",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-e2a6926927.png",
+            "title": "We finally understand each other in real time. Real translation. Real connection.",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-42690ef07c.png",
+            "title": "Now I know exactly what she's saying. All. The. Time.",
+            "text": ""
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-476c2ddfd2.png",
+            "title": "Seamless real-time translation with noise filtering, AI precision, and bone-voiceprint tech.",
+            "text": ""
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-79506fa919.png",
+            "title": "Well-designed, easy to use, and very effective translation earbuds that work great for my work!",
+            "text": ""
+          }
+        },
+        "b5": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-84733835f5.png",
+            "title": "Advanced AI Translation Earbuds Focused on Noisy Environments and Natural Conversation.",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "s21_multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Find your ideal translation earbuds.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "b0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-5aa666f6ff.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-607e186e47.jpg",
+            "title": "",
+            "text": ""
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pp-w4-plus-1f619d7795.jpg",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "s00_image_banner",
+    "s01_image_banner",
+    "s02_rich_text",
+    "s03_multirow",
+    "s04_rich_text",
+    "s05_collapsible_content",
+    "s06_collapsible_content",
+    "s07_languages_scrolling",
+    "s08_multicolumn",
+    "s09_multirow",
+    "s10_image_banner",
+    "s11_image_banner",
+    "s12_image_banner",
+    "s13_image_banner",
+    "s14_multicolumn",
+    "s15_image_banner",
+    "s16_multicolumn",
+    "s17_multicolumn",
+    "s18_image_banner",
+    "s19_collapsible_content",
+    "s20_multicolumn",
+    "s21_multicolumn",
+    "related-products"
+  ]
+}

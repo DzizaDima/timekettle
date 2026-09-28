@@ -12,45 +12,73 @@
   }
 {%- endstyle -%}
 
-<div
-  id="FeatureBar-{{ section.id }}"
-  class="feature-bar color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding{% if section.settings.show_line_separator %} feature-bar--bottom-border{% endif %}"
-  style="--feature-bar-count: {{ section.blocks.size | at_least: 1 }};"
->
-  <div class="page-width">
-    <ul class="feature-bar__list" role="list">
-      {%- for block in section.blocks -%}
-        <li class="feature-bar__item" {{ block.shopify_attributes }}>
-          {%- if block.settings.icon != 'none' -%}
-            <span class="feature-bar__icon svg-wrapper" aria-hidden="true">
-              {%- case block.settings.icon -%}
-                {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
-                {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
-                {%- when 'tick' -%}{{ 'icon-tick.svg' | inline_asset_content }}
-                {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
-                {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
-                {%- when 'fire' -%}{{ 'icon-fire.svg' | inline_asset_content }}
-                {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
-                {%- when 'question' -%}{{ 'icon-question-mark.svg' | inline_asset_content }}
-                {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
-                {%- when 'return' -%}{{ 'icon-return.svg' | inline_asset_content }}
-                {%- when 'stopwatch' -%}{{ 'icon-stopwatch.svg' | inline_asset_content }}
-                {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
-                {%- when 'map-pin' -%}{{ 'icon-map-pin.svg' | inline_asset_content }}
-                {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
-              {%- endcase -%}
-            </span>
-          {%- endif -%}
-          {%- if block.settings.text != blank -%}
-            <span class="feature-bar__text">{{ block.settings.text | escape }}</span>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
+{%- liquid
+  assign feature_bar_tag = 'div'
+  if section.settings.sticky_type != 'none'
+    assign feature_bar_tag = 'sticky-feature-bar'
+  endif
+-%}
+
+<{{ feature_bar_tag }}{% if feature_bar_tag == 'sticky-feature-bar' %} data-sticky-type="{{ section.settings.sticky_type }}"{% endif %}>
+  <div
+    id="FeatureBar-{{ section.id }}"
+    class="feature-bar color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding{% if section.settings.show_line_separator %} feature-bar--bottom-border{% endif %}"
+    style="--feature-bar-count: {{ section.blocks.size | at_least: 1 }};"
+  >
+    <div class="page-width">
+      <ul class="feature-bar__list" role="list">
+        {%- for block in section.blocks -%}
+          <li class="feature-bar__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != 'none' -%}
+              <span class="feature-bar__icon svg-wrapper" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'truck' -%}{{ 'icon-truck.svg' | inline_asset_content }}
+                  {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
+                  {%- when 'tick' -%}{{ 'icon-tick.svg' | inline_asset_content }}
+                  {%- when 'star' -%}{{ 'icon-star.svg' | inline_asset_content }}
+                  {%- when 'heart' -%}{{ 'icon-heart.svg' | inline_asset_content }}
+                  {%- when 'fire' -%}{{ 'icon-fire.svg' | inline_asset_content }}
+                  {%- when 'chat' -%}{{ 'icon-chat-bubble.svg' | inline_asset_content }}
+                  {%- when 'headset' -%}{{ 'icon-headset.svg' | inline_asset_content }}
+                  {%- when 'globe' -%}{{ 'icon-globe.svg' | inline_asset_content }}
+                  {%- when 'question' -%}{{ 'icon-question-mark.svg' | inline_asset_content }}
+                  {%- when 'lock' -%}{{ 'icon-lock.svg' | inline_asset_content }}
+                  {%- when 'return' -%}{{ 'icon-return.svg' | inline_asset_content }}
+                  {%- when 'stopwatch' -%}{{ 'icon-stopwatch.svg' | inline_asset_content }}
+                  {%- when 'plane' -%}{{ 'icon-plane.svg' | inline_asset_content }}
+                  {%- when 'map-pin' -%}{{ 'icon-map-pin.svg' | inline_asset_content }}
+                  {%- when 'discount' -%}{{ 'icon-discount.svg' | inline_asset_content }}
+                {%- endcase -%}
+              </span>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <span class="feature-bar__text">{{ block.settings.text | escape }}</span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
   </div>
-</div>
+</{{ feature_bar_tag }}>
 
 {% stylesheet %}
+  .section-feature-bar {
+    position: sticky; /* Safari z-index fix, mirrors .section-header */
+  }
+
+  .shopify-section-feature-bar-sticky {
+    position: sticky;
+    top: var(--header-offset, 0px);
+  }
+
+  .shopify-section-feature-bar-hidden {
+    top: calc(var(--header-offset, 0px) - var(--feature-bar-height, 0px));
+  }
+
+  .section-feature-bar.animate {
+    transition: top 0.15s ease-out;
+  }
+
   .feature-bar {
     background: rgb(var(--color-background));
     color: rgb(var(--color-foreground));
@@ -209,6 +237,88 @@
   })();
 </script>
 
+{% javascript %}
+  class StickyFeatureBar extends HTMLElement {
+    constructor() {
+      super();
+      this.setBarHeight = this.setBarHeight.bind(this);
+    }
+
+    connectedCallback() {
+      this.bar = document.querySelector('.section-feature-bar');
+      if (!this.bar) return;
+
+      this.mobileMediaQuery = window.matchMedia('(max-width: 990px)');
+      this.barIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
+      this.barBounds = {};
+
+      this.setBarHeight();
+      this.mobileMediaQuery.addEventListener('change', this.setBarHeight);
+
+      if (this.barIsAlwaysSticky) {
+        this.bar.classList.add('shopify-section-feature-bar-sticky');
+      }
+
+      this.currentScrollTop = 0;
+      this.onScrollHandler = this.onScroll.bind(this);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+
+      this.createObserver();
+    }
+
+    disconnectedCallback() {
+      this.mobileMediaQuery.removeEventListener('change', this.setBarHeight);
+      window.removeEventListener('scroll', this.onScrollHandler);
+    }
+
+    setBarHeight() {
+      this.barHeight = this.bar.offsetHeight;
+      document.documentElement.style.setProperty('--feature-bar-height', `${this.barHeight}px`);
+    }
+
+    createObserver() {
+      let observer = new IntersectionObserver((entries, observer) => {
+        this.barBounds = entries[0].intersectionRect;
+        observer.disconnect();
+      });
+
+      observer.observe(this.bar);
+    }
+
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > this.currentScrollTop && scrollTop > this.barBounds.bottom) {
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.barBounds.bottom) {
+        requestAnimationFrame(this.reveal.bind(this));
+      } else if (scrollTop <= this.barBounds.top) {
+        requestAnimationFrame(this.reset.bind(this));
+      }
+
+      this.currentScrollTop = scrollTop;
+    }
+
+    hide() {
+      if (this.barIsAlwaysSticky) return;
+      this.bar.classList.add('shopify-section-feature-bar-hidden', 'shopify-section-feature-bar-sticky', 'animate');
+    }
+
+    reveal() {
+      if (this.barIsAlwaysSticky) return;
+      this.bar.classList.add('shopify-section-feature-bar-sticky', 'animate');
+      this.bar.classList.remove('shopify-section-feature-bar-hidden');
+    }
+
+    reset() {
+      if (this.barIsAlwaysSticky) return;
+      this.bar.classList.remove('shopify-section-feature-bar-hidden', 'shopify-section-feature-bar-sticky', 'animate');
+    }
+  }
+
+  customElements.define('sticky-feature-bar', StickyFeatureBar);
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Feature bar",
@@ -225,6 +335,17 @@
       "id": "show_line_separator",
       "label": "Show bottom border",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "sticky_type",
+      "label": "Sticky",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "on-scroll-up", "label": "On scroll up" },
+        { "value": "always", "label": "Always" }
+      ],
+      "default": "none"
     },
     {
       "type": "header",
@@ -270,6 +391,8 @@
             { "value": "heart", "label": "Heart" },
             { "value": "fire", "label": "Fire" },
             { "value": "chat", "label": "Chat bubble" },
+            { "value": "headset", "label": "Headset" },
+            { "value": "globe", "label": "Globe" },
             { "value": "question", "label": "Question mark" },
             { "value": "lock", "label": "Lock" },
             { "value": "return", "label": "Return" },
@@ -293,10 +416,11 @@
     {
       "name": "Feature bar",
       "blocks": [
-        { "type": "feature", "settings": { "icon": "truck", "text": "Free delivery in 48h" } },
-        { "type": "feature", "settings": { "icon": "check", "text": "Partner Timekettle" } },
-        { "type": "feature", "settings": { "icon": "star", "text": "Genuine Products" } },
-        { "type": "feature", "settings": { "icon": "chat", "text": "UK Support" } }
+        { "type": "feature", "settings": { "icon": "map-pin", "text": "Stocked in the UK" } },
+        { "type": "feature", "settings": { "icon": "truck", "text": "Free 1–2 Day Delivery" } },
+        { "type": "feature", "settings": { "icon": "check", "text": "Official Timekettle Partner" } },
+        { "type": "feature", "settings": { "icon": "globe", "text": "Online & Offline Translation" } },
+        { "type": "feature", "settings": { "icon": "headset", "text": "UK Support" } }
       ]
     }
   ],

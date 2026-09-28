@@ -32,7 +32,7 @@
   assign payment_types = section.settings.payment_icons | split: ','
 -%}
 
-<footer class="brand-footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer id="contact" class="brand-footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="page-width brand-footer__inner">
     <div class="brand-footer__brand">
       <a href="{{ routes.root_url }}" class="brand-footer__logo-link" aria-label="{{ shop.name | escape }}">

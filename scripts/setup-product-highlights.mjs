@@ -11,6 +11,14 @@ import { graphql } from "./shopify.mjs";
 const DRY = process.argv.includes("--dry");
 
 const HIGHLIGHTS = {
+  "w4-plus-ai-interpreter-earbuds": [
+    "Bone-Conduction Voice Capture with VoiceFocus Dual Mics",
+    "Babel OS 3.0 AI-Refined, Natural-Sounding Translation",
+    "52 Languages, 106 Accents Supported",
+    "Offline Translation for 13 Language Pairs",
+    "Lag-Free Global Communication via Smart Server Routing",
+    "4 Versatile Translation Modes for Every Day",
+  ],
   "w4-pro-ai-interpreter-earbuds-2026": [
     "Efficient Simultaneous Interpreting",
     "Onsite & Online Meeting Assistant",

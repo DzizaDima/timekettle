@@ -15,6 +15,7 @@ const OUT_DIR = path.join(ROOT, "scripts", "data");
 const OUT = path.join(OUT_DIR, "product-pages.json");
 
 const PRODUCTS = [
+  { suffix: "w4-plus", handle: "w4-plus-ai-interpreter-earbuds", url: "https://www.timekettle.co/products/w4-plus-ai-interpreter-earbuds" },
   { suffix: "w4", handle: "w4-ai-interpreter-earbuds", url: "https://www.timekettle.co/products/w4-ai-interpreter-earbuds" },
   { suffix: "w4-pro", handle: "w4-pro-ai-interpreter-earbuds-2026", url: "https://www.timekettle.co/products/w4-pro-ai-interpreter-earbuds-2026" },
   { suffix: "x1", handle: "x1-meeting-interpreter-hub", url: "https://www.timekettle.co/products/x1-meeting-interpreter-hub" },

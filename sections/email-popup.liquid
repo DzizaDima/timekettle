@@ -1,0 +1,235 @@
+{{ 'section-email-popup.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'email-popup.js' | asset_url }}" defer="defer"></script>
+
+{%- if section.settings.enable -%}
+  <email-popup
+    class="email-popup"
+    data-delay-seconds="{{ section.settings.delay_seconds }}"
+    data-trigger-interaction="{{ section.settings.show_on_interaction }}"
+    data-reshow-days="{{ section.settings.reshow_after_days }}"
+  >
+    <div class="email-popup__overlay" data-email-popup-close></div>
+    <div
+      class="email-popup__dialog color-{{ section.settings.color_scheme }} gradient{% if section.settings.image != blank %} email-popup__dialog--with-media{% endif %}"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="EmailPopupHeading-{{ section.id }}"
+      tabindex="-1"
+    >
+      <button
+        type="button"
+        class="email-popup__close"
+        data-email-popup-close
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </span>
+      </button>
+
+      {%- if section.settings.image != blank -%}
+        <div class="email-popup__media">
+          <img
+            srcset="
+              {{ section.settings.image | image_url: width: 400 }} 400w,
+              {{ section.settings.image | image_url: width: 800 }} 800w
+            "
+            sizes="(min-width: 750px) 240px, 100vw"
+            src="{{ section.settings.image | image_url: width: 800 }}"
+            loading="lazy"
+            alt="{{ section.settings.image.alt | escape }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
+          >
+        </div>
+      {%- endif -%}
+
+      <div class="email-popup__content">
+        <div class="email-popup__state" data-email-popup-state="form">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="email-popup__eyebrow caption-with-letter-spacing">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          <h2 id="EmailPopupHeading-{{ section.id }}" class="email-popup__heading h3">
+            {{ section.settings.heading }}
+          </h2>
+          {%- if section.settings.subheading != blank -%}
+            <div class="email-popup__subheading">{{ section.settings.subheading }}</div>
+          {%- endif -%}
+
+          {% form 'customer', class: 'email-popup__form' %}
+            <span
+              hidden
+              data-email-popup-form-state
+              data-posted-successfully="{{ form.posted_successfully? }}"
+              data-has-errors="{% if form.errors %}true{% else %}false{% endif %}"
+            ></span>
+            <input type="hidden" name="contact[tags]" value="newsletter,email_popup">
+            <div class="email-popup__field-row">
+              <div class="field">
+                <input
+                  id="EmailPopupEmail-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="field__input"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {%- if form.errors %}
+                    aria-invalid="true"
+                    aria-describedby="EmailPopupError-{{ section.id }}"
+                  {%- endif %}
+                  placeholder="{{ 'newsletter.label' | t }}"
+                  required
+                >
+                <label class="field__label" for="EmailPopupEmail-{{ section.id }}">
+                  {{ 'newsletter.label' | t }}
+                </label>
+              </div>
+              <button type="submit" class="button email-popup__submit" name="commit">
+                {{ section.settings.button_label }}
+              </button>
+            </div>
+            {%- if form.errors -%}
+              <small class="email-popup__message form__message" id="EmailPopupError-{{ section.id }}">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+          {% endform %}
+
+          {%- if section.settings.disclaimer != blank -%}
+            <div class="email-popup__disclaimer">{{ section.settings.disclaimer }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="email-popup__state" data-email-popup-state="success" hidden>
+          <span class="email-popup__success-icon svg-wrapper">
+            {{- 'icon-success.svg' | inline_asset_content -}}
+          </span>
+          <h2 class="email-popup__heading h3">{{ section.settings.success_heading }}</h2>
+          {%- if section.settings.success_text != blank -%}
+            <p class="email-popup__subheading">{{ section.settings.success_text }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </email-popup>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Email popup",
+  "tag": "section",
+  "class": "email-popup-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable popup",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Trigger"
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Show after delay",
+      "info": "Popup opens after this many seconds, or sooner on first interaction below.",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_interaction",
+      "label": "Also open on first interaction",
+      "info": "Opens as soon as the visitor scrolls, clicks or taps — whichever comes first, delay or interaction.",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "reshow_after_days",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "d",
+      "label": "Days before showing again after being closed",
+      "default": 7
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Limited offer"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get 10% off your first order"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Subscribe to our newsletter and get an exclusive welcome discount sent straight to your inbox.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get my discount"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>By subscribing, you agree to receive marketing emails. Unsubscribe anytime.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Success message"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Heading",
+      "default": "You're in!"
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Text",
+      "default": "Check your inbox — your discount code is on its way."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    }
+  ]
+}
+{% endschema %}

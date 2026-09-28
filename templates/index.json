@@ -45,7 +45,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/e6eb1fd8176389e68f903a7e386773be92dbe532.png",
-        "image_overlay_opacity": 100,
+        "image_overlay_opacity": 30,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",
@@ -121,6 +121,24 @@
         "padding_bottom": 80
       }
     },
+    "languages_scrolling_igmPC4": {
+      "type": "languages-scrolling",
+      "name": "Languages grid",
+      "settings": {
+        "show_heading": false,
+        "heading": "",
+        "subheading": "",
+        "background": "#eff4ff",
+        "text_color": "#131313",
+        "label_color": "#3456e6",
+        "speed": 60,
+        "show_table": false,
+        "button_background": "#3456e6",
+        "button_text_color": "#ffffff",
+        "padding_top": 8,
+        "padding_bottom": 84
+      }
+    },
     "made_for_real": {
       "type": "image-showcase",
       "settings": {
@@ -191,6 +209,7 @@
         "heading": "Buy Timekettle with Confidence",
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
+        "columns_desktop": 3,
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -263,23 +282,6 @@
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false
-      }
-    },
-    "languages_scrolling_igmPC4": {
-      "type": "languages-scrolling",
-      "name": "Languages grid",
-      "settings": {
-        "show_heading": false,
-        "heading": "",
-        "subheading": "",
-        "background": "#eff4ff",
-        "text_color": "#131313",
-        "label_color": "#3456e6",
-        "show_table": false,
-        "button_background": "#3456e6",
-        "button_text_color": "#ffffff",
-        "padding_top": 8,
-        "padding_bottom": 84
       }
     }
   },

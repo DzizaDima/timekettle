@@ -257,11 +257,11 @@
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -271,8 +271,6 @@
     },
     "mic": {
       "type": "image-text-stat",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "color_scheme": "scheme-3",
         "caption": "Clear Audio Capture",
@@ -294,7 +292,6 @@
         "b0": {
           "type": "column",
           "settings": {
-            "image": "",
             "title": "One-on-One Simultaneous Interpreting",
             "text": "<p>Streamlined and rapid exchange of information, provides natural and effortless cross-language communication.</p><p>Immerse yourself in the experience of instant real-time interpreting for effortless communication. Break down language barriers and connect with others in a whole new way.</p>",
             "link_label": "",
@@ -304,7 +301,6 @@
         "b1": {
           "type": "column",
           "settings": {
-            "image": "",
             "title": "Listen & Play Translation",
             "text": "<p>Facilitate fast interactions during in-person meetings, and enhance efficiency in on-site discussions and decision-making.</p><p>Switching between listening and speaking during meetings, and simultaneous interpretation in multilingual conferences fosters collaboration and understanding across diverse perspectives for shared success, fostering a collaborative environment where diverse perspectives unite for shared success.</p>",
             "link_label": "",
@@ -314,7 +310,6 @@
         "b2": {
           "type": "column",
           "settings": {
-            "image": "",
             "title": "Multi-Media Translation",
             "text": "<p>Timekettle W4 Pro supports translations for movies, podcasts, streaming services, allowing you to enjoy foreign-language content with real time subtitles.</p>",
             "link_label": "",
@@ -332,11 +327,11 @@
         "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -346,8 +341,6 @@
     },
     "ai_banner": {
       "type": "image-banner",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "image": "shopify://shop_images/pp-w4-pro-28fac5e192.jpg",
         "image_overlay_opacity": 0,
@@ -406,11 +399,11 @@
         "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -470,6 +463,7 @@
         "background": "#eff4ff",
         "text_color": "#131313",
         "label_color": "#3456e6",
+        "speed": 60,
         "show_table": true,
         "button_background": "#3456e6",
         "button_text_color": "#ffffff",
@@ -611,11 +605,11 @@
         "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-3",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -625,8 +619,6 @@
     },
     "lifestyle_banner": {
       "type": "image-banner",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "image": "shopify://shop_images/pp-w4-pro-d3226f2bb5.jpg",
         "image_overlay_opacity": 0,
@@ -665,7 +657,8 @@
           "settings": {
             "heading": "What is the greatest advantage of W4 Pro compared to other translation products on the market?",
             "icon": "none",
-            "row_content": "<p>Compared to other translator devices:1. W4 Pro is more suitable for in-depth communication scenarios. It allows recording and hearing translations simultaneously, significantly enhancing communication efficiency 2. W4 Pro supports translating videos, online meetings, and phone calls on a mobile phone. Compared to other translator earbuds:1. Only Timekettle earbuds offer the One-on-One mode, where each person wears one earbud, enabling both parties to speak and hear the translation results simultaneously, greatly improving communication efficiency.2. Exclusive \"AI Semantic Judgment\" technology in Timekettle earbuds provides faster translation, minimizing the delay in hearing translated languages, approaching the effect of a live interpreter.3. When translating videos, online meetings, and c</p>"
+            "row_content": "<p>Compared to other translator devices:1. W4 Pro is more suitable for in-depth communication scenarios. It allows recording and hearing translations simultaneously, significantly enhancing communication efficiency 2. W4 Pro supports translating videos, online meetings, and phone calls on a mobile phone. Compared to other translator earbuds:1. Only Timekettle earbuds offer the One-on-One mode, where each person wears one earbud, enabling both parties to speak and hear the translation results simultaneously, greatly improving communication efficiency.2. Exclusive \"AI Semantic Judgment\" technology in Timekettle earbuds provides faster translation, minimizing the delay in hearing translated languages, approaching the effect of a live interpreter.3. When translating videos, online meetings, and c</p>",
+            "page": ""
           }
         },
         "b1": {
@@ -673,7 +666,8 @@
           "settings": {
             "heading": "What languages does this W4 Pro translator support?",
             "icon": "none",
-            "row_content": "<p>Here are all 52 languages and 106 accents that it can support. Language: Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / VietnameseArabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (Un</p>"
+            "row_content": "<p>Here are all 52 languages and 106 accents that it can support. Language: Albanian / Arabic / Azerbaijani / Bengali / Bulgarian / Burmese / Cantonese / Catalan / Chinese / Croatian / Czech / Danish / Dutch / English / Filipino / Finnish / French / German / Greek / Hebrew / Hindi / Hungarian / Icelandic / Indonesian / Italian / Japanese / Korean / Lao / Latvian / Lithuanian / Malay / Mongolian / Norwegian / Persian / Polish / Portuguese / Romanian / Russian / Serbian / Slovak / Slovenian / Spanish / Swahili / Swedish / Tamil / Telugu / Thai / Turkish / Ukrainian / Urdu / Uzbek / VietnameseArabic (Egypt, Algeria, Tunisia, Morocco, Saudi Arabia, Oman, United Arab Emirates, Qatar, Bahrain, Iraq, Jordan, Kuwait, Lebanon, Palestine, Israel);Chinese (Simplified, Traditional, Cantonese);English (Un</p>",
+            "page": ""
           }
         },
         "b2": {
@@ -681,7 +675,8 @@
           "settings": {
             "heading": "How many offline language packs can be downloaded? Is there a limit?",
             "icon": "none",
-            "row_content": "<p>The W4 Pro offers 13 offline translation packs, and you can download all of them without any limit.</p><p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanyChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-Germany* We will keep updating.</p>"
+            "row_content": "<p>The W4 Pro offers 13 offline translation packs, and you can download all of them without any limit.</p><p>English-Chinese, English-Japanese , English-Korean , English-French , English-Spanish , English-Russian, English-GermanyChinese-English, Chinese-Japanese, Chinese-Korean, Chinese-French, Chinese-Spanish , Chinese-Russian, Chinese-Germany* We will keep updating.</p>",
+            "page": ""
           }
         },
         "b3": {
@@ -689,7 +684,8 @@
           "settings": {
             "heading": "Does the device support two-way translation during video calls? Do both parties need to wear the earbuds for it to work?",
             "icon": "none",
-            "row_content": "<p>The W4 Pro supports two-way voice call translation—only one person needs to wear the earbuds, allowing both parties to speak in their native languages and receive translations for smooth, effective communication using just a single W4 Pro device.</p>"
+            "row_content": "<p>The W4 Pro supports two-way voice call translation—only one person needs to wear the earbuds, allowing both parties to speak in their native languages and receive translations for smooth, effective communication using just a single W4 Pro device.</p>",
+            "page": ""
           }
         },
         "b4": {
@@ -697,7 +693,8 @@
           "settings": {
             "heading": "In what scenarios would you recommend using the main translation modes of W4 Pro?",
             "icon": "none",
-            "row_content": "<p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p>"
+            "row_content": "<p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p>",
+            "page": ""
           }
         },
         "b5": {
@@ -705,7 +702,8 @@
           "settings": {
             "heading": "Does W4 Pro need to work with a phone?",
             "icon": "none",
-            "row_content": "<p>Yes, W4 Pro needs to work with our Timekettle APP on a smart phone.</p>"
+            "row_content": "<p>Yes, W4 Pro needs to work with our Timekettle APP on a smart phone.</p>",
+            "page": ""
           }
         },
         "b6": {
@@ -713,7 +711,8 @@
           "settings": {
             "heading": "Do all translation modes of W4 Pro require an internet connection?",
             "icon": "none",
-            "row_content": "<p>One-on-One and Listen & Play mode support online and offline translation; while Media Translation only works with an internet connection.</p>"
+            "row_content": "<p>One-on-One and Listen & Play mode support online and offline translation; while Media Translation only works with an internet connection.</p>",
+            "page": ""
           }
         },
         "b7": {
@@ -721,7 +720,8 @@
           "settings": {
             "heading": "Does it offer music playback or just translation?",
             "icon": "none",
-            "row_content": "<p>W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls, offering a comprehensive set of features like standard Bluetooth earbuds.</p>"
+            "row_content": "<p>W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls, offering a comprehensive set of features like standard Bluetooth earbuds.</p>",
+            "page": ""
           }
         },
         "b8": {
@@ -729,7 +729,8 @@
           "settings": {
             "heading": "If there are two or more people watching a foreign movie and want translation, how many devices are needed?",
             "icon": "none",
-            "row_content": "<p>In Multi-media mode, you can watch foreign movies with real-time translation. For two people, only one W4 Pro is needed—each person can wear one earbud. For groups larger than two, the number of devices required depends on the number of users.</p>"
+            "row_content": "<p>In Multi-media mode, you can watch foreign movies with real-time translation. For two people, only one W4 Pro is needed—each person can wear one earbud. For groups larger than two, the number of devices required depends on the number of users.</p>",
+            "page": ""
           }
         },
         "b9": {
@@ -737,7 +738,8 @@
           "settings": {
             "heading": "What's the difference between W4 Pro & X1？",
             "icon": "none",
-            "row_content": "<p>Our W4 Pro AI Interpreter Earbuds feature three translation modes: One-on-One, Listen & Play, Voice Call Translation and Media Translation.</p><p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p><p>X1 AI Interpreter Hub offers a broader range of functionalities, including One-on-One, Listen & Play, Ask & Go, Voice Call, and Multi-Person capabilities.</p><p>Ask & Go: This function serves for small chats with the device held in hand. Hold the button to speak and release to play the audio for a translation.</p><p>Voice Call Feature: X1 allows for real-time voice calls, enabling communication and translation between individuals in different locations. (*This feature requires the use of two devices.)</p><p>Multi-Person Communication:With X1 Meeting, a single device can host meetings for up to 50 participants. Attendees simply join via a QR code or link to view, listen to, or speak through real-time translation on their own devices. For larger multilingual events, up to 10 X1 devices can be connected to support simultaneous interpretation in up to 5 languages.</p><p>Mode of operation: The X1 Interpreter Hub is a stand-alone device that can work independently via Wifi, while the W4 Pro needs to be connected to the Timekettle APP on a phone by connecting to Wifi or using the mobile data of the phone.Besides, W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls on a phone, offering a comprehensive set of features like standard Bluetooth earbuds.</p>"
+            "row_content": "<p>Our W4 Pro AI Interpreter Earbuds feature three translation modes: One-on-One, Listen & Play, Voice Call Translation and Media Translation.</p><p>One-on-One: Suitable for bilingual communication between two individuals, providing real-time translation functionality without requiring hands-on operation.</p><p>Listen & Play: Ideal for personal participation in the meetings or ; you can record others' speech on your phone and have the earphones play the translations. It can also switch to a speaking mode where the earphones record your speech for translation, then play the results for others to hear.</p><p>Voice Call Translation: Designed for multilingual phone calls, providing real-time translation so both participants can communicate naturally over the call.</p><p>Media Translation: Designed for translating audio from multimedia on your phone, including videos, online meetings, voice messages, podcasts, and other media content.</p><p>X1 AI Interpreter Hub offers a broader range of functionalities, including One-on-One, Listen & Play, Ask & Go, Voice Call, and Multi-Person capabilities.</p><p>Ask & Go: This function serves for small chats with the device held in hand. Hold the button to speak and release to play the audio for a translation.</p><p>Voice Call Feature: X1 allows for real-time voice calls, enabling communication and translation between individuals in different locations. (*This feature requires the use of two devices.)</p><p>Multi-Person Communication:With X1 Meeting, a single device can host meetings for up to 50 participants. Attendees simply join via a QR code or link to view, listen to, or speak through real-time translation on their own devices. For larger multilingual events, up to 10 X1 devices can be connected to support simultaneous interpretation in up to 5 languages.</p><p>Mode of operation: The X1 Interpreter Hub is a stand-alone device that can work independently via Wifi, while the W4 Pro needs to be connected to the Timekettle APP on a phone by connecting to Wifi or using the mobile data of the phone.Besides, W4 Pro not only provides translation capabilities but also allows you to play music, make and receive phone calls on a phone, offering a comprehensive set of features like standard Bluetooth earbuds.</p>",
+            "page": ""
           }
         },
         "b10": {
@@ -745,7 +747,8 @@
           "settings": {
             "heading": "How many phones are required to use the W4 Pro?",
             "icon": "none",
-            "row_content": "<p>Only one phone is needed to use the W4 Pro, and it works with both iOS and Android devices.</p>"
+            "row_content": "<p>Only one phone is needed to use the W4 Pro, and it works with both iOS and Android devices.</p>",
+            "page": ""
           }
         },
         "b11": {
@@ -753,7 +756,8 @@
           "settings": {
             "heading": "How loud can the W4 Pro get at maximum volume?",
             "icon": "none",
-            "row_content": "<p>The volume of the W4 Pro is adjusted based on the phone’s volume settings.</p>"
+            "row_content": "<p>The volume of the W4 Pro is adjusted based on the phone’s volume settings.</p>",
+            "page": ""
           }
         },
         "b12": {
@@ -761,7 +765,8 @@
           "settings": {
             "heading": "Does the ChatGPT mentioned in the promotion have a complete ChatGPT conversational interface or feature built-in?",
             "icon": "none",
-            "row_content": "<p>The “Access to ChatGPT” mentioned in our device refers to the integration of the technical capability of large language modeling in the process of speech recognition and translation processing to enhance the accuracy and contextual understanding of translation.</p>"
+            "row_content": "<p>The “Access to ChatGPT” mentioned in our device refers to the integration of the technical capability of large language modeling in the process of speech recognition and translation processing to enhance the accuracy and contextual understanding of translation.</p>",
+            "page": ""
           }
         }
       },
@@ -867,16 +872,17 @@
         "b4",
         "b5"
       ],
+      "disabled": true,
       "settings": {
         "title": "Product Tutorials",
         "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,

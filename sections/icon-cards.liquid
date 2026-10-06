@@ -2,7 +2,10 @@
   Icon value cards — "Buy Timekettle with Confidence".
   Centered heading, a grid of bordered cards (circle icon + title + text),
   and a primary button below. Columns on desktop come from columns_desktop
-  (2–4; an incomplete last row is centred), 1 column on mobile.
+  (2–4; an incomplete last row is centred), columns_mobile (1–2) on mobile.
+  card_size: large — крупные карточки; compact — полоса ключевых фич под главным блоком PDP.
+  Иконка — встроенный SVG (icon) или своя PNG-пиктограмма (image): она рисуется как маска,
+  поэтому красится в фирменный синий независимо от исходного цвета (нужен прозрачный фон).
 {% endcomment %}
 
 {%- style -%}
@@ -47,7 +50,7 @@
 
 <section
   id="IconCards-{{ section.id }}"
-  class="icon-cards color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+  class="icon-cards icon-cards--{{ section.settings.card_size | default: 'large' }} icon-cards--mobile-{{ section.settings.columns_mobile | default: '1' }} color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
 >
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
@@ -59,6 +62,11 @@
         {%- for block in section.blocks -%}
           <li class="ic__card" {{ block.shopify_attributes }}>
             <span class="ic__icon" aria-hidden="true">
+              {%- if block.settings.image != blank -%}
+                {%- comment -%}PNG-пиктограмма как маска — красится в цвет иконок, как и SVG{%- endcomment -%}
+                {%- assign mask_url = block.settings.image | image_url: width: 160 -%}
+                <span class="ic__img" style="-webkit-mask-image: url('{{ mask_url }}'); mask-image: url('{{ mask_url }}');"></span>
+              {%- else -%}
               {%- case block.settings.icon -%}
                 {%- when 'check' -%}{{ 'icon-check-mark.svg' | inline_asset_content }}
                 {%- when 'star' -%}{{ 'icon-star-filled.svg' | inline_asset_content }}
@@ -80,6 +88,7 @@
                 {%- when 'eye' -%}{{ 'icon-eye.svg' | inline_asset_content }}
                 {%- else -%}{{ 'icon-tick.svg' | inline_asset_content }}
               {%- endcase -%}
+              {%- endif -%}
             </span>
             {%- if block.settings.title != blank -%}
               <h3 class="ic__card-title">{{ block.settings.title | escape }}</h3>
@@ -240,6 +249,90 @@
       width: auto;
     }
   }
+
+  /* Своя PNG-пиктограмма: маска + цвет иконки */
+  .ic__img {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  .icon-cards--mobile-2 .ic__card {
+    flex-basis: calc((100% - 1.2rem) / 2);
+  }
+
+  .icon-cards--mobile-2 .ic__grid {
+    gap: 1.2rem;
+  }
+
+  /* Компактная полоса фич (под главным блоком PDP) */
+  .icon-cards--compact .ic__grid {
+    margin-bottom: 0;
+  }
+
+  .icon-cards--compact .ic__card {
+    justify-content: flex-start;
+    gap: 0.8rem;
+    padding: 2rem 1.2rem;
+    border-radius: 1.6rem;
+  }
+
+  .icon-cards--compact .ic__icon {
+    width: 5.6rem;
+    height: 5.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .icon-cards--compact .ic__icon svg,
+  .icon-cards--compact .ic__img {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .icon-cards--compact .ic__card-title {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  .icon-cards--compact .ic__card-text {
+    font-size: 1.4rem;
+    line-height: 1.45;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
+  @media screen and (min-width: 750px) {
+    .icon-cards--compact .ic__card {
+      padding: 2.8rem 2rem;
+      gap: 1rem;
+    }
+
+    .icon-cards--compact .ic__icon {
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .icon-cards--compact .ic__icon svg,
+    .icon-cards--compact .ic__img {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .icon-cards--compact .ic__card-title {
+      font-size: 1.8rem;
+    }
+
+    .icon-cards--compact .ic__card-text {
+      font-size: 1.5rem;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -290,6 +383,26 @@
       "step": 1,
       "label": "Columns on desktop",
       "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "default": "1",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_size",
+      "label": "Card size",
+      "default": "large",
+      "options": [
+        { "value": "large", "label": "Large" },
+        { "value": "compact", "label": "Compact" }
+      ]
     },
     {
       "type": "header",
@@ -346,6 +459,12 @@
             { "value": "medal", "label": "Medal" },
             { "value": "eye", "label": "Eye" }
           ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image",
+          "info": "PNG с прозрачным фоном. Заменяет иконку выше и красится в цвет иконок."
         },
         {
           "type": "text",

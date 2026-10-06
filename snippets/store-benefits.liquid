@@ -1,25 +1,42 @@
 {% comment %}
-  Почему выгодно покупать у нас — блок store_benefits в sections/main-pdp.liquid.
+  Почему выгодно покупать у нас — блок store_benefits в sections/main-pdp.liquid
+  или custom_liquid в шаблонах на main-product (без block — тексты по умолчанию ниже).
   Отдельно от возможностей самого переводчика (snippets/capability-icons.liquid).
   Товар под заказ (custom.stock_status = to_order) берёт у пункта текст «— to order»; пусто = пункт скрыт.
 
   Accepts:
-  - block: {Object} блок store_benefits (text_1..4, text_1_order..4_order)
+  - block: {Object} блок store_benefits (text_1..4, text_1_order..4_order) (optional)
   - product: {Object} Product
+
+  Usage:
+  {% render 'store-benefits', product: product %}
 {% endcomment %}
 {%- liquid
-  assign suffix = ''
+  assign to_order = false
   if product.metafields.custom.stock_status.value == 'to_order'
+    assign to_order = true
+  endif
+  assign suffix = ''
+  if to_order
     assign suffix = '_order'
   endif
   assign icons = 'uk_stock,delivery,partner,warranty' | split: ','
+  if to_order
+    assign defaults = ',Free UK Delivery,Official Timekettle Partner,1-Year Warranty' | split: ','
+  else
+    assign defaults = 'UK Stock,Free 48h Delivery,Official Timekettle Partner,1-Year Warranty' | split: ','
+  endif
   assign benefit_count = 0
 -%}
 {%- capture benefit_items -%}
   {%- for icon in icons -%}
     {%- liquid
-      assign text_key = 'text_' | append: forloop.index | append: suffix
-      assign text = block.settings[text_key]
+      if block
+        assign text_key = 'text_' | append: forloop.index | append: suffix
+        assign text = block.settings[text_key]
+      else
+        assign text = defaults[forloop.index0]
+      endif
     -%}
     {%- if text != blank -%}
       {%- assign benefit_count = benefit_count | plus: 1 -%}

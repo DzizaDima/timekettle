@@ -5,6 +5,15 @@
  * Подключён в layout/theme.liquid после component-card-product.css.
  */
 
+/* Обёртка custom_liquid-блоков в шаблонах на main-product (там у блоков нет общих отступов) */
+.tk-main-block {
+  margin: 1.6rem 0;
+}
+
+.tk-main-block:empty {
+  display: none;
+}
+
 .tk-icon {
   display: block;
   width: 2.4rem;

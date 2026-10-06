@@ -60,6 +60,24 @@
           "settings": {
             "custom_liquid": "{%- assign rr = product.metafields.custom.reviews_rating.value -%}\n{%- assign rc = product.metafields.custom.reviews_count.value -%}\n{%- if rr -%}\n<div style=\"display:flex;align-items:center;gap:.45rem;margin:.4rem 0 .2rem;font-size:1.4rem\">\n  <span aria-hidden=\"true\" style=\"color:#f5a623;letter-spacing:2px\">\n    {%- assign full = rr | floor -%}\n    {%- for i in (1..5) -%}{%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}{%- endfor -%}\n  </span>\n  <span>{{ rr }} ({{ rc }} reviews)</span>\n</div>\n{%- endif -%}"
           }
+        },
+        "tk_stock": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"tk-main-block\">{% render 'stock-badge', product: product %}</div>"
+          }
+        },
+        "tk_benefits": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"tk-main-block\">{% render 'store-benefits', product: product %}</div>"
+          }
+        },
+        "tk_features": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"tk-main-block\">{% render 'capability-icons', product: product, layout: 'features', heading: 'Key Features' %}</div>"
+          }
         }
       },
       "block_order": [
@@ -67,9 +85,12 @@
         "title",
         "price",
         "rating",
+        "tk_stock",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "tk_benefits",
+        "tk_features",
         "description",
         "share"
       ],
@@ -126,47 +147,37 @@
         "b1"
       ]
     },
-    "s01_multicolumn": {
-      "type": "multicolumn",
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 40
-      },
+    "s01_icon_cards": {
+      "type": "icon-cards",
       "blocks": {
         "b0": {
-          "type": "column",
+          "type": "card",
           "settings": {
+            "icon": "lightning",
             "title": "Simultaneous Interpreting",
             "text": ""
           }
         },
         "b1": {
-          "type": "column",
+          "type": "card",
           "settings": {
+            "icon": "chat",
             "title": "Phone Call Translation",
             "text": ""
           }
         },
         "b2": {
-          "type": "column",
+          "type": "card",
           "settings": {
+            "icon": "play",
             "title": "Video Translation",
             "text": ""
           }
         },
         "b3": {
-          "type": "column",
+          "type": "card",
           "settings": {
+            "icon": "clipboard",
             "title": "Audio and Text Saved",
             "text": ""
           }
@@ -177,7 +188,18 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "card_size": "compact",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     },
     "s02_rich_text": {
       "type": "rich-text",
@@ -914,7 +936,7 @@
   "order": [
     "main",
     "s00_image_banner",
-    "s01_multicolumn",
+    "s01_icon_cards",
     "s02_rich_text",
     "s03_multicolumn",
     "s04_rich_text",

@@ -1,0 +1,170 @@
+/*
+ * Возможности переводчика (snippets/capability-icons.liquid), бейдж наличия (snippets/stock-badge.liquid)
+ * и преимущества магазина (блок store_benefits в sections/main-pdp.liquid).
+ * Иконки — snippets/tk-icon.liquid: цвет текста, синий при наведении.
+ * Подключён в layout/theme.liquid после component-card-product.css.
+ */
+
+.tk-icon {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: none;
+}
+
+/* ---------- Ряд иконок (карточка, сравнение) ---------- */
+.tk-caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tk-caps__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  transition: color var(--duration-short, 0.1s) ease;
+}
+
+.tk-caps__item .tk-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tk-caps__item:hover,
+.tk-features__item:hover,
+.tk-benefits__item:hover {
+  color: var(--tk-blue, #3456e6);
+}
+
+/* ---------- Key Features (PDP) ---------- */
+.tk-features__heading {
+  margin: 0 0 1.2rem;
+  font-size: 1.8rem;
+}
+
+.tk-features__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 1.6rem 2.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tk-features__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  color: rgb(var(--color-foreground));
+  transition: color var(--duration-short, 0.1s) ease;
+}
+
+.tk-features__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  flex: none;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  border-radius: 50%;
+  transition: border-color var(--duration-short, 0.1s) ease;
+}
+
+.tk-features__item:hover .tk-features__icon {
+  border-color: currentColor;
+}
+
+.tk-features__text {
+  display: grid;
+  gap: 0.2rem;
+  padding-top: 0.2rem;
+}
+
+.tk-features__label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tk-features__caption {
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: rgba(var(--color-foreground), 0.68);
+}
+
+/* ---------- Наличие ---------- */
+.tk-stock {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  color: rgb(var(--color-foreground));
+}
+
+.tk-stock strong {
+  font-weight: 600;
+}
+
+.tk-stock__note {
+  white-space: nowrap;
+}
+
+.tk-stock__dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: none;
+  border-radius: 50%;
+  background: #1f9d55;
+  box-shadow: 0 0 0 0.35rem rgba(31, 157, 85, 0.16);
+}
+
+.tk-stock--to-order .tk-stock__dot {
+  background: #d98a00;
+  box-shadow: 0 0 0 0.35rem rgba(217, 138, 0, 0.18);
+}
+
+.tk-stock--small {
+  font-size: 1.3rem;
+  gap: 0.7rem;
+}
+
+.tk-stock--small .tk-stock__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  box-shadow: 0 0 0 0.25rem rgba(31, 157, 85, 0.16);
+}
+
+.tk-stock--small.tk-stock--to-order .tk-stock__dot {
+  box-shadow: 0 0 0 0.25rem rgba(217, 138, 0, 0.18);
+}
+
+/* ---------- Почему у нас (PDP, под кнопками) ---------- */
+.tk-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.6rem;
+  margin: 0;
+  padding: 1.6rem 2rem;
+  border-radius: 1.6rem;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.tk-benefits__item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgb(var(--color-foreground));
+  transition: color var(--duration-short, 0.1s) ease;
+}

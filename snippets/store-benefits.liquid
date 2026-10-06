@@ -1,0 +1,34 @@
+{% comment %}
+  Почему выгодно покупать у нас — блок store_benefits в sections/main-pdp.liquid.
+  Отдельно от возможностей самого переводчика (snippets/capability-icons.liquid).
+  Товар под заказ (custom.stock_status = to_order) берёт у пункта текст «— to order»; пусто = пункт скрыт.
+
+  Accepts:
+  - block: {Object} блок store_benefits (text_1..4, text_1_order..4_order)
+  - product: {Object} Product
+{% endcomment %}
+{%- liquid
+  assign suffix = ''
+  if product.metafields.custom.stock_status.value == 'to_order'
+    assign suffix = '_order'
+  endif
+  assign icons = 'uk_stock,delivery,partner,warranty' | split: ','
+  assign benefit_count = 0
+-%}
+{%- capture benefit_items -%}
+  {%- for icon in icons -%}
+    {%- liquid
+      assign text_key = 'text_' | append: forloop.index | append: suffix
+      assign text = block.settings[text_key]
+    -%}
+    {%- if text != blank -%}
+      {%- assign benefit_count = benefit_count | plus: 1 -%}
+      <li class="tk-benefits__item">{% render 'tk-icon', icon: icon %}<span>{{ text | escape }}</span></li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if benefit_count > 0 -%}
+  <ul class="tk-benefits tk-benefits--{{ benefit_count }} list-unstyled" role="list" {{ block.shopify_attributes }}>
+    {{- benefit_items -}}
+  </ul>
+{%- endif -%}

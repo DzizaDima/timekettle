@@ -1,0 +1,27 @@
+{% comment %}
+  Наличие товара с пояснением, откуда и как быстро он едет. Источник — метаполе custom.stock_status:
+    uk_stock (или пусто) — «In Stock — UK Warehouse»
+    to_order             — «Available to Order — Approx. 14 Days»
+  Для распроданного товара не выводится (Dawn сам показывает Sold out).
+  Стили — assets/component-product-features.css.
+
+  Accepts:
+  - product: {Object} Product
+  - size: {String} 'small' для карточки (optional)
+
+  Usage:
+  {% render 'stock-badge', product: product %}
+{% endcomment %}
+{%- liquid
+  assign stock_status = product.metafields.custom.stock_status.value | default: 'uk_stock'
+-%}
+{%- if product.available -%}
+  <p class="tk-stock tk-stock--{{ stock_status | replace: '_', '-' }}{% if size == 'small' %} tk-stock--small{% endif %}">
+    <span class="tk-stock__dot" aria-hidden="true"></span>
+    {%- if stock_status == 'to_order' -%}
+      <span><strong>Available to Order</strong> — <span class="tk-stock__note">Approx. 14 Days</span></span>
+    {%- else -%}
+      <span><strong>In Stock</strong> — <span class="tk-stock__note">UK Warehouse</span></span>
+    {%- endif -%}
+  </p>
+{%- endif -%}

@@ -64,19 +64,10 @@
             "arrives_label": "Estimated arrival",
             "days_min": 1,
             "days_max": 2,
-            "note": "<p>Free UK delivery in 48h, dispatched locally by our UK team.</p>"
-          }
-        },
-        "trust": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "vertical",
-            "icon_1": "check_mark",
-            "heading_1": "Authorised UK Distributor",
-            "icon_2": "chat_bubble",
-            "heading_2": "UK Customer Support",
-            "icon_3": "return",
-            "heading_3": "Warranty Support"
+            "note": "<p>Free UK delivery in 48h, dispatched locally by our UK team.</p>",
+            "order_days_min": 12,
+            "order_days_max": 16,
+            "order_note": "<p>Available to order — free UK delivery in approx. 14 days.</p>"
           }
         },
         "details": {
@@ -90,6 +81,29 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "stock": {
+          "type": "stock",
+          "settings": {}
+        },
+        "store_benefits": {
+          "type": "store_benefits",
+          "settings": {
+            "text_1": "UK Stock",
+            "text_1_order": "",
+            "text_2": "Free 48h Delivery",
+            "text_2_order": "Free UK Delivery",
+            "text_3": "Official Timekettle Partner",
+            "text_3_order": "Official Timekettle Partner",
+            "text_4": "1-Year Warranty",
+            "text_4_order": "1-Year Warranty"
+          }
+        },
+        "key_features": {
+          "type": "key_features",
+          "settings": {
+            "heading": "Key Features"
+          }
         }
       },
       "block_order": [
@@ -97,12 +111,14 @@
         "title",
         "rating",
         "price",
+        "stock",
         "highlights",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "delivery",
-        "trust",
+        "store_benefits",
+        "key_features",
         "details",
         "share"
       ],

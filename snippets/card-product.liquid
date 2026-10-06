@@ -10,6 +10,7 @@
   - show_price: {Boolean} Показывать цену. Default: true (featured-products передаёт false — в макете цены нет)
   - show_blurb: {Boolean} Показывать короткое описание. Default: true
   - show_status: {Boolean} Пилюля Sold out / Sale на фото. Default: true (featured-products передаёт false)
+  - show_features: {Boolean} Иконки возможностей (до 4) и строка наличия. Default: true
   - lazy_load: {Boolean} Default: true
   - skip_styles: {Boolean} Не подключать component-price.css повторно в цикле
   - section_id: {String} ID секции (для id заголовка)
@@ -26,6 +27,8 @@
     custom.card_badge       — пилюля, «Best for Travel» (нет пилюли)
     custom.card_badge_icon  — chat / star / plane / truck / check / heart / lock / discount (star)
     custom.card_blurb       — 1–2 предложения (описание товара, 14 слов)
+    custom.capabilities     — иконки под описанием, snippets/capability-icons.liquid (нет иконок)
+    custom.stock_status     — строка наличия, snippets/stock-badge.liquid (In Stock — UK Warehouse)
 
   Размеры зависят от ширины самой карточки (container queries), а не от вьюпорта:
   ≥380px — десктоп макета (заголовок 28, текст 18/26), <380px — мобайл макета (20 / 16, медиа 7:6),
@@ -130,6 +133,11 @@
             <p class="fp-card__blurb">{{ blurb }}</p>
           {%- endunless -%}
         {%- endif -%}
+
+        {%- unless show_features == false -%}
+          {% render 'capability-icons', product: card_product, limit: 4 %}
+          {% render 'stock-badge', product: card_product, size: 'small' %}
+        {%- endunless -%}
 
         <a
           href="{{ card_product.url }}"

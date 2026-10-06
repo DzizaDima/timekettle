@@ -1,0 +1,90 @@
+{% comment %}
+  Возможности переводчика из метаполя custom.capabilities (list: online / offline / conversation /
+  hands_free / meetings). Порядок вывода фиксированный — одинаковый на всех товарах, чтобы модели
+  сравнивались глазом. Стили — assets/component-product-features.css.
+
+  Accepts:
+  - product: {Object} Product
+  - layout: {String} 'compact' — ряд иконок с короткими подписями (карточка товара, сравнение);
+                     'features' — сетка Key Features с подписью и пояснением (PDP). Default: 'compact'
+  - limit: {Number} Сколько показать в compact. Default: 4
+  - heading: {String} Заголовок для 'features' (optional)
+
+  Usage:
+  {% render 'capability-icons', product: card_product %}
+  {% render 'capability-icons', product: product, layout: 'features', heading: 'Key Features' %}
+{% endcomment %}
+{%- liquid
+  assign caps = product.metafields.custom.capabilities.value
+  assign layout = layout | default: 'compact'
+  assign limit = limit | default: 4
+  assign order = 'online,offline,conversation,hands_free,meetings' | split: ','
+-%}
+{%- if caps.size > 0 -%}
+  {%- if layout == 'features' -%}
+    <div class="tk-features">
+      {%- if heading != blank -%}
+        <h2 class="tk-features__heading h4">{{ heading | escape }}</h2>
+      {%- endif -%}
+      <ul class="tk-features__list list-unstyled" role="list">
+        {%- for key in order -%}
+          {%- unless caps contains key -%}{%- continue -%}{%- endunless -%}
+          <li class="tk-features__item">
+            <span class="tk-features__icon">{% render 'tk-icon', icon: key %}</span>
+            <span class="tk-features__text">
+              <span class="tk-features__label">
+                {%- case key -%}
+                  {%- when 'online' -%}Online Translation
+                  {%- when 'offline' -%}Offline Translation
+                  {%- when 'conversation' -%}2-Person Conversation
+                  {%- when 'hands_free' -%}Hands-Free
+                  {%- when 'meetings' -%}Meetings / Multi-Person
+                {%- endcase -%}
+              </span>
+              <span class="tk-features__caption">
+                {%- case key -%}
+                  {%- when 'online' -%}Real-time AI translation over Wi-Fi or mobile data.
+                  {%- when 'offline' -%}Keeps translating with no internet connection.
+                  {%- when 'conversation' -%}Natural two-way talk, each person in their own language.
+                  {%- when 'hands_free' -%}Just speak — no tapping or holding your phone.
+                  {%- when 'meetings' -%}Group conversations and meetings with several speakers.
+                {%- endcase -%}
+              </span>
+            </span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- else -%}
+    {%- assign shown = 0 -%}
+    <ul class="tk-caps list-unstyled" role="list" aria-label="Key features">
+      {%- for key in order -%}
+        {%- unless caps contains key -%}{%- continue -%}{%- endunless -%}
+        {%- if shown >= limit -%}{%- break -%}{%- endif -%}
+        {%- assign shown = shown | plus: 1 -%}
+        {%- capture full_label -%}
+          {%- case key -%}
+            {%- when 'online' -%}Online Translation
+            {%- when 'offline' -%}Offline Translation
+            {%- when 'conversation' -%}2-Person Conversation
+            {%- when 'hands_free' -%}Hands-Free
+            {%- when 'meetings' -%}Meetings / Multi-Person
+          {%- endcase -%}
+        {%- endcapture -%}
+        <li class="tk-caps__item" title="{{ full_label }}">
+          {% render 'tk-icon', icon: key %}
+          <span class="tk-caps__label">
+            {%- case key -%}
+              {%- when 'online' -%}Online
+              {%- when 'offline' -%}Offline
+              {%- when 'conversation' -%}2-Person
+              {%- when 'hands_free' -%}Hands-Free
+              {%- when 'meetings' -%}Meetings
+            {%- endcase -%}
+          </span>
+          <span class="visually-hidden">{{ full_label }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+{%- endif -%}

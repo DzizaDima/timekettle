@@ -923,11 +923,27 @@
                       {%- endfor -%}
                     </ul>
                   {%- endif -%}
+                {%- when 'stock' -%}
+                  <div {{ block.shopify_attributes }}>{% render 'stock-badge', product: product %}</div>
+                {%- when 'key_features' -%}
+                  <div {{ block.shopify_attributes }}>
+                    {% render 'capability-icons', product: product, layout: 'features', heading: block.settings.heading %}
+                  </div>
+                {%- when 'store_benefits' -%}
+                  {% render 'store-benefits', block: block, product: product %}
                 {%- when 'delivery' -%}
                   {%- liquid
+                    assign days_min = block.settings.days_min
+                    assign days_max = block.settings.days_max
+                    assign note = block.settings.note
+                    if product.metafields.custom.stock_status.value == 'to_order'
+                      assign days_min = block.settings.order_days_min
+                      assign days_max = block.settings.order_days_max
+                      assign note = block.settings.order_note
+                    endif
                     assign now_ts = 'now' | date: '%s' | plus: 0
-                    assign from_ts = block.settings.days_min | times: 86400 | plus: now_ts
-                    assign to_ts = block.settings.days_max | times: 86400 | plus: now_ts
+                    assign from_ts = days_min | times: 86400 | plus: now_ts
+                    assign to_ts = days_max | times: 86400 | plus: now_ts
                   -%}
                   <div class="pdp__delivery" {{ block.shopify_attributes }}>
                     <div class="pdp__delivery-grid">
@@ -942,8 +958,8 @@
                         </span>
                       </div>
                     </div>
-                    {%- if block.settings.note != blank -%}
-                      <p class="pdp__delivery-note">{{ block.settings.note }}</p>
+                    {%- if note != blank -%}
+                      <p class="pdp__delivery-note">{{ note }}</p>
                     {%- endif -%}
                   </div>
               {%- endcase -%}
@@ -1075,6 +1091,122 @@
           "id": "note",
           "label": "Note",
           "default": "<p>Free UK delivery on all orders. Dispatched locally in 48h.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Товары под заказ (custom.stock_status = to_order)"
+        },
+        {
+          "type": "range",
+          "id": "order_days_min",
+          "min": 1,
+          "max": 30,
+          "step": 1,
+          "unit": "d",
+          "label": "Earliest arrival, days",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "order_days_max",
+          "min": 1,
+          "max": 60,
+          "step": 1,
+          "unit": "d",
+          "label": "Latest arrival, days",
+          "default": 16
+        },
+        {
+          "type": "richtext",
+          "id": "order_note",
+          "label": "Note",
+          "default": "<p>Available to order — free UK delivery in approx. 14 days.</p>"
+        }
+      ]
+    },
+    {
+      "type": "stock",
+      "name": "Stock status",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Из метаполя custom.stock_status: uk_stock (или пусто) — «In Stock — UK Warehouse», to_order — «Available to Order — Approx. 14 Days»."
+        }
+      ]
+    },
+    {
+      "type": "key_features",
+      "name": "Key features",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Возможности из метаполя custom.capabilities: online, offline, conversation, hands_free, meetings."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Key Features"
+        }
+      ]
+    },
+    {
+      "type": "store_benefits",
+      "name": "Store benefits",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Почему покупать у нас. Для товаров под заказ (custom.stock_status = to_order) берётся второй текст пункта; пусто — пункт скрыт."
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "1 · Stock",
+          "default": "UK Stock"
+        },
+        {
+          "type": "text",
+          "id": "text_1_order",
+          "label": "1 · Stock — to order"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "2 · Delivery",
+          "default": "Free 48h Delivery"
+        },
+        {
+          "type": "text",
+          "id": "text_2_order",
+          "label": "2 · Delivery — to order",
+          "default": "Free UK Delivery"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "3 · Partner",
+          "default": "Official Timekettle Partner"
+        },
+        {
+          "type": "text",
+          "id": "text_3_order",
+          "label": "3 · Partner — to order",
+          "default": "Official Timekettle Partner"
+        },
+        {
+          "type": "text",
+          "id": "text_4",
+          "label": "4 · Warranty",
+          "default": "1-Year Warranty"
+        },
+        {
+          "type": "text",
+          "id": "text_4_order",
+          "label": "4 · Warranty — to order",
+          "default": "1-Year Warranty"
         }
       ]
     },

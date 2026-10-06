@@ -216,6 +216,15 @@
     font-size: 1.4rem;
   }
 
+  /* иконки возможностей — без подписей (полное название в title / visually-hidden) */
+  .fp-card .tk-caps {
+    gap: 0.8rem;
+  }
+
+  .fp-card .tk-caps__label {
+    display: none;
+  }
+
   /* 164px на телефоне: описанию места нет (и минификатор Shopify режет -webkit-box clamp) */
   .fp-card__blurb {
     display: none;

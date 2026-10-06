@@ -369,3 +369,18 @@ button.shopify-payment-button__button--unbranded,
 
 /* Footer is a custom section (sections/main-footer.liquid) with its own
    {% stylesheet %} — nothing needed here. */
+
+/* ------------------------------------------------------------------ */
+/* Product page: sticky info column                                    */
+/* ------------------------------------------------------------------ */
+/* Header is always sticky (sticky_header_type: reduce-logo-size), but Dawn
+   pins .product__column-sticky at top: 3rem, so on scroll the header covers
+   the title, and a column taller than the viewport hides its bottom.
+   assets/sticky-product-info.js computes --tk-sticky-top (under the header, or
+   negative so a tall column sticks by its bottom edge). Two classes to beat
+   section-main-product.css, which loads after this file. */
+@media screen and (min-width: 750px) {
+  .product__info-wrapper .product__column-sticky {
+    top: var(--tk-sticky-top, calc(var(--header-height, 0px) + 2.4rem));
+  }
+}

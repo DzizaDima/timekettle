@@ -199,35 +199,6 @@
         &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
       {%- endif -%}
     </p>
-
-    {%- if section.settings.agency_logo != blank -%}
-      <div class="brand-footer__credit" style="--agency-logo-width: {{ section.settings.agency_logo_width }}px;">
-        {%- if section.settings.agency_label != blank -%}
-          <span class="brand-footer__credit-label">{{ section.settings.agency_label }}</span>
-        {%- endif -%}
-        {%- capture agency_logo_tag -%}
-          {%- assign agency_h = section.settings.agency_logo_width | divided_by: section.settings.agency_logo.aspect_ratio | round -%}
-          {{
-            section.settings.agency_logo
-            | image_url: width: 400
-            | image_tag:
-              loading: 'lazy',
-              widths: '200, 300, 400',
-              width: section.settings.agency_logo_width,
-              height: agency_h,
-              class: 'brand-footer__credit-logo',
-              alt: section.settings.agency_logo.alt
-          }}
-        {%- endcapture -%}
-        {%- if section.settings.agency_link != blank -%}
-          <a href="{{ section.settings.agency_link }}" class="brand-footer__credit-link" rel="noopener" target="_blank">
-            {{- agency_logo_tag -}}
-          </a>
-        {%- else -%}
-          {{- agency_logo_tag -}}
-        {%- endif -%}
-      </div>
-    {%- endif -%}
   </div>
 </footer>
 
@@ -261,8 +232,7 @@
       'nav'
       'payments'
       'divider'
-      'copyright'
-      'credit';
+      'copyright';
     row-gap: 4rem;
   }
 
@@ -449,39 +419,13 @@
     color: rgba(var(--color-foreground), 0.7);
   }
 
-  /* Agency credit — a separate bottom row, not part of the store branding. */
-  .brand-footer__credit {
-    grid-area: credit;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: -2rem;
-  }
-
-  .brand-footer__credit-label {
-    font-family: var(--font-body-family);
-    font-size: 1.3rem;
-    color: rgba(var(--color-foreground), 0.7);
-  }
-
-  .brand-footer__credit-link {
-    display: flex;
-  }
-
-  .brand-footer__credit-logo {
-    display: block;
-    width: var(--agency-logo-width, 11rem);
-    height: auto;
-  }
-
   @media screen and (min-width: 990px) {
     .brand-footer__inner {
       grid-template-columns: 1fr auto;
       grid-template-areas:
         'brand nav'
         'divider divider'
-        'copyright payments'
-        'credit credit';
+        'copyright payments';
       row-gap: 3.6rem;
       column-gap: 4rem;
     }
@@ -644,37 +588,6 @@
       "label": "Payment icons",
       "info": "Comma-separated Shopify payment types, in display order.",
       "default": "american_express, apple_pay, google_pay, master, visa, paypal, bancontact, diners_club, discover, shopify_pay"
-    },
-    {
-      "type": "header",
-      "content": "Agency credit"
-    },
-    {
-      "type": "image_picker",
-      "id": "agency_logo",
-      "label": "Agency logo",
-      "info": "Developer credit shown under the copyright. Leave empty to hide."
-    },
-    {
-      "type": "text",
-      "id": "agency_label",
-      "label": "Label",
-      "default": "Developed by"
-    },
-    {
-      "type": "url",
-      "id": "agency_link",
-      "label": "Agency link"
-    },
-    {
-      "type": "range",
-      "id": "agency_logo_width",
-      "min": 60,
-      "max": 240,
-      "step": 5,
-      "unit": "px",
-      "label": "Agency logo width",
-      "default": 110
     },
     {
       "type": "header",

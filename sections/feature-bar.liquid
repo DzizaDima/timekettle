@@ -156,8 +156,9 @@
     fill: currentColor;
   }
 
-  /* --- Desktop: static row of all items, centred --- */
-  @media screen and (min-width: 750px) {
+  /* --- Desktop: static row of all items, centred.
+     From 990: 4 nowrap items need ~800px, so tablets keep the slider. --- */
+  @media screen and (min-width: 990px) {
     .feature-bar__list {
       display: grid;
       grid-template-columns: repeat(var(--feature-bar-count, 4), auto);
@@ -191,7 +192,7 @@
     var list = root.querySelector('.feature-bar__list');
     if (!list) return;
 
-    var mq = window.matchMedia('(max-width: 749px)');
+    var mq = window.matchMedia('(max-width: 989px)');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     var designMode = window.Shopify && window.Shopify.designMode;
     var timer = null;

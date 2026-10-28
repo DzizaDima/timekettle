@@ -297,9 +297,7 @@
     }
 
     .its__row {
-      grid-template-columns: 76rem 1fr;
-      gap: 8rem;
-      align-items: stretch;
+      gap: 4rem;
     }
 
     .its__media {
@@ -325,8 +323,6 @@
     .its__aside {
       justify-content: flex-start;
       gap: 2.4rem;
-      /* Figma: right column starts ~60px below the image's top edge, not flush */
-      padding-top: 6rem;
     }
 
     /* Figma Body 3 — 24/32 */
@@ -360,6 +356,21 @@
 
     .its__stat-label {
       font-size: 1.6rem;
+    }
+  }
+
+  /* Two columns only from 990 — a fixed 76rem image column overflowed tablets.
+     76fr : 48fr = Figma 760 / 480 at the 1320 content width. */
+  @media screen and (min-width: 990px) {
+    .its__row {
+      grid-template-columns: minmax(0, 76fr) minmax(0, 48fr);
+      gap: 8rem;
+      align-items: stretch;
+    }
+
+    /* Figma: right column starts ~60px below the image's top edge, not flush */
+    .its__aside {
+      padding-top: 6rem;
     }
   }
 {% endstylesheet %}

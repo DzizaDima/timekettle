@@ -30,7 +30,10 @@
   padding: 0;
 }
 
+/* relative — якорь для .visually-hidden (absolute): иначе в слайдере он вылезает
+   из overflow-контейнера и даёт горизонтальный скролл на мобиле */
 .tk-caps__item {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;

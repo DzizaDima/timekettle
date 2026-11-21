@@ -31,7 +31,7 @@
         "[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
         "*::before, *::after {background-image: none !important;}",
         "a + a {display: none !important;}",
-        "a {background: #ffffff !important; border-color: #ffffff !important; color: #0b0f1f !important;}",
+        "a, a:hover, a:focus {background: #ffd23f !important; border: 2px solid #ffd23f !important; outline: none !important; box-shadow: none !important; color: #0b0f1f !important; font-weight: 700 !important;}",
         "@media screen and (max-width: 749px) {* {display: none !important; }}"
       ],
       "settings": {

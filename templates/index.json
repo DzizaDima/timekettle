@@ -11,9 +11,25 @@
   "sections": {
     "hero": {
       "type": "image-banner",
+      "blocks": {
+        "buttons_GhtUUT": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop the sale",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_GhtUUT"
+      ],
       "settings": {
-        "image": "shopify://shop_images/BlackFriday_banner_1920x1024_9593b496-9a83-4092-ab7f-06d0f5d1673b.png",
-        "image_overlay_opacity": 30,
+        "image": "shopify://shop_images/BlackFriday_banner_1920x1024_nobutton.png",
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-left",

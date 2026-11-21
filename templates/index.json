@@ -28,12 +28,12 @@
         "buttons_GhtUUT"
       ],
       "custom_css": [
-        "[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
-        "*::before, *::after {background-image: none !important;}",
+        "[class*=\"overlay\"],[class*=\"gradient\"],[class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
+        "*::before,*::after {background-image: none !important;}",
         "a + a {display: none !important;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/BlackFriday_banner_v3.png",
+        "image": "shopify://shop_images/BlackFriday_banner_desktop.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",

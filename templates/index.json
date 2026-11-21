@@ -28,9 +28,11 @@
         "buttons_GhtUUT"
       ],
       "custom_css": [
-        "[class*=\"overlay\"],[class*=\"gradient\"],[class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
-        "*::before,*::after {background-image: none !important;}",
-        "a + a {display: none !important;}"
+        "[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
+        "*::before, *::after {background-image: none !important;}",
+        "a + a {display: none !important;}",
+        "a {background: #ffffff !important; border-color: #ffffff !important; color: #0b0f1f !important;}",
+        "@media screen and (max-width: 749px) {* {display: none !important; }}"
       ],
       "settings": {
         "image": "shopify://shop_images/BlackFriday_banner_desktop_1.png",

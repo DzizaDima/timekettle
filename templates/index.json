@@ -33,7 +33,7 @@
         "a + a {display: none !important;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/BlackFriday_banner_desktop.png",
+        "image": "shopify://shop_images/BlackFriday_banner_desktop_1.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",

@@ -29,10 +29,11 @@
       ],
       "custom_css": [
         "css[class*=\"overlay\"],[class*=\"gradient\"],[class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
-        "*::before,*::after {background-image: none !important;}"
+        "*::before,*::after {background-image: none !important;}",
+        " css[class*=\"button\"]:nth-of-type(2) {display: none !important;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/BlackFriday_banner_v2.png",
+        "image": "shopify://shop_images/BlackFriday_banner_v3.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",

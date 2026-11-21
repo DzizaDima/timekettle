@@ -11,40 +11,8 @@
   "sections": {
     "hero": {
       "type": "image-banner",
-      "blocks": {
-        "heading_1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Speak any Language. Naturally.",
-            "heading_size": "hxxl"
-          }
-        },
-        "text_0": {
-          "type": "text",
-          "settings": {
-            "text": "Real-time AI translation for travel, business and everyday conversations.",
-            "text_style": "body"
-          }
-        },
-        "buttons_2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Discover the Translator",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "See how it works →",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_1",
-        "text_0",
-        "buttons_2"
-      ],
       "settings": {
-        "image": "shopify://shop_images/e6eb1fd8176389e68f903a7e386773be92dbe532.png",
+        "image": "shopify://shop_images/BlackFriday_banner_1920x1024_9593b496-9a83-4092-ab7f-06d0f5d1673b.png",
         "image_overlay_opacity": 30,
         "image_height": "large",
         "image_behavior": "none",
@@ -210,6 +178,8 @@
         "button_label": "Shop Now",
         "button_link": "shopify://collections/all",
         "columns_desktop": 3,
+        "columns_mobile": "1",
+        "card_size": "large",
         "padding_top": 80,
         "padding_bottom": 80
       }

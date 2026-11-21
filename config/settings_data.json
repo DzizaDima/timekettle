@@ -145,7 +145,7 @@
       "email-popup": {
         "type": "email-popup",
         "settings": {
-          "enable": true,
+          "enable": false,
           "delay_seconds": 6,
           "show_on_interaction": true,
           "reshow_after_days": 90,

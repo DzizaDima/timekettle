@@ -27,6 +27,10 @@
       "block_order": [
         "buttons_GhtUUT"
       ],
+      "custom_css": [
+        "css[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
+        "*::before, *::after {background-image: none !important;}"
+      ],
       "settings": {
         "image": "shopify://shop_images/BlackFriday_banner_1920x1024_nobutton.png",
         "image_overlay_opacity": 0,

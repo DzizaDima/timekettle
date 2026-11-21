@@ -28,10 +28,10 @@
         "buttons_GhtUUT"
       ],
       "custom_css": [
-        "[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
-        "*::before, *::after {background-image: none !important;}",
+        "[class*=\"overlay\"],[class*=\"gradient\"],[class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
+        "*::before,*::after {background-image: none !important;}",
         "a + a {display: none !important;}",
-        "a, a:hover, a:focus {background: #ffd23f !important; border: 2px solid #ffd23f !important; outline: none !important; box-shadow: none !important; color: #0b0f1f !important; font-weight: 700 !important;}",
+        "a,a:hover,a:focus {background: #ffd23f !important; border: 2px solid #ffd23f !important; outline: none !important; box-shadow: none !important; color: #0b0f1f !important; font-weight: 700 !important;}",
         "@media screen and (max-width: 749px) {* {display: none !important; }}"
       ],
       "settings": {
@@ -45,6 +45,45 @@
         "color_scheme": "scheme-4",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "image_banner_Et3ir7": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_FJrHMV": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop the sale",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_FJrHMV"
+      ],
+      "custom_css": [
+        "[class*=\"overlay\"], [class*=\"gradient\"], [class*=\"scrim\"] {background: transparent !important; background-image: none !important;}",
+        "*::before, *::after {background-image: none !important;}",
+        "a + a {display: none !important;}",
+        "a, a:hover, a:focus {background: #ffd23f !important; border: 2px solid #ffd23f !important; outline: none !important; box-shadow: none !important; color: #0b0f1f !important; font-weight: 700 !important;}",
+        "@media screen and (min-width: 750px) {* {display: none !important; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/BlackFriday_banner_mobile_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
@@ -280,6 +319,7 @@
   },
   "order": [
     "hero",
+    "image_banner_Et3ir7",
     "find_your_timekettle",
     "stop_passing",
     "languages_scrolling_igmPC4",
